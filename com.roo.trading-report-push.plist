@@ -11,14 +11,24 @@
     <string>/Users/andrewbuis/Claude/Projects/trading-info-page/push-report.sh</string>
   </array>
 
-  <!-- Fires at 12:15 AM every night — 15 min after Claude writes the HTML at midnight -->
+  <!-- Fires twice daily:
+       12:15 AM — 15 min after Claude writes the overnight/daily report at midnight
+       6:15 PM  — 15 min after Claude writes the EOD assessment at 6 PM -->
   <key>StartCalendarInterval</key>
-  <dict>
-    <key>Hour</key>
-    <integer>0</integer>
-    <key>Minute</key>
-    <integer>15</integer>
-  </dict>
+  <array>
+    <dict>
+      <key>Hour</key>
+      <integer>0</integer>
+      <key>Minute</key>
+      <integer>15</integer>
+    </dict>
+    <dict>
+      <key>Hour</key>
+      <integer>18</integer>
+      <key>Minute</key>
+      <integer>15</integer>
+    </dict>
+  </array>
 
   <key>StandardOutPath</key>
   <string>/Users/andrewbuis/Claude/Projects/trading-info-page/push.log</string>

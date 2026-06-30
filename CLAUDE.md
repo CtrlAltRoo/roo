@@ -2,20 +2,30 @@
 
 ## What This Project Does
 
-Every night at midnight, a Claude scheduled task researches futures markets and writes a fresh `index.html` to this folder. At 12:15 AM, a macOS LaunchAgent commits the file and pushes it to GitHub automatically.
+Twice daily, Claude scheduled tasks research futures markets and write a fresh `index.html` to this folder. A macOS LaunchAgent commits and pushes to GitHub 15 minutes after each write.
 
-The result is a live webpage that updates itself nightly with an ICT Smart Money-style trading report.
+The result is a live webpage that updates itself twice daily with an ICT Smart Money-style trading report — once at midnight (overnight/pre-market report) and once at 6 PM (end-of-day assessment + tomorrow's game plan).
 
 ---
 
-## Nightly Automation Flow
+## Daily Automation Flow
 
 ```
-12:00 AM  →  Claude scheduled task runs
-               - Searches web for market data, geopolitical news, sentiment
-               - Writes fresh index.html to this folder
+12:00 AM  →  Claude scheduled task: daily-futures-report
+               - Searches web for overnight news, geopolitical events, sentiment
+               - Writes fresh index.html (OVERNIGHT EDITION) to this folder
 
 12:15 AM  →  macOS LaunchAgent fires push-report.sh
+               - git add -A
+               - git commit -m "report: daily futures update YYYY-MM-DD"
+               - git push origin main
+               - Result logged to push.log
+
+ 6:00 PM  →  Claude scheduled task: daily-futures-eod (weekdays only)
+               - Searches web for today's closing prices, sector performance
+               - Overwrites index.html (EOD EDITION) with debrief + tomorrow's game plan
+
+ 6:15 PM  →  macOS LaunchAgent fires push-report.sh (same script, second fire)
                - git add -A
                - git commit -m "report: daily futures update YYYY-MM-DD"
                - git push origin main
@@ -50,15 +60,23 @@ cd ~/Claude/Projects/trading-info-page && git remote -v
 
 ---
 
-## Scheduled Task
+## Scheduled Tasks
 
+### Overnight Report
 - **Task ID:** `daily-futures-report`
 - **Schedule:** Every day at 12:00 AM (midnight local time)
 - **Location:** `~/Claude/Scheduled/daily-futures-report/SKILL.md`
-- **What it does:** Runs web searches, writes `index.html` to this folder
-- **Does NOT:** Run git commands (that's the LaunchAgent's job — sandbox has no GitHub network access)
+- **What it does:** Researches overnight news, writes `index.html` (OVERNIGHT EDITION)
+- **Does NOT:** Run git commands (LaunchAgent handles that)
 
-To view or edit the task: open the Scheduled section in the Cowork sidebar.
+### EOD Assessment
+- **Task ID:** `daily-futures-eod`
+- **Schedule:** Weekdays (Mon–Fri) at 6:00 PM local time
+- **Location:** `~/Claude/Scheduled/daily-futures-eod/SKILL.md`
+- **What it does:** Researches today's close, overwrites `index.html` (EOD EDITION) with debrief + tomorrow's game plan
+- **Does NOT:** Run git commands (LaunchAgent handles that)
+
+To view or edit tasks: open the Scheduled section in the Cowork sidebar.
 
 ---
 
@@ -66,12 +84,13 @@ To view or edit the task: open the Scheduled section in the Cowork sidebar.
 
 - **Plist label:** `com.roo.trading-report-push`
 - **Installed at:** `~/Library/LaunchAgents/com.roo.trading-report-push.plist`
-- **Fires:** 12:15 AM every night
+- **Fires:** 12:15 AM (after overnight report) and 6:15 PM (after EOD report) every day
 
 ### Install / Reinstall
 ```bash
 chmod +x ~/Claude/Projects/trading-info-page/push-report.sh
 cp ~/Claude/Projects/trading-info-page/com.roo.trading-report-push.plist ~/Library/LaunchAgents/
+launchctl unload ~/Library/LaunchAgents/com.roo.trading-report-push.plist 2>/dev/null
 launchctl load ~/Library/LaunchAgents/com.roo.trading-report-push.plist
 ```
 
@@ -169,9 +188,10 @@ git push -u origin main
 Replace TOKEN with a fresh GitHub PAT (Settings → Developer settings → Personal access tokens → classic → repo scope).
 
 **Scheduled task not writing the file:**
-- Open Cowork → Scheduled → `daily-futures-report` → Run now
+- Open Cowork → Scheduled → select the task → Run now
 - Approve WebSearch and Write tool permissions when prompted
 - Those approvals are saved for all future runs
+- Do this for BOTH `daily-futures-report` and `daily-futures-eod`
 
 **LaunchAgent not firing:**
 - Make sure Cowork is open at midnight (scheduled tasks require the app to be running)
