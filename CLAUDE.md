@@ -48,7 +48,7 @@ The result is a live webpage that updates itself twice daily with an ICT Smart M
 
 ## GitHub Repository
 
-- **Remote:** https://github.com/CtrlAltRoo/test-site.git
+- **Remote:** https://github.com/CtrlAltRoo/roo.git
 - **Branch:** `main`
 - **Auth:** GitHub PAT embedded in remote URL (see git config)
 - **User:** Roo / datsdatdat@gmail.com
