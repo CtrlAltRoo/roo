@@ -20,6 +20,9 @@ git push origin main >> "$LOG" 2>&1
 
 if [ $? -eq 0 ]; then
   echo "[$DATE] Push succeeded." >> "$LOG"
+  # macOS notification — pops up on your desktop when the report is live
+  osascript -e 'display notification "Your futures report has been updated." with title "📈 Futures Report" subtitle "New report live on GitHub"' 2>/dev/null || true
 else
   echo "[$DATE] Push FAILED — check token or network." >> "$LOG"
+  osascript -e 'display notification "Push failed — check push.log for details." with title "📈 Futures Report" subtitle "Push Error"' 2>/dev/null || true
 fi
