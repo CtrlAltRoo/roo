@@ -157,8 +157,8 @@ ICT phase badge colors: Accumulation=green, Manipulation=yellow, Distribution=re
 | FVG | Fair Value Gap — imbalance / price gap left by fast moves |
 | BSL | Buy-Side Liquidity — equal highs, stops above prior highs |
 | SSL | Sell-Side Liquidity — equal lows, stops below prior lows |
-| CHoCH | Change of Character — first sign of trend reversal |
-| BOS | Break of Structure — confirmation of new trend direction |
+| MSS | Market Structure Shift — first sign of trend reversal |
+| CISD | Change in State of Delivery — shift in how price is being delivered (bullish to bearish or vice versa) |
 | OTE | Optimal Trade Entry — 62–79% Fibonacci retracement zone |
 | PDH/PDL | Prior Day High / Prior Day Low |
 | SMT | Smart Money Technique — divergence between correlated pairs (ES vs NQ) |
