@@ -1,0 +1,67 @@
+name: Daily Futures Report
+
+on:
+  schedule:
+    - cron: '0 5 * * *'    # midnight ET (UTC-5 / EST)
+    - cron: '0 23 * * *'   # 6 PM ET (UTC-5 / EST)
+  workflow_dispatch:
+    inputs:
+      edition:
+        description: 'Report edition to generate'
+        required: true
+        default: 'overnight'
+        type: choice
+        options:
+          - overnight
+          - eod
+
+permissions:
+  contents: write
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic tavily-python
+
+      - name: Determine edition
+        id: edition
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "edition=${{ inputs.edition }}" >> $GITHUB_OUTPUT
+          else
+            HOUR=$(date -u +%H)
+            if [ "$HOUR" = "05" ]; then
+              echo "edition=overnight" >> $GITHUB_OUTPUT
+            else
+              echo "edition=eod" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Generate report
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: python scripts/generate_report.py --edition ${{ steps.edition.outputs.edition }}
+
+      - name: Commit and push
+        run: |
+          git config user.email "datsdatdat@gmail.com"
+          git config user.name "Roo"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "report: futures ${{ steps.edition.outputs.edition }} $(date '+%Y-%m-%d %H:%M')"
+            git push
+          fi
