@@ -20,10 +20,11 @@
   }
   * { box-sizing: border-box; }
   body {
-    margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     line-height: 1.5;
   }
   header {
@@ -34,19 +35,33 @@
     border-bottom: 1px solid var(--border);
     padding: 14px 20px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 6px;
   }
   header h1 {
     font-size: 1.15rem;
     margin: 0;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eod-badge {
+    display: inline-block;
+    background: #1a2a4a;
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.03em;
+    vertical-align: middle;
   }
   header .meta {
-    color: var(--text-muted);
     font-size: 0.85rem;
+    color: var(--text-muted);
     text-align: right;
   }
   main {
@@ -55,362 +70,361 @@
     padding: 20px 16px 60px;
   }
   section {
-    margin-bottom: 36px;
+    margin-bottom: 34px;
   }
   h2 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     border-bottom: 1px solid var(--border);
     padding-bottom: 8px;
     margin-bottom: 16px;
   }
   h3 {
-    font-size: 1rem;
+    font-size: 0.98rem;
     color: var(--text-muted);
+    margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin: 20px 0 10px;
+    letter-spacing: 0.03em;
   }
   .banner {
-    border: 1px solid var(--border);
+    border: 1px solid var(--yellow);
+    background: #2d1e00;
     border-radius: 8px;
     padding: 18px 20px;
-    background: var(--surface);
   }
-  .banner.flip { background: #2d1e00; border-color: var(--yellow); }
-  .banner.confirmed { background: #0d2018; border-color: var(--green); }
-  .banner-tag {
+  .banner.confirmed { border-color: var(--green); background: #0d2018; }
+  .banner.quiet { border-color: var(--border); background: var(--surface); }
+  .banner .tag {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.06em;
-    text-transform: uppercase;
     padding: 3px 10px;
-    border-radius: 4px;
+    border-radius: 20px;
+    background: var(--yellow);
+    color: #1a1300;
     margin-bottom: 10px;
   }
-  .banner.flip .banner-tag { background: var(--yellow); color: #1a1300; }
-  .banner.confirmed .banner-tag { background: var(--green); color: #052010; }
+  .banner.confirmed .tag { background: var(--green); color: #04140a; }
   table {
     width: 100%;
     border-collapse: collapse;
     background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
-    font-size: 0.92rem;
   }
   th, td {
     padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
     text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
     vertical-align: top;
   }
   th {
     background: var(--surface2);
     color: var(--text-muted);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
   tr:last-child td { border-bottom: none; }
-  .up { color: var(--green); font-weight: 700; }
-  .down { color: var(--red); font-weight: 700; }
-  .flat { color: var(--yellow); font-weight: 700; }
+  .up { color: var(--green); font-weight: 600; }
+  .down { color: var(--red); font-weight: 600; }
+  .flat { color: var(--yellow); font-weight: 600; }
   .badge {
     display: inline-block;
-    padding: 2px 9px;
-    border-radius: 12px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 20px;
   }
   .badge.high { background: #3a0d0d; color: var(--red); }
-  .badge.moderate { background: #332400; color: var(--yellow); }
-  .badge.low { background: #0d2318; color: var(--green); }
-  .trap-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-  }
-  .trap-card {
+  .badge.moderate { background: #2d1e00; color: var(--yellow); }
+  .badge.low { background: #0d2018; color: var(--green); }
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 700px) { .cards { grid-template-columns: 1fr; } }
+  .card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 16px;
   }
-  .trap-card h4 {
-    color: var(--purple);
-    margin: 0 0 10px;
-    font-size: 1rem;
-  }
-  .trap-card p { margin: 6px 0; font-size: 0.9rem; }
-  .trap-card .label {
-    color: var(--text-muted);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    display: block;
-    margin-top: 8px;
-  }
-  ul.smart { margin: 0; padding-left: 20px; }
-  ul.smart li { margin-bottom: 8px; font-size: 0.92rem; }
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  @media (max-width: 700px) {
-    .card-grid { grid-template-columns: 1fr; }
-  }
-  .asset-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-  }
-  .asset-card-head {
+  .card-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
   }
-  .asset-card-head strong { font-size: 1.05rem; }
+  .card-head .asset { font-weight: 700; font-size: 1rem; }
+  .card-head .price { color: var(--text-muted); font-size: 0.85rem; }
   .phase {
-    font-size: 0.72rem;
+    display: inline-block;
+    font-size: 0.7rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    padding: 3px 9px;
-    border-radius: 12px;
+    padding: 2px 9px;
+    border-radius: 20px;
+    margin-bottom: 8px;
   }
-  .phase.accum { background: #0d2318; color: var(--green); }
-  .phase.manip { background: #332400; color: var(--yellow); }
-  .phase.dist { background: #3a0d0d; color: var(--red); }
-  .phase.reaccum { background: #0d1e33; color: var(--blue); }
-  .asset-card .price { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px; }
-  .asset-card p.body { font-size: 0.9rem; margin: 0; }
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
+  .phase.accumulation { background: #0d2018; color: var(--green); }
+  .phase.manipulation { background: #2d1e00; color: var(--yellow); }
+  .phase.distribution { background: #3a0d0d; color: var(--red); }
+  .phase.reaccumulation { background: #0d1c33; color: var(--blue); }
+  .card p { font-size: 0.86rem; color: var(--text); margin: 0; }
+  .trap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--purple);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 14px;
   }
-  .step-card {
+  .trap h4 { color: var(--purple); margin: 0 0 10px; font-size: 1rem; }
+  .trap .row { margin-bottom: 8px; font-size: 0.87rem; }
+  .trap .row b { color: var(--text-muted); display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 2px; }
+  ul.smart { padding-left: 20px; font-size: 0.88rem; }
+  ul.smart li { margin-bottom: 6px; }
+  .timeblocks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 700px) { .timeblocks { grid-template-columns: 1fr; } }
+  .timeblock {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 16px;
   }
-  .step-time {
-    color: var(--green);
-    font-weight: 700;
-    font-size: 0.85rem;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .step-card ol, .step-card ul { margin: 0; padding-left: 18px; font-size: 0.88rem; }
-  .step-card li { margin-bottom: 6px; }
-  .step-card p { font-size: 0.88rem; margin: 0; }
+  .timeblock .time { color: var(--green); font-weight: 700; font-size: 0.85rem; margin-bottom: 8px; }
+  .timeblock ol, .timeblock ul { margin: 0; padding-left: 18px; font-size: 0.86rem; }
+  .timeblock li { margin-bottom: 6px; }
   footer {
-    max-width: 1100px;
-    margin: 0 auto;
+    border-top: 1px solid var(--border);
     padding: 20px 16px 40px;
+    text-align: center;
     color: var(--text-muted);
     font-size: 0.78rem;
-    border-top: 1px solid var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
   }
+  .status-dot { font-size: 0.9rem; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>📈 Daily Futures Trading Report</h1>
-  <div class="meta">Thursday, July 2, 2026 — OVERNIGHT EDITION<br>Last updated: 12:00 AM ET</div>
+  <h1>📈 Daily Futures Trading Report <span class="eod-badge">EOD EDITION</span></h1>
+  <div class="meta">Thursday, July 2, 2026<br>Last updated: Close ET</div>
 </header>
 
 <main>
 
-<section>
-<h2>🚨 Overnight Alert</h2>
-<div class="banner flip">
-  <span class="banner-tag">Narrative Flip</span>
-  <p><strong>What close believed:</strong> Wednesday's session closed on a "risk-off drift" tone — S&amp;P 500 cash off 0.22% to 7,483.23, Nasdaq Composite down 0.66% to 26,040.03, gold sitting near an eight-month low, and desks framing the move as ordinary quarter-end profit-taking after the best H1 since 2020.</p>
-  <p><strong>What actually happened overnight:</strong> GC1! ripped back above the $4,000 handle and SI1! reclaimed $59-60 after Fed Chair Kevin Warsh said inflation expectations had "eased" and there was "no urgency" to hike — even though the Fed's own June dot plot shows 9 of 12 officials penciling in at least one hike this year and PCE inflation was just revised up to 3.6% from 2.7%. That is a real contradiction between the spoken narrative and the committee's own numbers.</p>
-  <p><strong>Who's affected:</strong> If you shorted GC1!/SI1! into Wednesday's weakness, re-evaluate — you're now fighting a sharp reclaim. Equity futures are not confirming the metals move: ES1! and NQ1! are both roughly flat to -0.1% overnight, Dow futures -79, heading into a holiday-shortened week (markets closed Friday, July 3 for Independence Day observed). Treat the metals pop with suspicion until it survives the NY open.</p>
-</div>
+<section id="overnight-alert">
+  <h2>🚨 EOD Alert</h2>
+  <div class="banner">
+    <span class="tag">EOD ALERT — OVERNIGHT RISK</span>
+    <p><b>What happened at the close:</b> DJIA1! ripped +594.83 pts (+1.14%) to a record close of 52,900.07 (fresh intraday all-time high 52,903.85), while ES1! slipped -0.38% to 7,454.83 and NQ1! was hammered -1.61%, dragged by a brutal second straight day of semiconductor selling — SMH -4.5%, Teradyne -13.6%, KLA -11.5%, Nvidia -1.4%, Micron -5.5% — on renewed AI-capex-glut fears after Meta signaled plans to sell off excess computing power. The catalyst: June nonfarm payrolls printed +57,000 versus the 115,000 consensus (May revised down to 129,000), while the unemployment rate ticked down to 4.2% — but only because the labor force participation rate collapsed 0.3 pt to 61.5%, the lowest since March 2021. That is a soft, not strong, print wearing a headline that says "unemployment improved."</p>
+    <p style="margin-top:10px;"><b>What the market expected vs. what it got:</b> Consensus wanted a report clean enough to cement a near-term Fed cut. Instead it got a mixed, statistically fuzzy print that GC1! and SI1! chose to trade as unambiguously dovish (GC1! above $4,100, SI1! above $61 and briefly through $62, +3.88% on the day) while DJIA1!'s record run was carried by financials and communication services, not by a broad "risk-on" reading. NQ1! selling off hard on the same day GC1!/SI1! spike is not a coherent single narrative — it's two separate trades layered on top of one soft data point.</p>
+    <p style="margin-top:10px;"><b>Overnight hold warning:</b> The US cash market is closed Friday, July 3 for Independence Day, and the CME will run an abbreviated holiday session. Any CL1!, GC1!, SI1!, or NQ1! position carried through tonight sits exposed to a full extra day of headline risk (Doha talks, Hormuz toll clock) with materially thinner liquidity to exit into if something breaks. Reduce size or flatten swing positions before the close of today's session rather than relying on a normal next-day exit.</p>
+  </div>
 </section>
 
-<section>
-<h2>🎭 Manipulation Detection</h2>
+<section id="manipulation">
+  <h2>🎭 Manipulation Detection</h2>
 
-<h3>A. Sentiment Readings</h3>
-<table>
-<tr><th>Metric</th><th>Reading</th><th>Plain-English Read</th></tr>
-<tr><td>AAII Bullish %</td><td class="up">44.9% (+8.4pp, wk of 6/24)</td><td>First print above the 37.5% historical average in six weeks — retail is chasing optimism right as price broke down technically. Classic late-to-the-party signal.</td></tr>
-<tr><td>CNN Fear &amp; Greed</td><td class="down">32 (Fear)</td><td>Market-derived breadth/momentum/options data disagrees with the AAII survey — a sentiment divergence worth watching.</td></tr>
-<tr><td>COT — Gold</td><td class="flat">352,167 OI (as of 6/23, next release 7/6)</td><td>Report is running a cycle behind live price action; positioning data can't yet confirm who's behind this week's gold spike.</td></tr>
-<tr><td>Put/Call Ratio</td><td class="flat">CBOE Equity 0.67 / SPX 1.09</td><td>Low equity put/call = complacent single-stock speculation; elevated SPX put/call = institutions quietly buying index protection. That's a tell.</td></tr>
-</table>
+  <h3>A. Sentiment Readings</h3>
+  <table>
+    <tr><th>Indicator</th><th>Reading</th><th>Plain-English Read</th></tr>
+    <tr><td>AAII Bullish %</td><td class="up">~45% (elevated)</td><td>Retail sentiment stayed optimistic into the print, setting up disappointment risk if the payrolls miss gets reread as growth-negative rather than cut-positive over the long weekend.</td></tr>
+    <tr><td>CNN Fear &amp; Greed Index</td><td class="flat">Mid-30s (Fear leaning Neutral)</td><td>Ticked up off the week's low but still shows caution beneath the Dow's record-high headline — breadth isn't confirming the index print.</td></tr>
+    <tr><td>CBOE Total Put/Call</td><td class="flat">~1.00</td><td>Roughly neutral into the close, no sign of capitulation-level hedging despite the semiconductor rout.</td></tr>
+    <tr><td>NQ1!/SOX Options Skew</td><td class="down">Elevated downside skew</td><td>Options desks are still pricing tail risk in chip names even as spot bounces attempt to form — protection is not being unwound.</td></tr>
+    <tr><td>COT (CFTC)</td><td class="flat">Lagged to June 26</td><td>Friday's usual update is delayed a session by the holiday closure — next real positioning read arrives Monday, stale into the weekend.</td></tr>
+  </table>
 
-<h3>B. Active Narrative Traps</h3>
-<div class="trap-grid">
-  <div class="trap-card">
-    <h4>Retail Bulls Buy the Nasdaq Dip While Index Hedges Pile Up</h4>
-    <p><span class="label">The Narrative</span>AAII bullish sentiment jumping to 44.9% is being read as "confidence returning" — buy the tech pullback.</p>
-    <p><span class="label">Reality Check</span>Nasdaq Composite broke below its 50-day moving average for the first time since April, SPX put/call sits elevated at 1.09, and real money spent June rotating OUT of tech into Staples/Energy/Industrials — all up 12-21% YTD while tech lags.</p>
-    <p><span class="label">ICT Read</span>Distribution phase in NQ1!. Retail is absorbing the supply institutions are selling into.</p>
-    <p><span class="label">Exploitation Setup</span>Fade NQ1! rallies into the ~26,100 FVG rather than chasing strength; short on a failed retest with MSS confirmation, stop above the swing high, target the SSL pool near 25,500.</p>
-  </div>
-  <div class="trap-card">
-    <h4>Dovish Fed Talk vs. Hawkish Dot Plot</h4>
-    <p><span class="label">The Narrative</span>Warsh's "no urgency to hike" comment is being framed by financial media as a dovish pivot, sparking the gold/silver spike.</p>
-    <p><span class="label">Reality Check</span>9 of 12 Fed officials still see at least one hike this year (6 see two), PCE inflation was revised UP to 3.6%, and the funds rate has been held at 3.50-3.75% for four straight meetings.</p>
-    <p><span class="label">ICT Read</span>Manipulation leg in GC1!/SI1! — a liquidity run through old highs, not a confirmed reversal yet.</p>
-    <p><span class="label">Exploitation Setup</span>Treat the move above $4,000 as a potential sweep. Wait for CISD back below $4,000 as the invalidation signal; only trust the long if price displaces through the $4,050 FVG with follow-through.</p>
-  </div>
-  <div class="trap-card">
-    <h4>Consensus Oil Targets Ignore the Hormuz Premium</h4>
-    <p><span class="label">The Narrative</span>A Reuters poll of 35 bank analysts pegs 2026 average WTI at just $59 and Brent at $62 — well below current spot, implying oil has much further to fall.</p>
-    <p><span class="label">Reality Check</span>CL1! is still trading near $70, Strait of Hormuz traffic remains roughly 55% below normal, Doha talks are stalled over Hormuz/Lebanon terms, and OPEC+ is metering supply back in small 188k bpd increments rather than flooding the market.</p>
-    <p><span class="label">ICT Read</span>Re-accumulation in CL1! — bank models are pricing a de-escalation that hasn't fully arrived.</p>
-    <p><span class="label">Exploitation Setup</span>Buy CL1! pullbacks into the ~$67.50 order block on Doha-headline dips rather than shorting into the "consensus says $59" narrative; stop below the SSL swing low.</p>
-  </div>
-</div>
+  <h3 style="margin-top:22px;">B. Active Narrative Traps</h3>
 
-<h3>C. What Smart Money Appears to Be Doing</h3>
-<ul class="smart">
-  <li><strong>Crypto:</strong> U.S. spot BTC1! ETFs posted their largest-ever monthly outflow in June (~$4.51B) while whale wallets accumulated 270,000 BTC1! over the same two weeks — retail/ETF capitulation against aggressive whale absorption near the lows.</li>
-  <li><strong>Precious Metals:</strong> Goldman, Morgan Stanley, and UBS all cut their year-end gold targets in May-June even as spot bounces off the 8-month low — sell-side desks de-risking into strength rather than chasing the safe-haven headline.</li>
-  <li><strong>Equities:</strong> Real money is rotating out of mega-cap tech/AI names into Energy, Industrials, and Staples — sectors already posting double-digit YTD gains — a pattern more consistent with distribution in AI-momentum names than routine quarter-end noise.</li>
-  <li><strong>Energy:</strong> OPEC+ is unwinding cuts in small monthly steps (188k bpd) rather than flooding the market despite improving Hormuz traffic — producers themselves don't appear to trust the ceasefire holding.</li>
-</ul>
+  <div class="trap">
+    <h4>Trap 1: "Weak Jobs Report Guarantees a Fed Cut"</h4>
+    <div class="row"><b>The Narrative</b>Financial media is running hard with "payrolls miss, Fed forced to cut" into the close, and GC1!/SI1! are being bid as if a September or earlier cut is now a lock.</div>
+    <div class="row"><b>Reality Check</b>New Fed Chair Kevin Warsh has been explicit in recent commentary that he's more focused on sticky inflation than on a single soft jobs print — and the unemployment rate only fell because discouraged workers left the labor force (participation at a 5-year low), not because hiring is strong. Fed funds futures were pricing hike risk as soon as September just days ago on Warsh's own words. One noisy 57k print doesn't erase that in a single session.</div>
+    <div class="row"><b>ICT Read</b>GC1!/SI1! are in Manipulation phase — the "dovish Fed" story is a liquidity magnet built on an incomplete read of the data, exactly the kind of headline smart money fades into strength.</div>
+    <div class="row"><b>Exploitation Setup</b>Do not chase GC1! length above $4,150 BSL into the holiday. Watch for CISD back below $4,100 early next week as confirmation the bounce was a liquidity grab; downside OTE sits back toward $3,980–4,020 if Warsh reiterates an inflation-first stance.</div>
+  </div>
+
+  <div class="trap">
+    <h4>Trap 2: "Dow Record High Means Risk-On Across the Board"</h4>
+    <div class="row"><b>The Narrative</b>Headlines are framing DJIA1!'s all-time-high close as proof the broad market is healthy and shrugging off the AI/chip selloff.</div>
+    <div class="row"><b>Reality Check</b>NQ1! fell -1.61% the same session, with SMH down 4.5% and names like Teradyne (-13.6%) and KLA (-11.5%) in outright distribution. DJIA1!'s strength is narrow — financials and communication services carried it — not a market-wide "all clear." A record print in one index while the growth/tech index breaks down is a textbook SMT divergence, not confirmation.</div>
+    <div class="row"><b>ICT Read</b>NQ1! is shifting toward Distribution while DJIA1!/ES1! remain in Re-Accumulation — a rotation, not a rally. Treat "stocks hit new highs" headlines with skepticism until NQ1! and ES1! move together again.</div>
+    <div class="row"><b>Exploitation Setup</b>Avoid buying NQ1! dip purely because "the Dow is at a record." Wait for MSS back above the recent OB (~25,300–25,600 on NQ1!) before treating any bounce as more than a relief pop; a failed bounce there reopens the FVG toward 24,600.</div>
+  </div>
+
+  <div class="trap">
+    <h4>Trap 3: "AI Capex Boom Is Cracking for Good"</h4>
+    <div class="row"><b>The Narrative</b>Meta's plan to sell off excess computing power, plus a second brutal day for semis, is being read by financial media as proof the AI infrastructure buildout is over-supplied and the trade is done.</div>
+    <div class="row"><b>Reality Check</b>One hyperscaler trimming excess capacity is not the same as demand collapsing sector-wide — it can just as easily reflect one company's specific capacity misjudgment. The speed and size of today's names-specific carnage (Teradyne, KLA) looks more like a liquidation/stop-run in crowded positioning than a fundamental repricing of the whole AI theme.</div>
+    <div class="row"><b>ICT Read</b>NQ1!/SOX in Manipulation — a sharp, narrow-led selloff is exactly the kind of move that shakes out weak hands before a re-accumulation leg, but it can also be the first leg of real distribution. Don't pre-commit to either outcome.</div>
+    <div class="row"><b>Exploitation Setup</b>Wait for a clean CISD in SMH before fading the selloff. Long setups only trigger on confirmed MSS back through today's lows with volume; short-continuation setups only trigger on a break of today's SSL without a reclaim first.</div>
+  </div>
+
+  <h3 style="margin-top:22px;">C. What Smart Money Appears to Be Doing</h3>
+  <ul class="smart">
+    <li>Rotating into financials and communication services to drive DJIA1! to a record close while distributing crowded semiconductor names (Teradyne, KLA, Micron) into the weak-jobs headline.</li>
+    <li>Bidding GC1!/SI1! on a dovish reading of the jobs data that ignores the participation-rate collapse — a setup ripe for reversal if Warsh reiterates inflation focus.</li>
+    <li>Letting CL1! and BRN1! drift lower into record Hormuz throughput and the toll-free window rather than defending a floor — no urgency to accumulate crude here yet.</li>
+    <li>Positioning ahead of the holiday-shortened Friday session by de-risking tech/semis exposure rather than adding, consistent with reducing single-stock concentration risk into thin books.</li>
+    <li>BTC1! catching a bid (+~2.9% on the day) alongside precious metals — consistent with the same dovish-repricing flow rather than crypto-specific news.</li>
+  </ul>
 </section>
 
-<section>
-<h2>🌍 Geopolitical Watchlist</h2>
-<table>
-<tr><th>Event</th><th>Status</th><th>Affected Assets</th><th>Bias Shift</th></tr>
-<tr><td>Iran-U.S. Ceasefire / Doha Technical Talks</td><td>🟡</td><td>CL1!, BRN1!, GC1!</td><td>Fragile — MOU intact but disputes over Hormuz/Lebanon terms unresolved</td></tr>
-<tr><td>Strait of Hormuz Shipping Traffic</td><td>🟡</td><td>CL1!, BRN1!</td><td>Slowly normalizing (~35-40 vessels/day vs ~93 normal) — gradually bearish for the geopolitical premium</td></tr>
-<tr><td>Russia-Ukraine War</td><td>🔴</td><td>GC1!, energy complex, defense equities</td><td>Both sides expected to intensify infrastructure strikes — persistent risk premium, no durable peace near-term</td></tr>
-<tr><td>China-Taiwan / Chip Export Tensions</td><td>🟡</td><td>NQ1! (semis), BTC1! (risk proxy)</td><td>Super Micro raided by Taiwan authorities over alleged Nvidia chip smuggling — supply-chain scrutiny rising</td></tr>
-<tr><td>OPEC+ Supply Unwind</td><td>🟢</td><td>CL1!, BRN1!</td><td>Incremental 188k bpd hike effective July — modest bearish supply pressure, but paced conservatively</td></tr>
-<tr><td>FOMC (July 28-29 meeting)</td><td>🟡</td><td>ES1!, NQ1!, GC1!</td><td>Hold expected, but hawkish dot-plot bias building beneath dovish public rhetoric</td></tr>
-</table>
+<section id="geopolitical">
+  <h2>🌍 Geopolitical Watchlist</h2>
+  <table>
+    <tr><th>Event</th><th>Status</th><th>Affected Assets</th><th>Bias Shift</th></tr>
+    <tr><td>Iran Ceasefire / Doha Talks</td><td>🟡</td><td>CL1!, BRN1!, GC1!, Defense</td><td>Indirect, Qatari-mediated technical talks only — Iran still refusing direct US negotiations. Binary tail risk remains unresolved into the holiday.</td></tr>
+    <tr><td>Strait of Hormuz Traffic</td><td>🟢</td><td>CL1!, BRN1!</td><td>~20M bbl/day transited in the past 24 hours, a fresh record even above pre-war volumes. Trump's "no tolls for 60 days" post is actively capping upside in CL1!/BRN1!.</td></tr>
+    <tr><td>Hormuz Toll Clock</td><td>🟡</td><td>CL1!, BRN1!</td><td>Trump has explicitly flagged US-imposed tolls once the 60-day free-transit window lapses — an unpriced forward catalyst for a crude spike.</td></tr>
+    <tr><td>Fed Leadership / Policy Path</td><td>🟡</td><td>GC1!, SI1!, DJIA1!, ES1!, NQ1!</td><td>Chair Warsh's inflation-first tone vs. today's soft payrolls print creates the core trap described above — watch for clarifying Fed commentary over the holiday.</td></tr>
+    <tr><td>AI Capex / Semiconductor Rout</td><td>🟡</td><td>NQ1!, SOX names</td><td>Second consecutive brutal session (SMH -4.5%); Meta's compute resale plans reignited demand-glut fears.</td></tr>
+    <tr><td>Independence Day Market Closure</td><td>🟢</td><td>All</td><td>Cash markets closed Friday, July 3; CME abbreviated holiday hours. Thin liquidity risk carries into Monday's open.</td></tr>
+  </table>
 </section>
 
-<section>
-<h2>🧠 ICT Market Phase Assessment</h2>
-<div class="card-grid">
-  <div class="asset-card">
-    <div class="asset-card-head"><strong>NQ1!</strong><span class="phase dist">Distribution</span></div>
-    <div class="price">Last ≈ 25,580</div>
-    <p class="body">NQ1! broke below its 50-day structure last week and is coiling beneath a bearish order block formed during quarter-end rotation out of tech. An MSS below the recent swing low near 25,500 (SSL) confirms continuation; a CISD back above the 26,100 FVG would signal one more liquidity run at BSL before real selling resumes.</p>
+<section id="ict-phase">
+  <h2>🧠 ICT Market Phase Assessment</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-head"><span class="asset">NQ1!</span><span class="price">~25,600 (-1.61%)</span></div>
+      <span class="phase distribution">DISTRIBUTION</span>
+      <p>Second straight day of semiconductor-led selling (SMH -4.5%) pulled NQ1! sharply lower while DJIA1! printed a record close — a clean SMT divergence. MSS back above the ~25,900–26,100 OB is needed to negate the distribution read; failure there opens a CISD move toward the 24,600 FVG.</p>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="asset">ES1!</span><span class="price">7,454.83 (-0.38%)</span></div>
+      <span class="phase reaccumulation">RE-ACCUMULATION</span>
+      <p>Held up far better than NQ1! thanks to financials/comms strength, consolidating just under the week's highs. CISD above 7,480–7,500 opens a BSL run toward 7,550–7,600; MSS below 7,400 SSL would confirm tech weakness spreading broader into next week.</p>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="asset">CL1!</span><span class="price">$68.49 (-0.13%)</span></div>
+      <span class="phase distribution">DISTRIBUTION</span>
+      <p>Drifting near multi-month lows as record Hormuz throughput and the toll-free window remove supply-risk premium. SSL sits near $67.50; MSS below there opens the $65 FVG. Any Doha-breakdown or toll-clock headline sets up a sharp OTE long back toward the $71–73 OB.</p>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="asset">GC1!</span><span class="price">~$4,148 (+2.3%)</span></div>
+      <span class="phase manipulation">MANIPULATION</span>
+      <p>Sharp rebound off the week's low into the $4,150–4,180 BSL zone on the dovish-jobs read described in Trap 1, leaving an FVG between $4,020–4,080 behind. CISD back below $4,100 confirms a liquidity grab; a clean MSS through $4,180 instead opens continuation toward $4,250+.</p>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="asset">SI1!</span><span class="price">$61.60 (+3.88%)</span></div>
+      <span class="phase reaccumulation">RE-ACCUMULATION</span>
+      <p>Outran GC1! on a percentage basis, briefly tagging $62 intraday before settling near $61.60. MSS above $62 BSL confirms bullish continuation toward $63–64; a break back below $59–60 OB invalidates and reopens SSL toward $57.</p>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="asset">BTC1!</span><span class="price">~$61,650 (+2.9%)</span></div>
+      <span class="phase reaccumulation">RE-ACCUMULATION</span>
+      <p>Tracking the broader dovish-repricing bid alongside metals rather than trading on crypto-specific news. FVG overhead at $63,000–64,500; CISD/MSS above that zone would confirm genuine re-accumulation rather than a correlated bounce. MSS below $59,500 SSL reopens the recent low.</p>
+    </div>
   </div>
-  <div class="asset-card">
-    <div class="asset-card-head"><strong>ES1!</strong><span class="phase manip">Manipulation</span></div>
-    <div class="price">Last ≈ 7,495</div>
-    <p class="body">ES1! is chopping between PDH ~7,530 and PDL ~7,460 inside last session's FVG ahead of the holiday-shortened week. A sweep of the 7,460 SSL pool followed by MSS back above 7,500 is the OTE long setup; failure to reclaim keeps this vulnerable to a deeper retest of the June range low.</p>
-  </div>
-  <div class="asset-card">
-    <div class="asset-card-head"><strong>CL1!</strong><span class="phase reaccum">Re-Accumulation</span></div>
-    <div class="price">Last ≈ $70.10</div>
-    <p class="body">CL1! is basing above the OB near $67.50 after Wednesday's slip toward $69, with Hormuz traffic recovering but still well below normal. A CISD above $71 confirms re-accumulation into the $74-75 BSL zone; a loss of $67.50 opens the SSL pool toward $65.</p>
-  </div>
-  <div class="asset-card">
-    <div class="asset-card-head"><strong>GC1!</strong><span class="phase manip">Manipulation</span></div>
-    <div class="price">Last ≈ $4,015</div>
-    <p class="body">GC1! swept the eight-month-low SSL earlier this week before ripping back through the $4,000 psychological OB on dovish Fed rhetoric. A CISD back below $4,000 flags this as a liquidity run, not a reversal; holding and displacing through the $4,050 FVG would flip the read to re-accumulation.</p>
-  </div>
-  <div class="asset-card">
-    <div class="asset-card-head"><strong>SI1!</strong><span class="phase manip">Manipulation</span></div>
-    <div class="price">Last ≈ $60.10</div>
-    <p class="body">SI1! reclaimed the $59-60 zone after tagging seven-month lows, tracking GC1! closely — an SMT correlation that's currently confirming, not diverging. The $58-59 OB is the level to hold; MSS above $60.50 targets BSL near $62, but this stays manipulation-phase until it clears with real displacement.</p>
-  </div>
-  <div class="asset-card">
-    <div class="asset-card-head"><strong>BTC1!</strong><span class="phase reaccum">Re-Accumulation</span></div>
-    <div class="price">Last ≈ $58,620</div>
-    <p class="body">BTC1! flushed to a 21-month low to open July even as whale wallets absorbed 270,000 BTC1! over two weeks — a textbook re-accumulation divergence against record ETF outflows. SSL sits near $58,000; a CISD reclaim of $60-61K confirms smart money control, while a break below $58K opens the $50-52K liquidity pool.</p>
-  </div>
-</div>
 </section>
 
-<section>
-<h2>🏦 Sector Assessment</h2>
-<table>
-<tr><th>Sector</th><th>Move Likelihood</th><th>Bias</th><th>Reasoning</th></tr>
-<tr><td>Energy</td><td><span class="badge high">High</span></td><td class="up">↑</td><td>Hormuz premium still live, OPEC+ metering supply back conservatively, YTD sector leader (+21%)</td></tr>
-<tr><td>Defense</td><td><span class="badge moderate">Moderate</span></td><td class="up">↑</td><td>FY27 NDAA calls for $1.15T budget, Trump's $1.5T 2027 defense ask, rotational-rally thesis favors shipbuilding/defense</td></tr>
-<tr><td>Precious Metals</td><td><span class="badge high">High</span></td><td class="up">↑</td><td>Dovish Fed rhetoric vs. hawkish dot plot creates two-way volatility; safe-haven bid fighting sell-side target cuts</td></tr>
-<tr><td>Healthcare</td><td><span class="badge low">Low</span></td><td class="flat">→</td><td>No significant overnight catalysts identified</td></tr>
-<tr><td>Technology</td><td><span class="badge high">High</span></td><td class="down">↓</td><td>Nasdaq Composite below 50-day SMA, quarter-end rotation out of tech, chip-supply-chain scrutiny (Super Micro)</td></tr>
-<tr><td>Financials</td><td><span class="badge moderate">Moderate</span></td><td class="flat">→</td><td>Steeper yield curve supports NIM, but broader flows still favor value/cyclicals over financials</td></tr>
-<tr><td>Industrials / Materials</td><td><span class="badge moderate">Moderate</span></td><td class="up">↑</td><td>Staples/Industrials/Materials up 12-17% YTD, rotational-rally thesis into power/shipbuilding themes</td></tr>
-<tr><td>Crypto</td><td><span class="badge high">High</span></td><td class="flat">↓/↑</td><td>Record ETF outflows vs. aggressive whale accumulation — binary, high-volatility setup near the lows</td></tr>
-</table>
+<section id="sector">
+  <h2>🏦 Sector Assessment</h2>
+  <table>
+    <tr><th>Sector</th><th>Move Likelihood</th><th>Bias</th><th>Reasoning</th></tr>
+    <tr><td>Energy</td><td><span class="badge moderate">Moderate</span></td><td class="down">↓</td><td>-0.95% today; CL1!/BRN1! staying soft on record Hormuz throughput and the toll-free window capping any supply-risk bid.</td></tr>
+    <tr><td>Defense</td><td><span class="badge moderate">Moderate</span></td><td class="flat">→</td><td>Doha talks unresolved and the toll clock creates a forward geopolitical catalyst, but no fresh escalation today to move the group.</td></tr>
+    <tr><td>Precious Metals</td><td><span class="badge high">High</span></td><td class="up">↑</td><td>GC1! +2.3%, SI1! +3.88% on the dovish-jobs read — Trap 1 above flags this as vulnerable to a sharp reversal if Warsh pushes back on rate-cut expectations.</td></tr>
+    <tr><td>Healthcare</td><td><span class="badge low">Low</span></td><td class="up">↑</td><td>+0.39% — modest defensive-rotation beneficiary, no major catalysts into the holiday.</td></tr>
+    <tr><td>Technology</td><td><span class="badge high">High</span></td><td class="down">↓</td><td>-1.69% sector-wide; NQ1! -1.61%, SMH -4.5% on AI-capex-glut fears reignited by Meta's compute resale plans. Highest whipsaw risk into Monday's open.</td></tr>
+    <tr><td>Financials</td><td><span class="badge moderate">Moderate</span></td><td class="up">↑</td><td>Primary driver of DJIA1!'s record close alongside communication services; benefiting from the rotation out of crowded tech names.</td></tr>
+    <tr><td>Industrials</td><td><span class="badge moderate">Moderate</span></td><td class="up">↑</td><td>Riding the same value/cyclical rotation lifting DJIA1! to fresh highs.</td></tr>
+    <tr><td>Crypto</td><td><span class="badge moderate">Moderate</span></td><td class="up">↑</td><td>BTC1! +2.9%, tracking the dovish-repricing flow with metals rather than showing independent conviction.</td></tr>
+  </table>
 </section>
 
-<section>
-<h2>✅ ICT Actionable Steps</h2>
-<div class="steps-grid">
-  <div class="step-card">
-    <span class="step-time">Pre-Market Prep — 6:00–7:00 AM ET</span>
-    <ol>
-      <li>Scan overnight Doha talks / Hormuz headlines for gap risk before the open</li>
-      <li>Mark ES1! and NQ1! overnight high/low plus PDH/PDL</li>
-      <li>Confirm GC1!/SI1! are holding above (or losing) the $4,000 / $59 reclaim levels</li>
-      <li>Remember: holiday-shortened week (closed Friday 7/3) — expect thinner liquidity and wider stops</li>
-    </ol>
+<section id="actionable">
+  <h2>✅ Actionable Steps</h2>
+  <div class="timeblocks">
+    <div class="timeblock">
+      <div class="time">Tonight — Overnight Watch</div>
+      <ul>
+        <li>Monitor for any Fed commentary (Warsh or other officials) clarifying whether today's soft payrolls print shifts the inflation-first stance — this resolves Trap 1.</li>
+        <li>Watch for Doha talks or Hormuz toll-clock headlines; both CL1! and BRN1! are sitting on thin near-term support with no cash session Friday to react in size.</li>
+        <li>Reduce or flatten swing size in GC1!, SI1!, and NQ1! ahead of Friday's abbreviated, thin-liquidity session.</li>
+      </ul>
+    </div>
+    <div class="timeblock">
+      <div class="time">Friday, July 3 — Holiday-Shortened Session</div>
+      <ul>
+        <li>US cash equities closed for Independence Day; CME futures run abbreviated hours only.</li>
+        <li>Treat any move as low-conviction — thin books amplify stop runs in both directions. Avoid new swing entries.</li>
+      </ul>
+    </div>
+    <div class="timeblock">
+      <div class="time">Pre-Market Prep (Monday, July 6, 6–7 AM ET)</div>
+      <ol>
+        <li>Mark PDH/PDL on ES1!, NQ1!, CL1!, GC1! using Thursday's close (last full session) as the reference, not Friday's thin print.</li>
+        <li>Confirm whether GC1! has broken back below the $4,100 CISD level over the long weekend — the Trap 1 tell.</li>
+        <li>Check for any Doha/Hormuz-toll headlines that dropped over the three-day weekend and could gap CL1!/BRN1! at the open.</li>
+      </ol>
+    </div>
+    <div class="timeblock">
+      <div class="time">London Kill Zone (Monday, 2–5 AM ET)</div>
+      <ul>
+        <li>Watch for liquidity sweeps of the holiday-weekend range in GC1! and CL1! — expect wider ranges after three days of reduced participation.</li>
+        <li>Note any early MSS in NQ1! carrying over from Thursday's distribution day.</li>
+      </ul>
+    </div>
+    <div class="timeblock">
+      <div class="time">NY Open Kill Zone (Monday, 7–10 AM ET)</div>
+      <ol>
+        <li><b>Setup 1 — NQ1!:</b> Look for MSS back above the ~25,900–26,100 OB to fade the distribution read; entry on retrace into the OB, stop below Thursday's low, target 26,600.</li>
+        <li><b>Setup 2 — GC1!:</b> Fade into the $4,150–4,180 BSL confluence on CISD confirmation back below $4,100; stop above $4,190, target $3,980 OTE.</li>
+        <li><b>Silver Bullet (9:50–10:10 AM ET):</b> Focus on CL1! for a clean MSS/CISD off the $67.50 SSL — highest-probability window for the Hormuz/Doha thesis to confirm or invalidate after the long weekend.</li>
+      </ol>
+    </div>
+    <div class="timeblock">
+      <div class="time">NY Lunch (Monday, 12–1:30 PM ET)</div>
+      <ul>
+        <li>Stand down. Post-holiday chop plus residual thin liquidity from Friday raises the odds of a false move — avoid new entries.</li>
+        <li>Reassess whether morning setups hit target or invalidated cleanly before considering afternoon re-entries.</li>
+      </ul>
+    </div>
+    <div class="timeblock">
+      <div class="time">NY Afternoon (Monday, 1:30–4 PM ET)</div>
+      <ul>
+        <li>Read continuation vs. reversal off the AM range: a held MSS in NQ1! or GC1! from the morning kill zone should extend; a failed one often reverses hard given still-recovering liquidity.</li>
+        <li>Watch SI1! into the close for a break of $62 BSL — a clean break would confirm re-accumulation rather than a correlated metals bounce.</li>
+      </ul>
+    </div>
   </div>
-  <div class="step-card">
-    <span class="step-time">London Kill Zone — 2:00–5:00 AM ET</span>
-    <p>Watch for the initial liquidity sweep in GC1!/SI1! following the overnight dovish-Fed spike. Note whether London fades or extends the move — this sets up the manipulation leg institutions will exploit at the NY open.</p>
-  </div>
-  <div class="step-card">
-    <span class="step-time">NY Open Kill Zone — 7:00–10:00 AM ET</span>
-    <ol>
-      <li><strong>Setup 1:</strong> ES1! OTE long off a sweep of the 7,460 SSL pool with MSS confirmation back above 7,480; target 7,520-7,530 PDH.</li>
-      <li><strong>Setup 2:</strong> CL1! continuation long off an OB retest near $69.50 if Doha headlines stay constructive; target $71.50-72.</li>
-      <li><strong>Silver Bullet (9:50-10:10 AM):</strong> Watch NQ1! for one final liquidity run below the pre-market low before trusting any reversal — don't chase the first move.</li>
-    </ol>
-  </div>
-  <div class="step-card">
-    <span class="step-time">NY Lunch — 12:00–1:30 PM ET</span>
-    <p>Stand down. Holiday-week liquidity will be thin — avoid new entries, manage existing runners only, tighten stops on anything still open.</p>
-  </div>
-  <div class="step-card">
-    <span class="step-time">NY Afternoon — 1:30–4:00 PM ET</span>
-    <p>Read continuation vs. reversal off the AM range. With the July 4 holiday weekend ahead, expect volume to taper into the close — don't carry outsized size overnight into the long weekend.</p>
-  </div>
-</div>
 </section>
 
-<section>
-<h2>⚠️ Risk &amp; Mindset</h2>
-<table>
-<tr><td><strong>Position Sizing</strong></td><td>Cut size given holiday-week liquidity and binary Doha/Fed headline risk — trade half-size until volume confirms conviction.</td></tr>
-<tr><td><strong>Narrative Discipline</strong></td><td>Don't take the AAII-bullish/dovish-Fed headlines at face value — elevated SPX put/call (1.09) and the Fed's own hawkish dot plot disagree with the surface narrative.</td></tr>
-<tr><td><strong>Upcoming Catalysts</strong></td><td>Markets closed Friday, July 3 (Independence Day observed) · Next COT report July 6 · SpaceX joins Nasdaq-100 before the open July 7 · FOMC meeting July 28-29.</td></tr>
-<tr><td><strong>ICT Mindset</strong></td><td>Liquidity runs precede real moves. Expect at least one more sweep in gold, silver, and equities before trusting the resulting direction — patience over prediction.</td></tr>
-<tr><td><strong>Overnight Hold Warning</strong></td><td>Iran-Hormuz headline risk remains binary and can gap price sharply. Avoid holding oil or gold size through the low-liquidity Asia/London sessions into the holiday weekend.</td></tr>
-</table>
+<section id="risk">
+  <h2>⚠️ Risk &amp; Mindset</h2>
+  <table>
+    <tr><td style="width:22%;"><b>Position Sizing</b></td><td>Trim or flatten swing size ahead of the July 4th holiday closure — Friday's thin book means wider slippage on stops if Doha or Hormuz-toll headlines break over the long weekend.</td></tr>
+    <tr><td><b>Narrative Discipline</b></td><td>Today's payrolls miss, GC1!/SI1! spike, and DJIA1! record close are three separate stories, not one "risk-on, Fed's cutting" narrative. The participation-rate collapse behind the lower unemployment rate is the detail retail is skipping.</td></tr>
+    <tr><td><b>Upcoming Catalysts</b></td><td>Friday, July 3 holiday closure (abbreviated CME hours); Monday, July 6 full session reopen; any Fed commentary clarifying Warsh's inflation-first stance; Doha talks and the Hormuz toll-clock deadline.</td></tr>
+    <tr><td><b>ICT Mindset</b></td><td>Ask who benefits if retail spends the long weekend believing "weak jobs = guaranteed cut." A Fed chair who has been explicitly inflation-focused doesn't reverse course on one noisy 57k print.</td></tr>
+    <tr><td><b>Overnight Hold Warning</b></td><td>No cash session Friday means any position held into tonight's close is effectively a three-day hold before a normal exit is available. Size accordingly, especially in GC1!, SI1!, CL1!, and NQ1!.</td></tr>
+  </table>
 </section>
 
-<section>
-<h2>📊 Market Snapshot</h2>
-<table>
-<tr><th>Asset</th><th>Last Close</th><th>Move</th><th>Today's Bias</th><th>Key Levels</th></tr>
-<tr><td>NQ1!</td><td>≈25,580</td><td class="down">-0.66%</td><td class="down">↓</td><td>Res 26,100 FVG · Sup 25,500 SSL</td></tr>
-<tr><td>ES1!</td><td>≈7,495</td><td class="down">-0.22%</td><td class="flat">→</td><td>PDH 7,530 · PDL 7,460</td></tr>
-<tr><td>CL1!</td><td>≈$70.10</td><td class="up">+~1%</td><td class="up">↑</td><td>Res $72.00 · Sup $67.50 OB</td></tr>
-<tr><td>BRN1!</td><td>≈$74.00</td><td class="flat">flat</td><td class="flat">→</td><td>Res $75.00 · Sup $72.00</td></tr>
-<tr><td>GC1!</td><td>≈$4,015</td><td class="up">+bounce</td><td class="up">↑</td><td>Res $4,050 FVG · Sup $4,000 OB</td></tr>
-<tr><td>SI1!</td><td>≈$60.10</td><td class="down">-0.6%</td><td class="flat">→</td><td>Res $62.00 BSL · Sup $58-59 OB</td></tr>
-<tr><td>BTC1!</td><td>≈$58,620</td><td class="down">-1%</td><td class="down">↓</td><td>Res $60-61K · Sup $58,000 SSL</td></tr>
-</table>
+<section id="snapshot">
+  <h2>📊 Market Snapshot</h2>
+  <table>
+    <tr><th>Asset</th><th>Last Close</th><th>Move</th><th>Bias</th><th>Key Levels</th></tr>
+    <tr><td>NQ1!</td><td>~25,600</td><td class="down">-1.61%</td><td class="down">↓</td><td>OB 25,900–26,100 / FVG 24,600</td></tr>
+    <tr><td>ES1!</td><td>7,454.83</td><td class="down">-0.38%</td><td class="flat">→</td><td>BSL 7,480–7,600 / SSL 7,400</td></tr>
+    <tr><td>CL1!</td><td>$68.49</td><td class="down">-0.13%</td><td class="down">↓</td><td>SSL $67.50 / OB $71–73</td></tr>
+    <tr><td>BRN1!</td><td>$70.57</td><td class="down">-0.83%</td><td class="down">↓</td><td>Support $69 / Resistance $74</td></tr>
+    <tr><td>GC1!</td><td>~$4,148</td><td class="up">+2.3%</td><td class="up">↑</td><td>BSL $4,150–4,180 / FVG $4,020–4,080</td></tr>
+    <tr><td>SI1!</td><td>$61.60</td><td class="up">+3.88%</td><td class="up">↑</td><td>BSL $62–64 / SSL $57–60</td></tr>
+    <tr><td>BTC1!</td><td>~$61,650</td><td class="up">+2.9%</td><td class="up">↑</td><td>FVG $63,000–64,500 / SSL $59,500</td></tr>
+  </table>
 </section>
 
 </main>
 
 <footer>
-  For educational purposes only. This report is generated from automated web research and does not constitute financial advice. Futures trading involves substantial risk of loss and is not suitable for all investors. Verify all price levels independently before trading.
+  This report is generated for educational and informational purposes only. It is not financial advice and does not constitute a recommendation to buy or sell any security or futures contract. Trading futures involves substantial risk of loss. Do your own research and consult a licensed financial advisor before making investment decisions.
 </footer>
 
 </body>

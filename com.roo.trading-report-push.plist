@@ -13,7 +13,7 @@
 
   <!-- Fires twice daily:
        12:15 AM — 15 min after Claude writes the overnight/daily report at midnight
-       6:15 PM  — 15 min after Claude writes the EOD assessment at 6 PM -->
+       5:15 PM  — 15 min after Claude writes the EOD assessment at 5 PM -->
   <key>StartCalendarInterval</key>
   <array>
     <dict>
@@ -24,7 +24,7 @@
     </dict>
     <dict>
       <key>Hour</key>
-      <integer>18</integer>
+      <integer>17</integer>
       <key>Minute</key>
       <integer>15</integer>
     </dict>
