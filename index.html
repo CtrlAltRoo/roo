@@ -3,467 +3,287 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Futures Trading Report</title>
+<title>Daily Futures Report — EOD Edition</title>
 <style>
-  :root {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --surface2: #1c2128;
-    --border: #30363d;
-    --text: #e6edf3;
-    --text-muted: #8b949e;
-    --blue: #388bfd;
-    --green: #3fb950;
-    --red: #f85149;
-    --yellow: #d29922;
-    --purple: #bc8cff;
+  :root{
+    --bg:#0d1117; --surface:#161b22; --border:#30363d; --text:#e6edf3;
+    --muted:#8b949e; --green:#3fb950; --red:#f85149; --yellow:#d29922;
+    --purple:#bc8cff; --blue:#388bfd;
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-  }
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 20px;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 1.3rem;
-  }
-  header .meta {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    margin-top: 4px;
-  }
-  main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 16px 60px;
-  }
-  section {
-    margin-bottom: 32px;
-  }
-  section h2 {
-    font-size: 1.15rem;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 8px;
-    margin-bottom: 14px;
-  }
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-  }
-  .banner {
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    padding: 18px;
-    background: var(--surface);
-  }
-  .banner.flip {
-    background: #2d1e00;
-    border-color: var(--yellow);
-  }
-  .banner.confirmed {
-    background: #0d2018;
-    border-color: var(--green);
-  }
-  .banner-tag {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    padding: 3px 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-  }
-  .banner.flip .banner-tag { background: var(--yellow); color: #0d1117; }
-  .banner.confirmed .banner-tag { background: var(--green); color: #0d1117; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    font-size: 0.9rem;
-  }
-  th, td {
-    text-align: left;
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  th {
-    background: var(--surface2);
-    color: var(--text-muted);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  tr:last-child td { border-bottom: none; }
-  .table-wrap { overflow-x: auto; }
-  .subhead {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin: 20px 0 10px;
-    color: var(--text-muted);
-  }
-  .trap-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-  .trap-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--purple);
-    border-radius: 8px;
-    padding: 14px 16px;
-  }
-  .trap-card h3 {
-    margin: 0 0 10px;
-    font-size: 1rem;
-    color: var(--purple);
-  }
-  .trap-card p { margin: 6px 0; font-size: 0.88rem; }
-  .trap-card .label {
-    color: var(--text-muted);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    display: block;
-    margin-top: 8px;
-  }
-  ul.bullets { margin: 0; padding-left: 18px; }
-  ul.bullets li { margin-bottom: 6px; font-size: 0.9rem; }
-  .card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-  .asset-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-  }
-  .asset-card .row1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-  .asset-card .asset-name {
-    font-weight: 700;
-    font-size: 1.05rem;
-  }
-  .asset-card .price {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-  }
-  .badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 3px 9px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-  .badge.accumulation { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid var(--green); }
-  .badge.manipulation { background: rgba(210,153,34,0.15); color: var(--yellow); border: 1px solid var(--yellow); }
-  .badge.distribution { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid var(--red); }
-  .badge.reaccumulation { background: rgba(56,139,253,0.15); color: var(--blue); border: 1px solid var(--blue); }
-  .asset-card p { margin: 0; font-size: 0.87rem; color: var(--text); }
-  .timeblock-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .timeblock {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--blue);
-    border-radius: 8px;
-    padding: 14px 16px;
-  }
-  .timeblock h3 {
-    margin: 0 0 4px;
-    font-size: 0.98rem;
-  }
-  .timeblock .when {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-  }
-  .timeblock ul { margin: 6px 0 0; padding-left: 18px; }
-  .timeblock li { font-size: 0.88rem; margin-bottom: 4px; }
-  .up { color: var(--green); }
-  .down { color: var(--red); }
-  .flat { color: var(--text-muted); }
-  footer {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 16px 40px;
-    color: var(--text-muted);
-    font-size: 0.78rem;
-    border-top: 1px solid var(--border);
-  }
-  @media (max-width: 720px) {
-    .trap-grid, .card-grid { grid-template-columns: 1fr; }
-  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;padding:0 0 60px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 18px}
+  header{border-bottom:1px solid var(--border);padding:26px 0 20px;margin-bottom:8px}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .badge{font-size:12px;font-weight:700;letter-spacing:.5px;padding:4px 10px;border-radius:5px;text-transform:uppercase}
+  .badge-eod{background:#1a2a4a;color:var(--blue)}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px}
+  h1 .sub{color:var(--muted);font-weight:600;font-size:16px}
+  .updated{color:var(--muted);font-size:13px;margin-top:6px}
+  section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin:16px 0}
+  h2{font-size:18px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  h3{font-size:14px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin:14px 0 6px}
+  p{margin-bottom:10px}
+  .alert{border-radius:8px;padding:14px 16px;font-weight:600;border:1px solid}
+  .alert-amber{background:rgba(210,153,34,.10);border-color:var(--yellow);color:var(--yellow)}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.4px}
+  .p-green{background:rgba(63,185,80,.15);color:var(--green)}
+  .p-red{background:rgba(248,81,73,.15);color:var(--red)}
+  .p-yellow{background:rgba(210,153,34,.15);color:var(--yellow)}
+  .p-blue{background:rgba(56,139,253,.15);color:var(--blue)}
+  .p-purple{background:rgba(188,140,255,.15);color:var(--purple)}
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px}
+  td.mono,th.mono{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .up{color:var(--green)} .down{color:var(--red)} .flat{color:var(--muted)}
+  .block{border-left:3px solid var(--border);padding:6px 0 6px 14px;margin:12px 0}
+  .block.kz{border-left-color:var(--purple)}
+  .block h4{font-size:14px;font-weight:700;margin-bottom:4px}
+  .block .time{color:var(--muted);font-size:12px;font-weight:600}
+  ul{margin:6px 0 10px 18px} li{margin-bottom:5px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}h1{font-size:22px}}
+  .muted{color:var(--muted)}
+  .foot{color:var(--muted);font-size:12px;text-align:center;margin-top:26px;padding-top:16px;border-top:1px solid var(--border)}
+  code{background:#0d1117;border:1px solid var(--border);border-radius:4px;padding:1px 5px;font-size:12px}
 </style>
 </head>
 <body>
-
+<div class="wrap">
 <header>
-  <h1>📈 Daily Futures Trading Report</h1>
-  <div class="meta">Wednesday, July 8, 2026 &nbsp;•&nbsp; Last updated: Wednesday, July 8, 2026 at 8:15 AM ET &nbsp;•&nbsp; OVERNIGHT EDITION</div>
+  <div class="badges">
+    <span class="badge badge-eod">EOD Edition</span>
+    <span class="badge" style="background:rgba(248,81,73,.15);color:var(--red)">Geopolitical Escalation</span>
+  </div>
+  <h1>Daily Futures Report <span class="sub">— End-of-Day Assessment</span></h1>
+  <div class="updated">Last updated: Wednesday, July 8, 2026 at 2:45 PM ET</div>
 </header>
 
-<main>
+<!-- 1. EOD ALERT -->
+<section>
+  <h2>🚨 EOD Alert</h2>
+  <div class="alert alert-amber">
+    EOD ALERT — OVERNIGHT RISK: Iran ceasefire declared "over." Headline risk is live into the overnight and can gap markets on the open.
+  </div>
+  <p>Risk assets sold into the afternoon after President Trump, speaking at the NATO summit in Turkey, said the Iran ceasefire is "over" and threatened to "hit them hard again tonight" — including civilian infrastructure and a possible Kharg Island / Strait of Hormuz blockade. This follows U.S. strikes on July 7 in response to attacks on three tankers (Qatari and Saudi) in the Strait, and Iranian retaliation against Kuwait and Bahrain.</p>
+  <p><strong>Tape into the close:</strong> Dow −564 pts (−1.1%), S&amp;P 500 −0.6%, Nasdaq −0.4%. Oil is the tell — WTI +~4.8% to ~$73.8, Brent +~5.3% to ~$78.1. Gold slipped ~1% to ~$4,050 as a hawkish read of today's June FOMC minutes (higher-for-longer, inflation focus) offset the geopolitical bid.</p>
+  <p><strong>Overnight hold warning:</strong> With a sitting president explicitly signaling strikes "tonight," any energy short carries elevated gap risk against it, and index longs carry gap risk into a Hormuz headline. Size overnight exposure as if a gap is coming — because one plausibly is. Flat is a position tonight.</p>
+</section>
 
-  <!-- Section 1: Overnight Alert -->
-  <section>
-    <h2>🚨 Overnight Alert</h2>
-    <div class="banner flip">
-      <span class="banner-tag">Narrative Flip</span>
-      <p style="margin:0 0 10px;"><strong>What the market believed at Tuesday's close:</strong> the US–Iran Memorandum of Understanding was holding, Strait of Hormuz shipping was in slow recovery, oil was drifting back toward the ~$59 WTI average banks are forecasting for the year, and gold/silver were consolidating a strong 2026 uptrend toward $6,000+ bank targets.</p>
-      <p style="margin:0 0 10px;"><strong>What actually happened overnight:</strong> Iran's IRGC struck three commercial vessels near the Strait of Hormuz and Iranian forces hit US military targets in Bahrain and Kuwait after the US launched fresh strikes and reimposed sanctions on Iranian oil exports. President Trump declared the ceasefire/MoU "over" just after 6 AM ET, though he left the door open for talks to continue. WTI crude spiked 6.2–6.5% to ~$74.90–75.00, Brent jumped 6.1–6.4% to ~$78.70–78.93.</p>
-      <p style="margin:0;"><strong>Affected assets / bias shift:</strong> CL and Brent — bullish gap, BSL run above the prior $71–72 range high. Equity index futures — risk-off, ES −0.8% to −1.1%, NQ underperforming at −1.6% (SOX already down ~12% over two sessions on the AI-trade unwind, compounding the geopolitical hit). GC and SI — counterintuitively <em>red</em> overnight (gold −2.34%, silver −3.95%) despite a literal war headline, which is the single most important divergence in this report — see Manipulation Detection below.</p>
-    </div>
-  </section>
+<!-- 2. MANIPULATION DETECTION -->
+<section>
+  <h2>🎭 Manipulation Detection</h2>
 
-  <!-- Section 2: Manipulation Detection -->
-  <section>
-    <h2>🎭 Manipulation Detection</h2>
+  <h3>Media narrative into the close</h3>
+  <p>The wire is running "war premium / inflation is back / Fed can't cut" as one package. That framing is real on the oil leg but is being over-extended onto equities — the S&amp;P held a −0.6% loss on a day the Dow was down 1.1% and oil was up ~5%, which is <em>orderly</em>, not panic. The trap is treating a controlled, headline-driven fade as the start of a crash. Institutions distributing into fear want you short at the lows.</p>
 
-    <div class="subhead">A. Sentiment Readings</div>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Indicator</th><th>Reading</th><th>Plain-English Read</th></tr></thead>
-        <tbody>
-          <tr><td>AAII Bullish / Bearish</td><td>31.4% bullish (−13.6pp) / 42.3% bearish (+6.1pp)</td><td>Retail has capitulated to bearish for the 6th time in 7 weeks. Bullish % well below the 37.5% historical average — sentiment washed out even before last night's headline hit.</td></tr>
-          <tr><td>CNN Fear &amp; Greed (stocks)</td><td>43.5 — Fear</td><td>Not yet extreme fear. Room for this to get worse before it's a contrarian long signal.</td></tr>
-          <tr><td>Crypto Fear &amp; Greed</td><td>20 (Alt.me, Extreme Fear) / 29 (CMC, Fear)</td><td>Crypto sentiment has collapsed far harder than the actual BTC price action (~$63.2K, off a 6-day win streak) would justify — a gap between positioning and price worth watching for a squeeze.</td></tr>
-          <tr><td>COT (CFTC)</td><td>Delayed by federal holiday, released Mon Jul 6</td><td>Latest positioning data is a few sessions stale relative to the Iran headline — treat COT-based bias with a lag this week.</td></tr>
-          <tr><td>Equity Put/Call Ratio</td><td>1.33 (as of Jul 3)</td><td>Elevated above the 0.85–0.95 historical norm — options market already pricing hedges before last night's escalation, meaning dealers may already be short gamma into today's open.</td></tr>
-        </tbody>
-      </table>
-    </div>
+  <h3>Sentiment readings (latest available)</h3>
+  <table>
+    <tr><th>Gauge</th><th>Reading</th><th>Read</th></tr>
+    <tr><td>Fed Funds</td><td class="mono">3.50–3.75%</td><td>~70% hold priced for Jul 28–29; Dec skew tilts toward a <em>hike</em>, not a cut</td></tr>
+    <tr><td>June FOMC minutes</td><td>Hawkish</td><td>Released today; cut hints removed, inflation focus reiterated (Warsh)</td></tr>
+    <tr><td>Oil vol</td><td>Elevated</td><td>Hormuz premium repricing intraday — headline-driven, unstable</td></tr>
+    <tr><td>Crypto tone</td><td>Firm</td><td>BTC ~$63.7K, resilient vs. equities — risk not fully off</td></tr>
+  </table>
 
-    <div class="subhead">B. Active Narrative Traps</div>
-    <div class="trap-grid">
-      <div class="trap-card">
-        <h3>Trap 1 — "War Is Back, Buy Gold"</h3>
-        <p><span class="label">The Narrative</span>Financial media is running the standard playbook: geopolitical escalation = safe-haven bid = buy gold and silver.</p>
-        <p><span class="label">Reality Check</span>Gold fell 2.34% to $4,060.20 and silver fell 3.95% to $58.90 overnight — the opposite of the textbook reaction. Goldman (trimmed to $4,900) and UBS (cut to $5,500) had already turned more cautious on gold in June after a hawkish Fed repricing, and that repricing appears to be dominating over safe-haven flows this morning.</p>
-        <p><span class="label">ICT Read</span>This is a CISD in metals — the state of delivery has flipped from bullish-on-fear to something closer to a broad de-risking / margin-driven liquidation (margin debt is +54% YoY at $1.42T), not a rotation into traditional havens. Don't buy the "gold rallies on war" headline; the tape is telling a different story.</p>
-        <p><span class="label">Exploitation Setup</span>Watch for a liquidity sweep of the $4,000 psychological level / prior OB on GC before any real re-accumulation. A failed breakdown with a swift MSS back above $4,090–4,100 would be the tell that smart money faded the panic sellers.</p>
-      </div>
-      <div class="trap-card">
-        <h3>Trap 2 — "Hormuz Closure = Oil Shortage"</h3>
-        <p><span class="label">The Narrative</span>Headlines are framing this as a repeat of the earlier-2026 Hormuz crisis, implying a sustained supply shock and much higher oil for longer.</p>
-        <p><span class="label">Reality Check</span>OPEC+ just approved its fifth consecutive monthly output increase (+188,000 bpd effective August), global oil demand growth forecasts were just trimmed to 970,000 b/d, and consensus bank targets still see WTI averaging ~$59 for the year. The strait was reopening — not fully — before last night's strikes; this is a flare-up on top of already-fragile shipping, not a fresh closure.</p>
-        <p><span class="label">ICT Read</span>The overnight move is a manipulation leg — a fast BSL run through the prior $71–72 range high driven by headline risk and thin overnight liquidity, not a structural repricing of supply. Fade extreme moves unless price holds above $75 into the NY session with volume confirmation.</p>
-        <p><span class="label">Exploitation Setup</span>Look for CL to tag the $78–80 April-high supply zone, then watch for an MSS back below $75 as the signal the spike was liquidity-driven rather than fundamentals-driven.</p>
-      </div>
-      <div class="trap-card">
-        <h3>Trap 3 — "Tech Selloff Is About AI Fears"</h3>
-        <p><span class="label">The Narrative</span>Coverage is blaming NVDA, AMZN, PLTR weakness and the SOX's ~12% two-day drop purely on AI-trade fatigue and Samsung's chip commentary.</p>
-        <p><span class="label">Reality Check</span>AI-adjacent names are indeed down (NVDA −1.7%, PLTR −3.1%, IBM −3.3%), but this is happening inside a much broader 2026 rotation: Industrials +16% YTD, Energy +22% YTD, Consumer Defensive +13.3% YTD, all outperforming tech well before last night's geopolitical news. The "HALO trade" (heavy assets, low obsolescence) has been the dominant flow story for months.</p>
-        <p><span class="label">ICT Read</span>NQ is showing clear SMT divergence against ES — NQ is the weak leg of the pair, still inside its symmetric triangle with the 50-day MA (~29,400) as the line in the sand. This isn't a single-headline event; it's a continuation of a rotation smart money began positioning for months ago, with the Iran headline as accelerant, not cause.</p>
-        <p><span class="label">Exploitation Setup</span>A daily close below 29,400 on NQ opens 28,253 as the next liquidity target. Above 31,000 (call wall) invalidates the bearish continuation read.</p>
-      </div>
-    </div>
+  <h3>What institutions appeared to do today</h3>
+  <p>Rotation, not liquidation. Energy bid (+~1.5%) and defense/industrials firm on Trump's 50% defense-spend push; healthcare (−0.9%) and rate-sensitive tech gave back. Semis stayed heavy after the multi-day chip rout. The absence of a broad de-risk in credit and crypto argues smart money is repositioning around the war/energy theme rather than fleeing the market.</p>
 
-    <div class="subhead">C. What Smart Money Appears to Be Doing</div>
-    <ul class="bullets">
-      <li><strong>Equities:</strong> Rotating out of mega-cap tech/AI infrastructure into industrials, energy, and consumer defensives — a trend now several months old that the Iran headline is reinforcing rather than starting.</li>
-      <li><strong>Energy:</strong> Positioning for a liquidity-driven spike rather than a durable supply shock — OPEC+ continuing to add barrels into the rally suggests the "official" supply picture disagrees with the panic price action.</li>
-      <li><strong>Metals:</strong> Reducing exposure broadly (both gold and silver red on a war headline) — consistent with deleveraging against a "higher-for-longer" Fed rather than a flight to safety.</li>
-      <li><strong>Options market:</strong> Already hedged into the news (elevated 1.33 put/call heading into the weekend), meaning dealer gamma positioning may amplify moves in either direction today.</li>
-      <li><strong>Crypto:</strong> Extreme fear reading (20) is far more negative than the actual BTC price decline — either a capitulation setup or a lagging indicator about to catch down to price.</li>
+  <h3>Narrative traps for tomorrow's open — Thursday, July 9, 2026</h3>
+  <ul>
+    <li><span class="pill p-yellow">Trap 1</span> <strong>"Oil only goes up from here."</strong> A verbal escalation with no confirmed new strike often produces a gap-up in CL that runs BSL above the overnight highs, then reverses. Fade exhaustion into a bearish FVG only <em>after</em> a 5m MSS lower — don't chase the gap.</li>
+    <li><span class="pill p-yellow">Trap 2</span> <strong>"Stocks are crashing on war."</strong> If ES gaps down into SSL below the prior day low (PDL) at the open and sweeps stops, that liquidity grab is the likely low, not the breakdown. Wait for a CISD back above the opening range before trusting downside.</li>
+    <li><span class="pill p-yellow">Trap 3</span> <strong>"Gold is a broken safe-haven."</strong> Gold fell <em>with</em> war headlines because rates/Fed dominated today. A dovish surprise or a confirmed Hormuz closure flips that instantly — don't press gold shorts into either catalyst.</li>
+  </ul>
+</section>
+
+<!-- 3. GEOPOLITICAL WATCHLIST -->
+<section>
+  <h2>🌍 Geopolitical Watchlist</h2>
+  <table>
+    <tr><th>Situation</th><th>Status</th><th>Affected</th><th>Bias shift</th></tr>
+    <tr>
+      <td>Iran / Strait of Hormuz</td>
+      <td><span class="pill p-red">Active — escalating</span></td>
+      <td>CL, Brent, XLE, defense, USD</td>
+      <td>Energy ↑ risk premium; equities headline-fragile</td>
+    </tr>
+    <tr>
+      <td>Ceasefire "over" (Trump, NATO summit)</td>
+      <td><span class="pill p-red">Strikes threatened tonight</span></td>
+      <td>All risk overnight</td>
+      <td>Gap risk both directions into 7/9 open</td>
+    </tr>
+    <tr>
+      <td>Iran retaliation vs. Kuwait / Bahrain</td>
+      <td><span class="pill p-yellow">Widening</span></td>
+      <td>Gulf shipping, oil supply</td>
+      <td>Supply-disruption tail rising</td>
+    </tr>
+    <tr>
+      <td>Fed policy (minutes today, hawkish)</td>
+      <td><span class="pill p-yellow">Higher-for-longer</span></td>
+      <td>Gold, rates, growth tech</td>
+      <td>Caps safe-haven bid in gold; pressures duration</td>
+    </tr>
+    <tr>
+      <td>Russia–Ukraine (Zelensky at summit)</td>
+      <td><span class="pill p-blue">Diplomatic backdrop</span></td>
+      <td>Defense, energy, grains</td>
+      <td>Secondary; watch for headline crossover</td>
+    </tr>
+  </table>
+</section>
+
+<!-- 4. ICT MARKET PHASE -->
+<section>
+  <h2>🧠 ICT Market Phase Assessment</h2>
+  <table>
+    <tr><th>Instrument</th><th>Phase</th><th>Read &amp; levels</th></tr>
+    <tr>
+      <td class="mono">NQ</td>
+      <td><span class="pill p-yellow">Manipulation</span></td>
+      <td>Semis-led weakness kept NQ heavy; treat any overnight low sweep as a liquidity grab. Watch for an MSS back above the NY opening range before trusting upside. Downside SSL rests below the prior day low.</td>
+    </tr>
+    <tr>
+      <td class="mono">ES</td>
+      <td><span class="pill p-yellow">Manipulation</span></td>
+      <td>Orderly −0.6% fade = distribution of fear, not breakdown. Key: does a gap-down open sweep PDL and then show CISD back up? BSL sits above today's range highs; watch SMT vs. NQ at the open.</td>
+    </tr>
+    <tr>
+      <td class="mono">CL</td>
+      <td><span class="pill p-red">Distribution (into strength)</span></td>
+      <td>+~4.8% to ~$73.8 on Hormuz premium. Chasing here is late; look for an FVG fill on any de-escalation headline. Upside BSL above the geopolitical spike highs; a confirmed blockade opens a new leg.</td>
+    </tr>
+    <tr>
+      <td class="mono">GC</td>
+      <td><span class="pill p-red">Re-distribution</span></td>
+      <td>−1% to ~$4,050, lowest since Jul 2 — rates trumped war today. Watch the ~$4,050 SSL; a reclaim + MSS above intraday highs re-arms the safe-haven bid.</td>
+    </tr>
+    <tr>
+      <td class="mono">SI</td>
+      <td><span class="pill p-yellow">Manipulation</span></td>
+      <td>Tracking gold's rate-driven softness with higher beta. Confirm direction off the gold lead; avoid standalone silver conviction without an MSS. <span class="muted">(Silver print not confirmed at time of writing.)</span></td>
+    </tr>
+    <tr>
+      <td class="mono">BTC</td>
+      <td><span class="pill p-green">Re-Accumulation</span></td>
+      <td>~$63.7K, resilient vs. equities after reclaiming above $61.8K. Holding above the recent range low keeps re-accumulation intact; a loss of that low re-opens the $57K sweep zone.</td>
+    </tr>
+  </table>
+</section>
+
+<!-- 5. SECTOR ASSESSMENT -->
+<section>
+  <h2>🏦 Sector Assessment</h2>
+  <table>
+    <tr><th>Sector</th><th>Move likelihood</th><th>Bias</th></tr>
+    <tr><td>Energy</td><td><span class="pill p-red">High</span></td><td class="up">Bullish — +~1.5% today; direct Hormuz beneficiary</td></tr>
+    <tr><td>Defense</td><td><span class="pill p-yellow">Elevated</span></td><td class="up">Bullish — Trump 50% defense-spend push + war tape</td></tr>
+    <tr><td>Precious Metals</td><td><span class="pill p-yellow">Elevated</span></td><td class="down">Bearish near-term — rates dominate; flips on de-esc / dovish</td></tr>
+    <tr><td>Healthcare</td><td><span class="pill p-blue">Moderate</span></td><td class="down">Soft — −0.9%; defensive but not bid today</td></tr>
+    <tr><td>Technology</td><td><span class="pill p-yellow">Elevated</span></td><td class="flat">Mixed — semis heavy (chip rout), rate-sensitive; YTD still +33%</td></tr>
+    <tr><td>Financials</td><td><span class="pill p-blue">Moderate</span></td><td class="flat">Neutral — higher-for-longer curve is a two-way factor</td></tr>
+    <tr><td>Industrials</td><td><span class="pill p-yellow">Elevated</span></td><td class="up">Constructive — defense / capex tailwind</td></tr>
+    <tr><td>Crypto</td><td><span class="pill p-green">High</span></td><td class="up">Constructive — BTC resilient; risk-on tell</td></tr>
+  </table>
+</section>
+
+<!-- 6. ACTIONABLE STEPS -->
+<section>
+  <h2>✅ Actionable Steps</h2>
+
+  <div class="block">
+    <h4>Overnight Watch — Tonight, Wednesday, July 8, 2026</h4>
+    <span class="time">Now → overnight session</span>
+    <ul>
+      <li>Headline-driven tape: any confirmed U.S. strike on Iran gaps CL/Brent up and likely gaps ES/NQ down. Set alerts on newswires + oil.</li>
+      <li>Mark the overnight (Globex) high and low as your liquidity pools — these become the BSL/SSL the open will hunt.</li>
+      <li>Keep overnight size minimal. Flat is a legitimate position with strikes threatened "tonight."</li>
     </ul>
-  </section>
+  </div>
 
-  <!-- Section 3: Geopolitical Watchlist -->
-  <section>
-    <h2>🌍 Geopolitical Watchlist</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Event</th><th>Status</th><th>Affected Assets</th><th>Bias Shift</th></tr></thead>
-        <tbody>
-          <tr><td>US–Iran ceasefire declared "over"; strikes on Bahrain/Kuwait targets</td><td>🔴</td><td>CL, Brent, ES, NQ, GC, SI</td><td>Oil bullish (short-term spike); equities risk-off; metals unexpectedly bearish</td></tr>
-          <tr><td>Strait of Hormuz shipping / IRGC attacks on commercial vessels</td><td>🔴</td><td>CL, Brent, shipping/insurance-linked names</td><td>Elevated war-risk premiums; fragile, partial recovery reversed overnight</td></tr>
-          <tr><td>OPEC+ output increases (5th consecutive month, +188k bpd from Aug)</td><td>🟡</td><td>CL, Brent, Energy sector equities</td><td>Structurally bearish supply backdrop capping upside beyond headline spikes</td></tr>
-          <tr><td>Fed policy path / "higher-for-longer" stance, PCE revised to 3.6%</td><td>🟡</td><td>ES, NQ, GC, SI, rate-sensitive sectors</td><td>Bearish for growth/tech multiples; bearish for gold despite geopolitical risk</td></tr>
-          <tr><td>Russia–Ukraine conflict, US-mediated ceasefire talks ongoing</td><td>🟡</td><td>Energy, Defense, European equities</td><td>Low probability of durable peace; intermittent headline risk both ways</td></tr>
-          <tr><td>US–China trade truce / Taiwan arms sales tension</td><td>🟢</td><td>NQ (semis), Defense</td><td>Relatively stable for now; watch for escalation around Taiwan arms sales</td></tr>
-        </tbody>
-      </table>
+  <div class="block">
+    <h4>Pre-Market Prep — Thursday, July 9, 2026</h4>
+    <span class="time">6:00–7:00 AM ET</span>
+    <ul>
+      <li>Log PDH/PDL, the overnight high/low, today's ~$4,050 gold SSL, and the CL spike high.</li>
+      <li>Read the gap: is ES gapping into SSL (below PDL) or BSL (above range highs)? Plan for a sweep-and-reverse, not a continuation.</li>
+      <li>The Fed-minutes hawkish tilt is already in the tape — don't re-trade yesterday's news.</li>
+    </ul>
+  </div>
+
+  <div class="block kz">
+    <h4>London Kill Zone — Thursday, July 9, 2026</h4>
+    <span class="time">2:00–5:00 AM ET</span>
+    <ul>
+      <li>London often sets the false move on geopolitical days. Watch CL for a run above the overnight highs that fails.</li>
+      <li>No standalone entries without an MSS; use London's sweep to define the day's key level for the NY session.</li>
+    </ul>
+  </div>
+
+  <div class="block kz">
+    <h4>NY Open Kill Zone — Thursday, July 9, 2026</h4>
+    <span class="time">7:00–10:00 AM ET · Silver Bullet 9:50–10:10 AM</span>
+    <ul>
+      <li><strong>Setup A — ES sweep reversal:</strong> if the open drives into SSL below PDL and then prints a CISD/MSS back above the opening range, look for an OTE long (62–79% retrace) targeting the range midpoint, then BSL above the overnight high. Invalidation: acceptance below the swept low.</li>
+      <li><strong>Setup B — CL fade the spike:</strong> if crude gaps up into BSL above the geopolitical spike high on a <em>verbal</em> (not confirmed-strike) headline, wait for a 5m MSS lower, then short the retrace into the nearest bearish FVG, targeting the prior consolidation. Invalidation: a confirmed strike / blockade headline — stand aside, don't fight supply news.</li>
+      <li><strong>SMT check:</strong> watch ES vs. NQ at the open — a divergence (one sweeps its low, the other holds) tells you which side is being trapped.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h4>NY Lunch / Afternoon — Thursday, July 9, 2026</h4>
+    <span class="time">12:00–4:00 PM ET</span>
+    <ul>
+      <li>Lunch (12–1 PM): stand down. Low-liquidity chop on a headline day is where accounts bleed.</li>
+      <li>Afternoon: only trade the PM continuation if the morning established a clean MSS with direction; otherwise protect the morning's P&amp;L.</li>
+      <li>Reduce / flatten into the close given repeat overnight strike risk.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 7. RISK & MINDSET -->
+<section>
+  <h2>⚠️ Risk &amp; Mindset</h2>
+  <div class="grid2">
+    <div>
+      <h3>Position sizing</h3>
+      <p>Cut standard risk on a war-headline tape — half-size or less. Volatility widens stops; keep dollar risk constant by trading smaller, not by moving stops.</p>
+      <h3>Narrative discipline</h3>
+      <p>"War = oil up, stocks down" is priced. Your edge is the <em>reaction</em> to the next headline (sweep + MSS), not the headline itself. Don't marry the war thesis.</p>
     </div>
-  </section>
-
-  <!-- Section 4: ICT Market Phase Assessment -->
-  <section>
-    <h2>🧠 ICT Market Phase Assessment</h2>
-    <div class="card-grid">
-      <div class="asset-card">
-        <div class="row1"><span class="asset-name">NQ</span><span class="price">~29,600</span></div>
-        <span class="badge distribution">Distribution</span>
-        <p style="margin-top:8px;">Still inside the symmetric triangle formed since early June, but showing clear SMT divergence against ES — NQ is the weaker leg. The overnight gap down threatens the 50-day MA OB near 29,400; a confirmed MSS below that level opens SSL resting at 28,253. Call wall 31,000 caps upside; put wall 29,500 is the immediate battleground.</p>
-      </div>
-      <div class="asset-card">
-        <div class="row1"><span class="asset-name">ES</span><span class="price">futures −0.8% to −1.1%</span></div>
-        <span class="badge manipulation">Manipulation</span>
-        <p style="margin-top:8px;">Outperforming NQ on the overnight risk-off move — the SMT divergence favors ES relative strength. Overnight decline looks like a liquidity run rather than a structural break; watch for CISD back to the bullish side if ES reclaims yesterday's PDL quickly during NY hours.</p>
-      </div>
-      <div class="asset-card">
-        <div class="row1"><span class="asset-name">CL</span><span class="price">~$74.90–75.00</span></div>
-        <span class="badge manipulation">Manipulation</span>
-        <p style="margin-top:8px;">Sharp BSL run through the prior $71–72 OB high on the Iran headline — classic manipulation spike into thin overnight liquidity. FVG left behind between $70.50–72.00. Next target is the $78–80 supply zone; an MSS back below $75 during NY hours would flag the spike as unsustainable.</p>
-      </div>
-      <div class="asset-card">
-        <div class="row1"><span class="asset-name">GC</span><span class="price">$4,060.20</span></div>
-        <span class="badge distribution">Distribution</span>
-        <p style="margin-top:8px;">CISD flip — delivery has shifted bearish even against a bullish geopolitical headline, confirming the narrative trap above. Price is being delivered down toward the $4,000 psychological OB. A failed breakdown with a fast reclaim of $4,090–4,100 would be the first sign of re-accumulation.</p>
-      </div>
-      <div class="asset-card">
-        <div class="row1"><span class="asset-name">SI</span><span class="price">$58.90</span></div>
-        <span class="badge distribution">Distribution</span>
-        <p style="margin-top:8px;">Silver's −3.95% overnight move is outsized versus gold's −2.34%, typical of silver's higher beta on the way down. FVG left between $58.00–60.50. SSL likely resting near $57.50 from last week's swing low — a magnet if selling continues into the NY session.</p>
-      </div>
-      <div class="asset-card">
-        <div class="row1"><span class="asset-name">BTC</span><span class="price">~$63,229</span></div>
-        <span class="badge accumulation">Re-Accumulation</span>
-        <p style="margin-top:8px;">Snapped a 6-day win streak (longest since March) but the pullback is shallow relative to the extreme-fear crypto sentiment reading. That divergence between price and positioning is consistent with a re-accumulation phase — watch for an SSL sweep of recent lows before any renewed push higher.</p>
-      </div>
+    <div>
+      <h3>Upcoming catalysts</h3>
+      <p>Any confirmed U.S./Iran strike overnight; Hormuz / Kharg Island blockade confirmation; further Fed-speak on the hawkish minutes; energy inventory data. Any one can gap the tape.</p>
+      <h3>Overnight hold warning</h3>
+      <p>Strikes explicitly threatened "tonight." Every overnight position is a gap bet. If you can't defend a gap against you, don't hold it.</p>
     </div>
-  </section>
+  </div>
+  <h3>ICT mindset reminder</h3>
+  <p>Liquidity is engineered where emotion is highest — and fear is highest on war days. Let price take out the obvious stops first, wait for the CISD/MSS, then enter at a discount/premium (OTE). Patience beats prediction.</p>
+</section>
 
-  <!-- Section 5: Sector Assessment -->
-  <section>
-    <h2>🏦 Sector Assessment</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Sector</th><th>Move Likelihood</th><th>Bias</th><th>Reasoning</th></tr></thead>
-        <tbody>
-          <tr><td>Energy</td><td>High</td><td class="up">↑</td><td>Direct beneficiary of the overnight oil spike; already the top-performing sector YTD (+22%) on the HALO rotation. OXY +5.88% pre-market.</td></tr>
-          <tr><td>Defense</td><td>Moderate</td><td class="up">↑</td><td>Renewed US-Iran hostilities and ongoing Russia-Ukraine tension keep a structural bid under defense names.</td></tr>
-          <tr><td>Precious Metals</td><td>High</td><td class="down">↓</td><td>Counterintuitive overnight weakness (gold −2.34%, silver −3.95%) despite the war headline — Fed hawkishness and deleveraging dominating safe-haven flows for now.</td></tr>
-          <tr><td>Healthcare</td><td>Low</td><td class="flat">→</td><td>Defensive characteristics may draw modest inflows on the broader risk-off tone, but no direct catalyst overnight.</td></tr>
-          <tr><td>Technology</td><td>High</td><td class="down">↓</td><td>Compounding pressure from the AI-trade rotation (SOX −12% over two sessions) plus fresh geopolitical risk-off; NVDA, PLTR, IBM all lower pre-market.</td></tr>
-          <tr><td>Financials</td><td>Moderate</td><td class="down">↓</td><td>Bond yields spiked on the news; elevated rate volatility and risk-off tape typically pressure financials in the near term.</td></tr>
-          <tr><td>Industrials / Materials</td><td>Moderate</td><td class="up">↑</td><td>Continues to benefit from the broader HALO rotation (+16% YTD) even with overnight volatility; Caterpillar remains the largest contributor.</td></tr>
-          <tr><td>Crypto</td><td>Moderate</td><td class="flat">→</td><td>Extreme fear positioning vs. relatively contained price decline suggests two-sided risk; watch for a sentiment-driven squeeze either direction.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+<!-- 8. MARKET SNAPSHOT -->
+<section>
+  <h2>📊 Market Snapshot</h2>
+  <table>
+    <tr><th>Instrument</th><th class="mono">Last</th><th class="mono">Move</th><th>Bias</th><th>Key levels</th></tr>
+    <tr><td class="mono">NQ</td><td class="mono">—</td><td class="mono down">Nasdaq −0.4%</td><td><span class="pill p-yellow">Neutral-down</span></td><td>Overnight low SSL · opening-range MSS</td></tr>
+    <tr><td class="mono">ES</td><td class="mono">—</td><td class="mono down">S&amp;P −0.6%</td><td><span class="pill p-yellow">Neutral-down</span></td><td>PDL sweep · range-high BSL</td></tr>
+    <tr><td class="mono">WTI</td><td class="mono">~$73.8</td><td class="mono up">+~4.8%</td><td><span class="pill p-red">Bullish (extended)</span></td><td>Spike-high BSL · FVG fill on de-esc</td></tr>
+    <tr><td class="mono">Brent</td><td class="mono">~$78.1</td><td class="mono up">+~5.3%</td><td><span class="pill p-red">Bullish (extended)</span></td><td>$78 handle · blockade = new leg</td></tr>
+    <tr><td class="mono">Gold</td><td class="mono">~$4,050</td><td class="mono down">−~1%</td><td><span class="pill p-red">Soft (rates-led)</span></td><td>$4,050 SSL · reclaim + MSS re-arms bid</td></tr>
+    <tr><td class="mono">Silver</td><td class="mono">—</td><td class="mono flat">n/a</td><td><span class="pill p-yellow">Follow gold</span></td><td>Confirm off gold lead; no standalone entry</td></tr>
+    <tr><td class="mono">BTC</td><td class="mono">~$63.7K</td><td class="mono up">Firm</td><td><span class="pill p-green">Constructive</span></td><td>$61.8K reclaim · $57K sweep zone below</td></tr>
+  </table>
+  <p class="muted" style="margin-top:10px;font-size:12px">Index figures are intraday changes as of ~2:45 PM ET; individual futures marks (NQ/ES/SI) not separately confirmed at time of writing. Levels are ICT reference zones, not price targets.</p>
+</section>
 
-  <!-- Section 6: ICT Actionable Steps -->
-  <section>
-    <h2>✅ ICT Actionable Steps</h2>
-    <div class="timeblock-grid">
-      <div class="timeblock">
-        <h3>Pre-Market Prep — Wednesday, July 8, 2026</h3>
-        <div class="when">6:00 AM – 7:00 AM ET</div>
-        <ul>
-          <li>Mark overnight high/low on ES, NQ, CL, GC, SI formed during the Iran headline reaction.</li>
-          <li>Confirm whether GC/SI weakness is holding or reversing before NY open — this is the key tell for the day's manipulation-detection thesis.</li>
-          <li>Log the CL FVG between $70.50–72.00 and the $78–80 target zone on the daily chart.</li>
-        </ul>
-      </div>
-      <div class="timeblock">
-        <h3>London Kill Zone — Wednesday, July 8, 2026</h3>
-        <div class="when">2:00 AM – 5:00 AM ET</div>
-        <ul>
-          <li>Oil already showed the primary manipulation leg during this window on the Iran headline; expect a retracement pass through the $70.50–72.00 FVG before NY.</li>
-          <li>Watch DXY and bond yields for confirmation of the broader risk-off tone carrying into NY.</li>
-        </ul>
-      </div>
-      <div class="timeblock">
-        <h3>NY Open Kill Zone — Wednesday, July 8, 2026</h3>
-        <div class="when">7:00 AM – 10:00 AM ET</div>
-        <ul>
-          <li><strong>Setup 1 (NQ):</strong> If NQ sweeps the overnight low and reclaims 29,400 (50-day MA OB) with a bullish MSS, look for longs targeting 29,900–30,100. Invalidation below 29,150.</li>
-          <li><strong>Setup 2 (GC):</strong> If gold sweeps toward $4,000 and prints a fast reclaim above $4,020 with a bullish CISD, look for longs targeting $4,090–4,100 — the "narrative trap unwind" trade. Invalidation on an hourly close below $3,980.</li>
-          <li><strong>Silver Bullet — 9:50 AM – 10:10 AM ET:</strong> Focus on CL and ES for a final liquidity run and OTE entry (62–79% retracement of the AM range) in the direction confirmed by the 9:30–9:50 structure.</li>
-        </ul>
-      </div>
-      <div class="timeblock">
-        <h3>NY Lunch — Wednesday, July 8, 2026</h3>
-        <div class="when">12:00 PM – 1:30 PM ET</div>
-        <ul>
-          <li>Stand down. Headline-driven volatility increases the odds of a choppy, low-conviction lunch range — avoid new entries.</li>
-        </ul>
-      </div>
-      <div class="timeblock">
-        <h3>NY Afternoon — Wednesday, July 8, 2026</h3>
-        <div class="when">1:30 PM – 4:00 PM ET</div>
-        <ul>
-          <li>Re-assess the AM structure. Look for continuation of the AM trend if PDH/PDL on ES/NQ held, or a reversal setup if lunch built a tight consolidation against the AM extreme.</li>
-          <li>Monitor for any follow-up Iran/Hormuz headlines around the close — overnight hold risk is elevated (see Risk &amp; Mindset below).</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 7: Risk & Mindset -->
-  <section>
-    <h2>⚠️ Risk &amp; Mindset</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Position Sizing</th><th>Narrative Discipline</th><th>Upcoming Catalysts</th><th>ICT Mindset</th><th>Overnight Hold Warning</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Cut size on CL, GC, SI given overnight volatility already realized — half-size until the AM range establishes and holds.</td>
-            <td>Don't chase the "war = buy gold" headline; the tape has already told you it's not playing out that way. Trade the divergence, not the story.</td>
-            <td>FOMC meeting July 28–29 (rates expected to hold); any further Iran/Hormuz escalation could hit at any hour; large options expiration and quarter-end-style positioning resets flagged for mid-July.</td>
-            <td>The best trades today are the ones that fade the obvious headline reaction once structure confirms it was a liquidity run, not the reaction itself.</td>
-            <td>Elevated risk of gap moves on any new Iran/Hormuz headline outside RTH — reduce or hedge overnight exposure on CL, GC, SI, and NQ positions.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Section 8: Market Snapshot -->
-  <section>
-    <h2>📊 Market Snapshot</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Asset</th><th>Last Close</th><th>Move</th><th>Today's Bias</th><th>Key Levels</th></tr></thead>
-        <tbody>
-          <tr><td>NQ</td><td>~29,600</td><td class="down">−1.6% (premarket)</td><td class="down">↓</td><td>Support 29,400 (50MA) / 28,253; Resistance 31,000 (call wall)</td></tr>
-          <tr><td>ES</td><td>futures −0.8% to −1.1%</td><td class="down">−0.8% to −1.1%</td><td class="flat">→</td><td>Watch PDL reclaim for relative-strength continuation vs. NQ</td></tr>
-          <tr><td>WTI Crude</td><td>$74.79–75.00</td><td class="up">+6.2% to +6.5%</td><td class="up">↑</td><td>FVG $70.50–72.00; Target $78–80 supply zone</td></tr>
-          <tr><td>Brent</td><td>$78.66–78.93</td><td class="up">+6.1% to +6.4%</td><td class="up">↑</td><td>Prior range high ~$72 now support-turned-OB</td></tr>
-          <tr><td>Gold</td><td>$4,060.20</td><td class="down">−2.34%</td><td class="down">↓</td><td>Support $4,000 (psych/OB); Reclaim trigger $4,090–4,100</td></tr>
-          <tr><td>Silver</td><td>$58.90</td><td class="down">−3.95%</td><td class="down">↓</td><td>FVG $58.00–60.50; SSL near $57.50</td></tr>
-          <tr><td>BTC</td><td>~$63,229</td><td class="down">Snapped 6-day win streak</td><td class="flat">→</td><td>Watch for SSL sweep of recent lows before re-accumulation resumes</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  This report is generated automatically for educational and informational purposes only. It does not constitute financial advice, and nothing herein should be construed as a recommendation to buy or sell any security, commodity, or futures contract. Trading futures involves substantial risk of loss and is not suitable for all investors. Always conduct your own research and consult a licensed financial advisor before making trading decisions.
-</footer>
-
+<div class="foot">
+  Daily Futures Report · EOD Edition · Wednesday, July 8, 2026 at 2:45 PM ET · For educational purposes only — not financial advice.
+</div>
+</div>
 </body>
 </html>
