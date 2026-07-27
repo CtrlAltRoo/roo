@@ -3,580 +3,531 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Futures Report — EOD Edition | July 26, 2026</title>
+<title>Daily Futures Trading Report — Monday, July 27, 2026 (Overnight Edition)</title>
 <style>
 :root{
-  --bg:#0d1117; --surface:#161b22; --surface2:#1c2128; --border:#30363d; --text:#e6edf3;
-  --muted:#8b949e; --green:#3fb950; --red:#f85149; --yellow:#d29922; --purple:#bc8cff; --blue:#388bfd;
+  --bg:#0d1117; --surface:#161b22; --surface2:#1c2128; --border:#30363d;
+  --text:#e6edf3; --text-muted:#8b949e;
+  --blue:#388bfd; --green:#3fb950; --red:#f85149; --yellow:#d29922; --purple:#bc8cff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;padding:16px 12px 60px}
-.wrap{max-width:1000px;margin:0 auto}
-header{border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:26px}
-.badge{display:inline-block;background:#1a2a4a;color:var(--blue);font-size:11px;font-weight:700;letter-spacing:1.4px;padding:4px 10px;border-radius:4px;text-transform:uppercase}
-h1{font-size:26px;font-weight:700;margin:12px 0 6px;letter-spacing:-.4px}
-.ts{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
-.sub{color:var(--muted);font-size:13px;margin-top:6px}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 64px}
+
+header{
+  position:sticky;top:0;z-index:100;background:rgba(13,17,23,.94);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--border);
+  padding:14px 16px;margin-bottom:24px;
+}
+header .hwrap{max-width:1180px;margin:0 auto}
+header h1{font-size:19px;font-weight:700;letter-spacing:-.3px}
+header .meta{font-size:12.5px;color:var(--text-muted);margin-top:3px}
+header .meta strong{color:var(--yellow);font-weight:600}
+.edition{
+  display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.7px;
+  background:#1f2937;color:var(--blue);border:1px solid var(--border);
+  border-radius:4px;padding:2px 7px;margin-left:8px;vertical-align:middle;
+}
+
 section{margin-bottom:34px}
-h2{font-size:18px;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-h3{font-size:14px;margin:18px 0 8px;color:var(--purple);text-transform:uppercase;letter-spacing:.6px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
-.card.alert-y{border-left:3px solid var(--yellow)}
-.card.alert-g{border-left:3px solid var(--green)}
-.card.alert-r{border-left:3px solid var(--red)}
-.card.alert-b{border-left:3px solid var(--blue)}
-.card.alert-p{border-left:3px solid var(--purple)}
-.card h4{font-size:14px;margin-bottom:6px}
-p{margin-bottom:9px;font-size:14px}
-ul{margin:0 0 9px 20px;font-size:14px}
-li{margin-bottom:5px}
-table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;font-size:13px}
-th{background:var(--surface2);text-align:left;padding:9px 10px;font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);border-bottom:1px solid var(--border)}
-td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+h2{
+  font-size:17px;font-weight:700;margin-bottom:12px;padding-bottom:8px;
+  border-bottom:1px solid var(--border);letter-spacing:-.2px;
+}
+h3{font-size:14px;font-weight:700;margin:18px 0 8px;color:var(--text)}
+h3 .tag{font-size:11px;color:var(--text-muted);font-weight:500;margin-left:6px}
+p{margin-bottom:10px}
+.muted{color:var(--text-muted)}
+.small{font-size:13px}
+
+.banner{border-radius:10px;padding:18px 20px;border-left:5px solid;margin-bottom:12px}
+.banner.flip{background:#2d1e00;border-color:var(--yellow)}
+.banner.confirmed{background:#0d2018;border-color:var(--green)}
+.banner.quiet{background:var(--surface);border-color:var(--border)}
+.banner .btitle{font-size:17px;font-weight:800;letter-spacing:.5px;margin-bottom:10px}
+.banner.flip .btitle{color:var(--yellow)}
+.banner.confirmed .btitle{color:var(--green)}
+.banner ul{margin:8px 0 0 18px}
+.banner li{margin-bottom:6px}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px}
+.card .ctitle{font-size:15px;font-weight:700;margin-bottom:2px}
+.card .cprice{font-size:13px;color:var(--text-muted);margin-bottom:10px;font-variant-numeric:tabular-nums}
+.card p{font-size:13.5px;margin-bottom:8px}
+.card p:last-child{margin-bottom:0}
+
+.badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.6px;
+  padding:3px 9px;border-radius:20px;text-transform:uppercase;white-space:nowrap}
+.b-accum{background:rgba(63,185,80,.15);color:var(--green);border:1px solid rgba(63,185,80,.4)}
+.b-manip{background:rgba(210,153,34,.15);color:var(--yellow);border:1px solid rgba(210,153,34,.4)}
+.b-dist{background:rgba(248,81,73,.15);color:var(--red);border:1px solid rgba(248,81,73,.4)}
+.b-reaccum{background:rgba(56,139,253,.15);color:var(--blue);border:1px solid rgba(56,139,253,.4)}
+.b-high{background:rgba(248,81,73,.15);color:var(--red);border:1px solid rgba(248,81,73,.4)}
+.b-medhigh{background:rgba(188,140,255,.15);color:var(--purple);border:1px solid rgba(188,140,255,.4)}
+.b-med{background:rgba(210,153,34,.15);color:var(--yellow);border:1px solid rgba(210,153,34,.4)}
+.b-low{background:rgba(139,148,158,.15);color:var(--text-muted);border:1px solid var(--border)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+th{background:var(--surface2);text-align:left;padding:11px 13px;font-size:11.5px;
+  letter-spacing:.6px;text-transform:uppercase;color:var(--text-muted);
+  border-bottom:1px solid var(--border);font-weight:700;white-space:nowrap}
+td{padding:11px 13px;border-bottom:1px solid var(--border);vertical-align:top}
 tr:last-child td{border-bottom:none}
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.g{color:var(--green)}.r{color:var(--red)}.y{color:var(--yellow)}.b{color:var(--blue)}.p{color:var(--purple)}.m{color:var(--muted)}
-.pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:.5px;white-space:nowrap}
-.ph-acc{background:#12261a;color:var(--green)}
-.ph-man{background:#2b230d;color:var(--yellow)}
-.ph-dist{background:#2d1114;color:var(--red)}
-.ph-reacc{background:#0f2140;color:var(--blue)}
-.imp-h{background:#2d1114;color:var(--red)}
-.imp-mh{background:#2b230d;color:var(--yellow)}
-.imp-m{background:#1c2128;color:var(--muted)}
-.kv{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
-.flag{font-size:11px;color:var(--yellow);border:1px dashed #4a3c14;padding:1px 5px;border-radius:4px;white-space:nowrap}
-.blk{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
-.blk .time{font-size:11px;color:var(--blue);font-weight:700;letter-spacing:.8px;text-transform:uppercase}
-.setup{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;margin-top:10px}
-.setup .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
-footer{border-top:1px solid var(--border);padding-top:16px;color:var(--muted);font-size:12px}
-.gloss{font-size:12px;color:var(--muted)}
-@media(max-width:600px){h1{font-size:21px}body{padding:12px 10px 50px}table{font-size:12px}}
+tbody tr:hover{background:var(--surface2)}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.up{color:var(--green);font-weight:700}
+.down{color:var(--red);font-weight:700}
+.flat{color:var(--text-muted);font-weight:700}
+
+.trap{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--yellow);
+  border-radius:10px;padding:16px;margin-bottom:14px}
+.trap .ttitle{font-size:14.5px;font-weight:700;color:var(--yellow);margin-bottom:10px}
+.trap .row{margin-bottom:9px;font-size:13.5px}
+.trap .row:last-child{margin-bottom:0}
+.trap .k{display:block;font-size:10.5px;letter-spacing:.7px;text-transform:uppercase;
+  color:var(--text-muted);font-weight:700;margin-bottom:2px}
+.trap .setup{background:var(--surface2);border-radius:7px;padding:10px 12px;margin-top:10px;font-size:13.5px}
+.trap .setup .k{color:var(--green)}
+
+.tblock{background:var(--surface);border:1px solid var(--border);border-radius:10px;
+  padding:16px;margin-bottom:14px;border-top:3px solid var(--blue)}
+.tblock h4{font-size:14.5px;font-weight:700;margin-bottom:3px}
+.tblock .when{font-size:12px;color:var(--text-muted);margin-bottom:11px;font-weight:600}
+.tblock ul{margin-left:18px}
+.tblock li{margin-bottom:7px;font-size:13.5px}
+.setupbox{background:var(--surface2);border:1px solid var(--border);border-radius:8px;
+  padding:12px;margin:10px 0}
+.setupbox .sname{font-weight:700;font-size:13.5px;color:var(--blue);margin-bottom:6px}
+.setupbox .line{font-size:13px;margin-bottom:4px}
+.tstop{color:var(--red);font-weight:700}
+
+.warnbox{background:#2d1e00;border:1px solid var(--yellow);border-radius:10px;padding:14px;margin-top:12px;font-size:13.5px}
+
+footer{border-top:1px solid var(--border);padding-top:18px;margin-top:40px;
+  font-size:12px;color:var(--text-muted);text-align:center}
+
+@media(max-width:760px){
+  .grid{grid-template-columns:1fr}
+  header h1{font-size:16px}
+  body{font-size:14px}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
 
 <header>
-  <span class="badge">EOD Edition</span>
-  <h1>Daily Futures Report — ICT Smart Money Assessment</h1>
-  <div class="ts">Last updated: Sunday, July 26, 2026 at 8:01 PM ET</div>
-  <div class="sub">Weekend edition — covers the Friday, July 24 close plus the Sunday globex reopen. Game plan is for <strong>Monday, July 27, 2026</strong>. Day-trading focus: intraday round trips, flat by the close.</div>
+  <div class="hwrap">
+    <h1>📈 Daily Futures Trading Report <span class="edition">OVERNIGHT EDITION</span></h1>
+    <div class="meta">Monday, July 27, 2026 &nbsp;·&nbsp; <strong>Last updated: Monday, July 27, 2026 at 12:11 AM ET</strong></div>
+  </div>
 </header>
 
-<!-- 1 -->
+<div class="wrap">
+
+<!-- SECTION 1 -->
 <section>
-  <h2>🚨 EOD Alert</h2>
-  <div class="card alert-y">
-    <h4 class="y">EOD ALERT — NARRATIVE FLIP IN PROGRESS (OVERNIGHT RISK: HIGH)</h4>
-    <p>The single most important development of the weekend: <strong>the US and Iran have paused strikes for a second consecutive day</strong>, with Washington explicitly giving diplomacy "some space." The war premium that has driven every market since late February is being actively drained.</p>
+  <h2>🚨 After-Hours / Overnight Alert</h2>
+  <div class="banner flip">
+    <div class="btitle">⚠️ NARRATIVE FLIP — WEEKEND STRIKE PAUSE GUTS THE ENERGY BID</div>
+    <p><b>What the market believed at Friday's close (July 24):</b> Brent had settled above $100 for the first time since May, WTI was still holding the low-$90s, the 10-year sat near 4.70%, September Fed hike odds ripped from below 53% to roughly 82% on CME FedWatch, and the Mag-7 had just shed close to $800B on Thursday over AI capex. Consensus into the weekend: energy-led inflation forces Warsh's hand, long-duration tech stays under the boot.</p>
+    <p><b>What actually happened over the weekend:</b> The U.S. paused strikes on Iran — Saturday, July 25 was the first day in two weeks with no announced new U.S. strikes, and mediators are pushing a 10-day ceasefire framework. Crude gapped down hard on the Sunday reopen: Brent off roughly 4.9–7.6% into the low-$90s, WTI down more than 5% to about $84.84. Equity index futures caught an immediate risk-on bid — Dow +244 (≈0.5%), ES +0.6%, NQ +1.2%.</p>
     <ul>
-      <li><strong>Sunday reopen:</strong> September Brent fell <span class="r">-4.9% to $92.02</span> shortly after globex resumed, on top of Friday's ~<span class="r">-3.9%</span> session drop. Brent printed as high as ~$102 last week.</li>
-      <li><strong>Equity futures:</strong> Nasdaq 100 contracts advanced <span class="g">more than 1%</span>; dollar softer with AUD and EUR leading — textbook risk-on, haven demand trimmed.</li>
-      <li><strong>Friday's close was the opposite tape:</strong> S&amp;P 500 +0.05% to 7,411.98, Dow +0.46% to 51,947.25, but Nasdaq Composite <span class="r">-0.64% to 24,975.82</span> and the SOX semi index <span class="r">-4.25%</span>. All three majors finished the week lower, Nasdaq -2% on the week.</li>
+      <li><b>CL / Brent — bias flipped short-term bearish, structurally unresolved.</b> This is a headline gap, not a supply resolution. Hormuz transits are still collapsed (78 transits July 13–24 vs 174 July 6–12; ~15 ships on July 19 against a normal ~88/day). Houthis hit Aramco-affiliated facilities at Jizan and Yanbu on Saturday and are running a maritime blockade on Saudi-linked shipping, with roughly 2.5 mbd exposed. <span style="color:var(--yellow)">A pause in strikes is not a barrel back in the water.</span></li>
+      <li><b>NQ / ES — bias flipped short-term bullish into the gap.</b> The rate-hike-via-oil channel just got yanked, which mechanically relieves the long-duration discount. But nothing about the AI capex problem changed over the weekend, and MSFT/META (Wed) and AAPL/AMZN (Thu) all report into this.</li>
+      <li><b>GC / SI — mixed, and the tape is telling on itself.</b> Reporting is split: one read has gold up roughly $40 to ~$4,096 on softer real-rate expectations, another has gold losing its safe-haven bid on the same de-escalation. Both cannot be the dominant flow. Treat gold as unresolved between $3,960 and $4,170 and let the kill zone pick a side.</li>
+      <li><b>BTC — beta to the equity gap.</b> ~$64.3K into Monday, sitting right on the $63,800 line that capped it all month.</li>
     </ul>
-    <p><strong>Overnight hold warning:</strong> Do not carry directional oil or index risk into Monday's cash open. A pause is not a signed agreement. One overnight strike headline reverses the entire gap, and Strait traffic is still running only ~25 ships/day against a July 7 peak of 49 — the physical disruption has NOT been repaired. Headline risk is two-sided and violent.</p>
-  </div>
-  <div class="card alert-b">
-    <h4 class="b">What to watch between now and Monday's 9:30 AM ET cash open</h4>
-    <ul>
-      <li>Any confirmation or denial from Tehran or Washington on the pause holding into a third night. Silence = gap holds. Strike headline = gap fills instantly.</li>
-      <li>Whether the NQ Sunday gap is <em>held</em> above Friday's high or <em>rejected</em> — that single distinction sets Monday's entire bias (see Section 7).</li>
-      <li>Asian tanker and freight-rate headlines. Falling rates confirm the de-escalation trade; sticky rates mean the oil selloff is sentiment, not supply.</li>
-    </ul>
+    <p style="margin-top:10px"><b>ICT read on the gap:</b> A Sunday-open gap this size, on a headline that reverses nothing structural, three days ahead of an FOMC with an 82%-priced September hike behind it — that is manipulation-leg geometry, not distribution. Sunday gaps get filled far more often than retail expects. Do not chase the open.</p>
   </div>
 </section>
 
-<!-- 2 -->
+<!-- SECTION 2 -->
 <section>
   <h2>🎭 Manipulation Detection</h2>
 
-  <h3>Sentiment Readings</h3>
-  <div class="tw"><table>
-    <tr><th>Gauge</th><th>Reading</th><th>Interpretation</th></tr>
-    <tr><td>CNN Fear &amp; Greed</td><td class="y kv">39 — FEAR</td><td>Fear into a weekend that then produced a de-escalation gap up. Classic setup for a squeeze against under-positioned longs.</td></tr>
-    <tr><td>Crypto Fear &amp; Greed</td><td class="y kv">37 — FEAR</td><td>BTC sub-$65K with roughly $40.1M in liquidations. Retail crypto positioning already flushed.</td></tr>
-    <tr><td>BTC spot ETF flows</td><td class="r kv">-$225M (Thu)</td><td>Broke a week-long streak of ~+$999M net inflows. Institutional risk appetite cooled <em>before</em> the pause.</td></tr>
-    <tr><td>AAII bull/bear</td><td class="m">Not confirmed in tonight's data <span class="flag">unconfirmed</span></td><td>Treated as unavailable rather than guessed. Use F&amp;G plus ETF flows as the sentiment proxy this session.</td></tr>
-    <tr><td>COT / commercials</td><td class="m">Latest CFTC report not confirmed <span class="flag">unconfirmed</span></td><td>Do not trade off assumed positioning. Read the tape instead.</td></tr>
-  </table></div>
-
-  <h3>Active Narrative Traps for Monday, July 27, 2026</h3>
-
-  <div class="card alert-r">
-    <h4>Trap #1 — "The peace trade is here, buy everything"</h4>
-    <p><strong>Media says:</strong> Strikes paused, talks progressing, oil collapsing, risk-on, the war is effectively over. Every headline Sunday night is a de-escalation headline.</p>
-    <p><strong>What's actually true:</strong> There is no agreement. There is a two-night pause while talks are given "space." Strait of Hormuz traffic remains ~25 ships/day against a 49-ship peak — roughly half of normalized flow. The physical supply constraint that took Brent from ~$70 to a ~$103 average is still partly in place. The market is pricing a resolution that has not been signed.</p>
-    <p><strong>Exploitation:</strong> Let the gap trade for the first 30 minutes of the NY session. If NQ fails to accept above Friday's high of <span class="kv">28,736.00</span> and delivers a CISD on the 5-minute, that is a manipulation leg above BSL — short back into the Friday range for a gap-fill target, not a trend short. Conversely, if price accepts above 28,736 and rebalances into the Sunday gap FVG, that's the long. Do not pre-position before 9:30.</p>
+  <h3>A. Sentiment Readings <span class="tag">— who is already positioned, and which way do they get hurt?</span></h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Reading</th><th>Latest</th><th>Plain English</th></tr></thead>
+      <tbody>
+        <tr><td><b>AAII Bullish</b></td><td class="num down">31.4% <span class="muted">(−13.6 pts)</span></td>
+          <td>Retail optimism collapsed in a single week. That is a capitulation-shaped print, not a top-shaped one.</td></tr>
+        <tr><td><b>AAII Bearish</b></td><td class="num up">42.3% <span class="muted">(+6.1 pts)</span></td>
+          <td>Bears well above the ~31% historical norm. Elevated bearishness into a weekend de-escalation is exactly the fuel for a Monday squeeze — and exactly why the squeeze is a trap for late longs.</td></tr>
+        <tr><td><b>AAII Neutral</b></td><td class="num">26.4% <span class="muted">(+7.4 pts)</span></td>
+          <td>Money leaving conviction on both sides. Thin conviction means wider stop runs.</td></tr>
+        <tr><td><b>COT — Gold (managed money)</b></td><td class="num">Net long 124,831 <span class="muted">(Jul 21)</span></td>
+          <td>Specs crowded long into a de-escalation headline. Crowded longs are liquidity. That is the sell-side pool sitting below $4,000.</td></tr>
+        <tr><td><b>COT — WTI (ICE, managed money)</b></td><td class="num">Net <span class="down">short</span> <span class="muted">(4,808 L / 29,028 S, Jul 21)</span></td>
+          <td><b>The tell of the week.</b> Managed money was net short WTI while media printed "$100 oil." Whoever was short got paid on the weekend gap — meaning the short now has cover pressure into strength, not add pressure.</td></tr>
+        <tr><td><b>Fed pricing (CME FedWatch)</b></td><td class="num">~82% Sept hike <span class="muted">(vs &lt;53% a week ago)</span></td>
+          <td>A hawkish repricing built almost entirely on a $100 oil print that no longer exists at $85–92. Fragile. Kalshi is far more skeptical near 48% — the two markets disagree violently.</td></tr>
+        <tr><td><b>Put/Call &amp; Fear/Greed</b></td><td class="num muted">Not confirmed tonight</td>
+          <td>No corroborated print for July 24–26 in tonight's data. Not publishing a number I cannot source. AAII and COT carry the sentiment read.</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <div class="card alert-r">
-    <h4>Trap #2 — "AI capex is broken, sell the semis"</h4>
-    <p><strong>Media says:</strong> SOX -4.25% Friday, memory and semi names hammered, Alphabet's spending plans and negative free cash flow "spooked investors," capex is out of control.</p>
-    <p><strong>What's actually true:</strong> The prevailing dynamic all month has been that <em>big AI spenders get punished while semiconductor makers get rewarded</em> — Friday inverted that, which is unusual, and it happened directly into the week where MSFT, META, AMZN and AAPL all report. A -4.25% single-day SOX flush ahead of four Mag-7 prints is far more consistent with an engineered liquidity grab than with a thesis change.</p>
-    <p><strong>Exploitation:</strong> Watch for a raid on Friday's NQ session low <span class="kv">28,212.50</span> at any point Monday. A sweep of that SSL plus a 5-minute MSS back above it is the highest-quality long of the day. Fade the panic, don't join it — and be flat before the Wednesday/Thursday earnings gauntlet.</p>
+  <h3>B. Active Narrative Traps</h3>
+
+  <div class="trap">
+    <div class="ttitle">TRAP 1 — "The Middle East is fixed, sell your oil"</div>
+    <div class="row"><span class="k">The Narrative</span>U.S. and Iran paused attacks, mediators are pushing a 10-day ceasefire, therefore the war premium comes out of crude. Brent −5 to −7%, WTI to $84.84 on the reopen.</div>
+    <div class="row"><span class="k">Reality Check</span>Nothing physical changed. Hormuz is still effectively shut — 15 transits on July 19 against a normal ~88/day. The Houthis attacked Aramco facilities at Jizan and Yanbu on <i>Saturday</i>, after the pause, and are blockading Saudi-linked shipping with ~2.5 mbd exposed. The last U.S.–Iran ceasefire in this conflict held under three weeks before collapsing. A pause in one belligerent's air campaign is not restored supply.</div>
+    <div class="row"><span class="k">ICT Read</span>The weekend gap down through the Friday low is a manipulation leg engineered to strip longs who bought the $100 Brent print on Thursday and to fill sell-side liquidity beneath the Friday range. Managed money was already net short into it. Watch for a 5m CISD in the London or NY session and an MSS back into the gap.</div>
+    <div class="setup"><span class="k">Exploitation Setup — CL long (day trade only)</span>
+      Let the Sunday/Monday low print near <b>$84.84</b> and finish hunting stops beneath it. Long only on a 5m CISD + MSS back above <b>$86.50</b>, entering the OTE retrace of that first impulse. Stop <b>$0.70</b> beneath the swept low. T1 <b>$88.50</b>, T2 the Friday close gap edge at <b>$90.47</b>. <span class="tstop">Time-stop: flat by 11:30 AM ET if T1 has not printed.</span> Do not carry into Wednesday's EIA.
+    </div>
   </div>
 
-  <div class="card alert-r">
-    <h4>Trap #3 — "The Fed is going to hike Wednesday"</h4>
-    <p><strong>Media says:</strong> Oil topped $100, inflation has run above target for five years, and roughly a 33% probability of a 25bp hike is being priced for the July 28–29 FOMC.</p>
-    <p><strong>What's actually true:</strong> FactSet-polled economists still expect a hold at 3.50–3.75% — a fifth straight hold — and CME FedWatch put no-change near 65%. Meanwhile the entire hawkish argument (crude above $100) evaporated in 72 hours: Brent is now ~$92 and falling. June CPI and PPI already cooled. The hike narrative is being sold into a market where the inflation impulse is deflating in real time.</p>
-    <p><strong>Exploitation:</strong> This is a Wednesday event, not a Monday trade — but it shapes Monday's bias. Hawkish-positioned shorts in ES/NQ are the fuel for early-week upside. Do not hold any position into 2:00 PM ET Wednesday.</p>
+  <div class="trap">
+    <div class="ttitle">TRAP 2 — "Oil is down, so the Fed backs off, so buy tech"</div>
+    <div class="row"><span class="k">The Narrative</span>The whole September-hike repricing (from &lt;53% to ~82% in a week) was driven by energy-led inflation. Crude just fell 5–7%, so the hawkish case dies and long-duration tech re-rates. NQ +1.2% on the reopen agrees.</div>
+    <div class="row"><span class="k">Reality Check</span>Two problems. First, the FOMC decision lands <b>Wednesday, July 29 at 2:00 PM ET</b> under a chair — Kevin Warsh — who already took this year's expected cut off the table in June, with nine of nineteen officials penciling a hike this year. He does not need $100 oil to sound hawkish. Second, Thursday's ~$800B Mag-7 drawdown was about <i>capex and free cash flow</i>, not oil: Alphabet fell 7% on a raised $205B capex guide, Tesla fell 14.5% on collapsing profit. Cheaper crude does not fix a negative-FCF story, and MSFT/META report Wednesday after the close with AAPL/AMZN Thursday.</div>
+    <div class="row"><span class="k">ICT Read</span>Who benefits if retail believes the all-clear? Whoever needs buy-side liquidity above the Friday high to distribute into ahead of an FOMC and four megacap prints. The gap up is a delivery mechanism, not a signal. Watch NQ/ES SMT: if NQ takes out its Friday high at 28,736 and ES fails to take out its correlated high, that divergence is the distribution tell.</div>
+    <div class="setup"><span class="k">Exploitation Setup — NQ short-side fade (day trade only)</span>
+      If NQ runs the BSL at the Friday high near <b>28,736</b> in the first hour and prints a 5m CISD back beneath it, short the OTE retrace into <b>28,700–28,740</b>. Stop <b>28,810</b>. T1 <b>28,480</b>, T2 the Sunday gap fill toward <b>28,290</b>. <span class="tstop">Time-stop: flat by 11:00 AM ET regardless.</span> No fades held into Wednesday.
+    </div>
   </div>
 
-  <h3>What Smart Money Appeared To Do</h3>
+  <div class="trap">
+    <div class="ttitle">TRAP 3 — "Gold has lost its safe haven and it's over"</div>
+    <div class="row"><span class="k">The Narrative</span>Ceasefire hopes take the geopolitical bid out of gold, the $4,000 handle is at risk, specs should get out.</div>
+    <div class="row"><span class="k">Reality Check</span>The weekend gold reporting is internally contradictory — one source has gold up ~$40 to $4,096 on the de-escalation, another has it losing safe-haven appeal on the same news. When the narrative cannot agree on direction, the move is being manufactured, not discovered. Meanwhile managed money is net long 124,831 contracts as of July 21 — a very visible pool of stops beneath $4,000.</div>
+    <div class="row"><span class="k">ICT Read</span>$4,000 is not support; it is a magnet. A wick below $4,000 that reclaims within the same session is the highest-probability structure on the board Monday. A close beneath it that holds on the retest opens $3,960 as the real SSL target.</div>
+    <div class="setup"><span class="k">Exploitation Setup — GC long the reclaim (day trade only)</span>
+      Only if price sweeps below <b>$4,000</b> and reclaims. Long on 5m CISD + MSS back above <b>$4,012</b>, entering the OTE of the reclaim leg. Stop <b>$3,992</b>, beneath the sweep low. T1 <b>$4,060</b>, T2 <b>$4,096</b>. If gold instead opens above $4,060 and grinds, stand down — no chase. <span class="tstop">Time-stop: flat by 12:00 PM ET.</span>
+    </div>
+  </div>
+
+  <h3>C. What Smart Money Appears to Be Doing</h3>
   <div class="card">
-    <ul>
-      <li><strong>Rotated out of the war trade before the news.</strong> Energy (XLE) moderated Friday after a 5-day rally as Brent slipped below $98 — energy longs were being distributed <em>into</em> strength a full session before the pause was public.</li>
-      <li><strong>Bought defensives and rate-sensitives, not beta.</strong> Real Estate/REITs led (+2.3%), Utilities outperformed on haven demand and softer yields, Healthcare was firm on medical-device and pharma beats. Breadth was broadly positive while the index-weight tech complex was sold.</li>
-      <li><strong>Used the semi flush to reprice risk ahead of earnings.</strong> Dow +0.46% with Nasdaq -0.64% on the same day is a clean SMT divergence: money left cap-weighted AI exposure and stayed invested elsewhere. That is rotation, not liquidation.</li>
-    </ul>
+    <p><b>Crude:</b> Managed money went into the weekend <b>net short</b> WTI on ICE (4,808 long / 29,028 short as of July 21) while the tape printed $100 Brent and the media ran "$100 oil" headlines. That is the cleanest institution-versus-narrative divergence on the board. They were positioned for exactly this gap. The next move is cover, not press.</p>
+    <p><b>Gold:</b> Specs net long 124,831 COMEX contracts into a de-escalation headline — crowded and visible. Institutions do not need to sell gold; they need retail's stops under $4,000 to fill a bid. Expect sweep-and-reclaim rather than a clean trend day.</p>
+    <p><b>Equities:</b> Money rotated <i>into</i> REITs, Materials, Healthcare and Staples last week while Technology dragged the indices lower — nearly all eleven sectors finished higher on positive breadth even as the cap-weighted tape fell. That is defensive accumulation under a distributing megacap complex, not a broad exit. Consumer Discretionary was on pace for its worst week since early April 2025 (Tesla-led); Communication Services its worst in a month.</p>
+    <p><b>Rates / crypto:</b> The 10-year near 4.70% and record June BTC ETF outflows (~$4.5B) say institutions have not re-risked. A 1.2% Sunday futures pop does not undo that. BTC at ~$64.3K sits exactly on the $63,800 line that capped it all month — reclaim or reject, and it resolves on the FOMC, not on the Iran headline.</p>
   </div>
 </section>
 
-<!-- 3 -->
+<!-- SECTION 3 -->
 <section>
   <h2>🌍 Geopolitical Watchlist</h2>
-  <div class="tw"><table>
-    <tr><th>Situation</th><th>Status</th><th>Assets Affected</th><th>Bias Shift</th></tr>
-    <tr>
-      <td><strong>US–Iran conflict / Strait of Hormuz crisis</strong><br><span class="m">Ongoing since Feb 28, 2026</span></td>
-      <td><span class="pill imp-h">DE-ESCALATING — FRAGILE</span><br><span class="m">Second consecutive night without strikes; talks given "space" by Washington</span></td>
-      <td>CL, Brent, RB/HO, XLE, GC, ES/NQ, USD, tanker &amp; freight</td>
-      <td class="r">Strongly bearish crude near-term, bullish risk assets. Reverses on one headline — size accordingly.</td>
-    </tr>
-    <tr>
-      <td><strong>Hormuz physical throughput</strong></td>
-      <td><span class="pill imp-mh">IMPAIRED</span><br><span class="m">~25 ships/day vs. 49-ship July 7 peak</span></td>
-      <td>Brent–WTI spread, refined products, Asian fuel markets</td>
-      <td class="y">Floor under crude. Argues the selloff overshoots below roughly $85–88 Brent absent a signed deal.</td>
-    </tr>
-    <tr>
-      <td><strong>Regional retaliation risk (Gulf allies)</strong></td>
-      <td><span class="pill imp-mh">DORMANT, NOT RESOLVED</span><br><span class="m">Two weeks of Iranian retaliation on US allies preceded the pause</span></td>
-      <td>CL, GC, defense names, XLI</td>
-      <td class="y">Keeps a bid under gold and defense on any dip. Do not short volatility.</td>
-    </tr>
-    <tr>
-      <td><strong>Global fuel rationing / Asian shortages</strong></td>
-      <td><span class="pill imp-m">EASING</span></td>
-      <td>Refiners, crack spreads, HO</td>
-      <td class="m">Slow-moving. Not a same-session day-trade catalyst.</td>
-    </tr>
-    <tr>
-      <td><strong>Tariff policy / inflation expectations</strong></td>
-      <td><span class="pill imp-m">ACTIVE</span><br><span class="m">Cited as a driver of higher Treasury yields, pressuring crypto and long-duration equity</span></td>
-      <td>BTC, NQ, rate-sensitive tech, USD</td>
-      <td class="y">Competing with the oil collapse. Net inflation impulse now falling.</td>
-    </tr>
-  </table></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Event</th><th>Status</th><th>Affected Assets</th><th>Bias Shift</th></tr></thead>
+      <tbody>
+        <tr><td><b>U.S.–Iran war — strike pause</b><br><span class="muted small">Conflict initiated Feb 28, 2026. First day in two weeks with no announced new U.S. strikes (Jul 25). Mediators pushing a 10-day ceasefire.</span></td>
+          <td>🟡</td><td>CL, Brent, GC, ES, NQ, Energy &amp; Defense equities</td>
+          <td><b>Short-term risk-on.</b> Crude −5 to −7%, equity futures bid. But the prior ceasefire in this conflict held under three weeks — treat as pause, not peace.</td></tr>
+        <tr><td><b>Strait of Hormuz effectively closed</b><br><span class="muted small">78 transits Jul 13–24 vs 174 Jul 6–12; ~15 ships on Jul 19 against a normal ~88/day.</span></td>
+          <td>🔴</td><td>CL, Brent, refined products, shipping, Energy</td>
+          <td><b>Unchanged and structurally bullish crude.</b> This is the fact the weekend gap ignored, and the strongest argument that $84.84 is a manipulation low.</td></tr>
+        <tr><td><b>Houthi strikes on Saudi energy infrastructure</b><br><span class="muted small">Ballistic missiles, cruise missiles and drones on Aramco-affiliated facilities at Jizan and Yanbu, Saturday Jul 25, after Riyadh struck the group Jul 24.</span></td>
+          <td>🔴</td><td>CL, Brent, Defense, tanker rates</td>
+          <td><b>Escalating — and it happened after the pause.</b> ~2.5 mbd of Saudi supply exposed. Any confirmed damage headline is an instant crude gap-up risk, and a hard reason not to be short crude into the close.</td></tr>
+        <tr><td><b>Houthi maritime blockade — Saudi-linked shipping</b><br><span class="muted small">Red Sea / Bab el-Mandeb attacks resumed.</span></td>
+          <td>🔴</td><td>Brent, freight, insurance, Industrials</td>
+          <td>Keeps the Brent–WTI spread wide and supports Brent on any dip toward $90.</td></tr>
+        <tr><td><b>U.S. sanctions posture on Iranian crude</b><br><span class="muted small">Treasury revoked the general license authorizing Iranian oil sales when the prior ceasefire collapsed.</span></td>
+          <td>🟡</td><td>CL, Brent</td>
+          <td>A restored license would be the genuinely bearish crude headline. Until then the supply math has not improved.</td></tr>
+        <tr><td><b>Global rate divergence — BoE &amp; BoJ this week</b><br><span class="muted small">Both expected to hold.</span></td>
+          <td>🟢</td><td>DXY, GC, ES, NQ</td>
+          <td>Low expected impact, but a BoJ surprise Friday is the classic carry-unwind tail risk. Size down Friday.</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-<!-- 4 -->
+<!-- SECTION 4 -->
 <section>
   <h2>📅 Upcoming News Events — High &amp; Medium Impact</h2>
-  <p class="m" style="font-size:13px">All times ET. Verify exact release times on the morning of each event — schedules shift. Anything flagged <span class="flag">verify</span> was not confirmed to the minute in tonight's research.</p>
-  <div class="tw"><table>
-    <tr><th>Date / Time (ET)</th><th>Event</th><th>Impact</th><th>Assets in Play</th><th>Why It Matters</th></tr>
-    <tr>
-      <td class="kv">Mon Jul 27<br>all day</td>
-      <td>Light data day; Q2 earnings ramp begins. Fed in blackout.</td>
-      <td><span class="pill imp-m">Medium</span></td>
-      <td>ES, NQ</td>
-      <td>No scheduled catalyst means the Iran pause and the Sunday gap dominate price. Cleanest pure-ICT tape of the week.</td>
-    </tr>
-    <tr>
-      <td class="kv">Tue Jul 28<br>FOMC Day 1</td>
-      <td>FOMC two-day meeting begins; Consumer Confidence <span class="flag">verify</span></td>
-      <td><span class="pill imp-m">Medium</span></td>
-      <td>ES, NQ, GC, USD</td>
-      <td>Positioning day. Expect range compression and liquidity building ahead of Wednesday.</td>
-    </tr>
-    <tr>
-      <td class="kv">Wed Jul 29<br>10:30 AM</td>
-      <td>EIA Weekly Petroleum Status Report (crude inventories)</td>
-      <td><span class="pill imp-mh">Medium-High</span></td>
-      <td>CL, Brent, RB, HO, XLE</td>
-      <td>First inventory print into a collapsing war premium. A build on top of de-escalation is a double hit to crude.</td>
-    </tr>
-    <tr>
-      <td class="kv">Wed Jul 29<br>2:00 PM · presser 2:30</td>
-      <td><strong>FOMC rate decision</strong> — consensus hold at 3.50–3.75%; ~33% odds of +25bp priced</td>
-      <td><span class="pill imp-h">High</span></td>
-      <td>Everything — ES, NQ, GC, SI, BTC, USD, CL</td>
-      <td>Fifth straight hold expected. No SEP at this meeting and reduced forward guidance under Chair Warsh means the presser tone carries the whole move. Be flat.</td>
-    </tr>
-    <tr>
-      <td class="kv">Wed Jul 29<br>after close</td>
-      <td>Microsoft, Meta Platforms earnings <span class="flag">verify</span></td>
-      <td><span class="pill imp-h">High</span></td>
-      <td>NQ, ES, SOX</td>
-      <td>Capex and margin resilience are the entire story. The "spenders punished / chipmakers rewarded" dynamic gets tested directly.</td>
-    </tr>
-    <tr>
-      <td class="kv">Thu Jul 30<br>8:30 AM</td>
-      <td>Q2 GDP (advance) + GDP price deflator; weekly jobless claims</td>
-      <td><span class="pill imp-h">High</span></td>
-      <td>ES, NQ, GC, USD</td>
-      <td>Growth read one day after the Fed. The deflator is the inflation cross-check on the hike debate.</td>
-    </tr>
-    <tr>
-      <td class="kv">Thu Jul 30<br>10:30 AM</td>
-      <td>EIA Natural Gas Storage</td>
-      <td><span class="pill imp-m">Medium</span></td>
-      <td>NG</td>
-      <td>Secondary, but adds energy-complex volatility while crude is already unstable.</td>
-    </tr>
-    <tr>
-      <td class="kv">Thu Jul 30<br>after close</td>
-      <td>Apple, Amazon earnings <span class="flag">verify</span></td>
-      <td><span class="pill imp-h">High</span></td>
-      <td>NQ, ES</td>
-      <td>Four of the Mag 7 report this week. Amazon capex under the microscope.</td>
-    </tr>
-    <tr>
-      <td class="kv">Fri Jul 31<br>8:30 AM</td>
-      <td><strong>Core PCE</strong> + personal income &amp; spending</td>
-      <td><span class="pill imp-h">High</span></td>
-      <td>ES, NQ, GC, SI, BTC, USD</td>
-      <td>The Fed's preferred inflation gauge, landing two days after the decision. Primary risk event of the week's back half.</td>
-    </tr>
-    <tr>
-      <td class="kv">Fri Jul 31<br>1:00 PM</td>
-      <td>Baker Hughes rig count</td>
-      <td><span class="pill imp-m">Medium</span></td>
-      <td>CL, XLE</td>
-      <td>Supply-response read as the geopolitical bid unwinds.</td>
-    </tr>
-    <tr>
-      <td class="kv">Mon Aug 3<br>10:00 AM <span class="flag">verify</span></td>
-      <td>ISM Manufacturing PMI</td>
-      <td><span class="pill imp-mh">Medium-High</span></td>
-      <td>ES, NQ, USD</td>
-      <td>First data of the new month; sets the growth tone.</td>
-    </tr>
-    <tr>
-      <td class="kv">Wed Aug 5<br>8:15 &amp; 10:00 AM <span class="flag">verify</span></td>
-      <td>ADP employment; ISM Services PMI</td>
-      <td><span class="pill imp-mh">Medium-High</span></td>
-      <td>ES, NQ, USD, GC</td>
-      <td>Labor pre-read ahead of the monthly jobs report.</td>
-    </tr>
-    <tr>
-      <td class="kv">Wed Aug 5<br>10:30 AM</td>
-      <td>EIA Weekly Petroleum Status Report</td>
-      <td><span class="pill imp-mh">Medium-High</span></td>
-      <td>CL, Brent, XLE</td>
-      <td>Next crude inventory checkpoint.</td>
-    </tr>
-    <tr>
-      <td class="kv">Ongoing</td>
-      <td>US–Iran talks — unscheduled headlines, any hour</td>
-      <td><span class="pill imp-h">High</span></td>
-      <td>CL, Brent, GC, ES, NQ</td>
-      <td>The largest single risk on the board, and it has no calendar slot. This is the reason to be flat overnight.</td>
-    </tr>
-  </table></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Date / Time (ET)</th><th>Event</th><th>Impact</th><th>Assets in Play</th><th>Why It Matters</th></tr></thead>
+      <tbody>
+        <tr><td class="num"><b>Mon Jul 27</b><br>All session</td><td>FOMC blackout — no Fed speakers</td>
+          <td><span class="badge b-med">Medium</span></td><td>ES, NQ, GC</td>
+          <td>The vacuum is why the Iran headline moves price unopposed today. Ideal manipulation conditions — the gap has no macro counter-narrative to fight it.</td></tr>
+        <tr><td class="num"><b>Tue Jul 28</b><br>Day 1</td><td>FOMC meeting begins</td>
+          <td><span class="badge b-med">Medium</span></td><td>ES, NQ, GC, BTC</td>
+          <td>Typical pre-FOMC compression. Expect range contraction and lower-quality kill zone expansion — cut targets Tuesday.</td></tr>
+        <tr><td class="num"><b>Wed Jul 29</b><br>10:30 AM</td><td>EIA Weekly Crude Oil Inventories</td>
+          <td><span class="badge b-medhigh">Med-High</span></td><td>CL, Brent, Energy</td>
+          <td>First hard supply data since the strike pause and the Hormuz collapse. With transits near 17% of normal, a draw confirms the physical tightness the weekend gap ignored. Do not hold a crude day trade through it.</td></tr>
+        <tr><td class="num"><b>Wed Jul 29</b><br>2:00 PM</td><td><b>FOMC rate decision + statement</b></td>
+          <td><span class="badge b-high">High</span></td><td>Everything</td>
+          <td>The week's pivot. ~82% of a September hike is priced on CME FedWatch (Kalshi only ~48%) — built on a $100 oil print that no longer exists. Consensus is a hold with hawkish language. No SEP and no dot plot this meeting, so the statement wording and presser carry all the weight.</td></tr>
+        <tr><td class="num"><b>Wed Jul 29</b><br>2:30 PM</td><td>Chair Warsh press conference</td>
+          <td><span class="badge b-high">High</span></td><td>ES, NQ, GC, BTC, DXY</td>
+          <td>Warsh already removed 2026's expected cut in June. Classic pattern is a knee-jerk at 2:00 that fully reverses between 2:30 and 3:00. Do not initiate day trades in that window.</td></tr>
+        <tr><td class="num"><b>Wed Jul 29</b><br>After close</td><td>Microsoft &amp; Meta earnings</td>
+          <td><span class="badge b-high">High</span></td><td>NQ, ES, Technology</td>
+          <td>This is the AI-capex trial, not the oil trial. Thursday's ~$800B Mag-7 drawdown was FCF-driven. NQ overnight gap risk Wednesday night is severe — a hard reason to be flat at Wednesday's close.</td></tr>
+        <tr><td class="num"><b>Thu Jul 30</b><br>7:00 AM</td><td>Bank of England decision</td>
+          <td><span class="badge b-med">Medium</span></td><td>GBP, DXY, GC</td>
+          <td>Hold expected. Matters mainly through the dollar leg into the NY open.</td></tr>
+        <tr><td class="num"><b>Thu Jul 30</b><br>8:30 AM</td><td>Q2 GDP (advance) · Initial &amp; Continuing Claims · Employment Cost Index</td>
+          <td><span class="badge b-high">High</span></td><td>ES, NQ, GC, DXY</td>
+          <td>Post-FOMC confirmation or contradiction. ECI is the wage-inflation input Warsh watches most closely heading into September.</td></tr>
+        <tr><td class="num"><b>Thu Jul 30</b><br>8:30–10:00 AM</td><td>June PCE / Core PCE</td>
+          <td><span class="badge b-high">High</span></td><td>GC, ES, NQ, BTC</td>
+          <td>June data — it predates the $100 oil spike entirely. If retail trades it as though it captures the energy shock, that mismatch is the setup. Gold's $4,000 line resolves here if it hasn't already.</td></tr>
+        <tr><td class="num"><b>Thu Jul 30</b><br>After close</td><td>Apple &amp; Amazon earnings</td>
+          <td><span class="badge b-high">High</span></td><td>NQ, ES, Technology</td>
+          <td>With MSFT and META, these four are roughly 17% of S&amp;P 500 market cap reporting inside 24 hours. Friday's open is a coin flip — do not carry NQ risk into it.</td></tr>
+        <tr><td class="num"><b>Fri Jul 31</b><br>Overnight</td><td>Bank of Japan decision</td>
+          <td><span class="badge b-med">Medium</span></td><td>JPY, NQ, BTC, GC</td>
+          <td>Hold expected. The tail risk is a hawkish surprise triggering a carry unwind — the mechanism behind past sharp NQ air pockets.</td></tr>
+        <tr><td class="num"><b>Fri Jul 31</b><br>9:45 AM</td><td>Chicago PMI</td>
+          <td><span class="badge b-med">Medium</span></td><td>ES, Industrials</td>
+          <td>Month-end print. Watch month-end rebalancing flows distorting the 3:00–4:00 PM tape more than the data itself.</td></tr>
+        <tr><td class="num"><b>Fri Jul 31</b><br>1:00 PM</td><td>Baker Hughes Rig Count</td>
+          <td><span class="badge b-low">Low-Med</span></td><td>CL, Energy</td>
+          <td>Secondary, but with Hormuz shut the U.S. supply response is more relevant than usual. Can add volatility to an already-thin Friday afternoon.</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-<!-- 5 -->
+<!-- SECTION 5 -->
 <section>
   <h2>🧠 ICT Market Phase Assessment</h2>
-  <p class="m" style="font-size:13px">Reference levels are Friday, July 24 session data — the weekend makes Friday's range Monday's PDH/PDL reference. Sunday globex levels are directional and flagged where unconfirmed.</p>
-
   <div class="grid">
-    <div class="card alert-b">
-      <h4>NQ — E-mini Nasdaq-100 (Sep '26) <span class="pill ph-reacc">RE-ACCUMULATION</span></h4>
-      <p class="kv">Fri close 28,282.25 · range 28,212.50–28,736.00 · open 28,700.25<br>Sunday reopen: <span class="g">+1%+</span> (≈28,550–28,600 area <span class="flag">unconfirmed</span>)</p>
-      <p>Friday was a manipulation leg dressed as a thesis change: opened near 28,700, sold the SOX -4.25% flush, closed at 28,282 near the session low. That drove price into SSL below the week's lows right before four Mag-7 prints. The Sunday de-escalation gap higher is the tell — the flush was liquidity engineering, not distribution.</p>
-      <ul>
-        <li><strong>BSL:</strong> 28,736.00 (Friday high, confluent with Friday's open)</li>
-        <li><strong>SSL:</strong> 28,212.50 (Friday low) — the magnet if the gap fails</li>
-        <li><strong>Sunday gap FVG:</strong> roughly 28,282–28,400. Prime OTE rebalance zone for longs</li>
-        <li>Needs a 5-min MSS above 28,736 to confirm re-accumulation; failure there flips this to manipulation-of-longs</li>
-      </ul>
+
+    <div class="card">
+      <div class="ctitle">NQ — E-mini Nasdaq-100 (Sep '26) <span class="badge b-manip">Manipulation</span></div>
+      <div class="cprice">≈ 28,282 Friday reference · Sunday reopen ≈ <b>+1.2%</b> · Friday range 28,212.50 – 28,736.00</div>
+      <p>Friday delivered into the SSL at <b>28,212.50</b> and closed near the low — then the weekend headline gapped the reopen back toward the mid-28,500s. That is a gap engineered directly into the buy-side pool at the Friday high of <b>28,736</b>, with the FVG left by Thursday's ~$800B megacap flush still unfilled above it.</p>
+      <p>Constructive only above a reclaimed <b>28,736</b> that holds on retest. Watch <b>NQ/ES SMT</b>: if NQ makes a higher high above 28,736 and ES fails to confirm at its correlated level, that divergence is the distribution signature and the fade is live. Downside magnet on rejection is the Sunday gap fill near <b>28,290</b>, then the PDL at <b>28,212.50</b>.</p>
     </div>
 
-    <div class="card alert-b">
-      <h4>ES — E-mini S&amp;P 500 (Sep '26) <span class="pill ph-reacc">RE-ACCUMULATION</span></h4>
-      <p class="kv">S&amp;P 500 cash close 7,411.98 (+0.05%)<br>ES Sep '26 ≈7,447.50 last observed <span class="flag">approx</span></p>
-      <p>Far cleaner structure than NQ. Cash printed flat while 10 of 11 sectors advanced and the Dow gained 0.46% — the index was held down almost entirely by semi weight. That is a healthy tape wearing a bad print. SMT divergence versus NQ (ES holding, NQ breaking) favors ES longs over NQ longs on any early-week dip.</p>
-      <ul>
-        <li><strong>BSL:</strong> Friday session high — use your platform's exact ES print, not the cash index</li>
-        <li><strong>SSL:</strong> Friday session low</li>
-        <li>Broad breadth argues dips get bought until the Wednesday FOMC</li>
-      </ul>
+    <div class="card">
+      <div class="ctitle">ES — E-mini S&amp;P 500 (Sep '26) <span class="badge b-reaccum">Re-Accumulation</span></div>
+      <div class="cprice">≈ 7,447.50 Friday futures reference · cash close 7,408.30 (−90.66, −1.2%) · Sunday reopen ≈ <b>+0.6%</b></div>
+      <p>ES is behaving better than NQ — nearly all eleven sectors closed higher Friday on positive breadth while cap-weighted Technology dragged the index down. That is re-accumulation beneath a distributing megacap complex, not a broad risk exit.</p>
+      <p>The Sunday gap puts ES near <b>7,490</b>. Bullish continuation needs acceptance above <b>7,500</b> with a clean 5m CISD. Failure there and the sell-side objective is the Friday cash close at <b>7,408</b>, then the gap-fill shelf. ES leading NQ higher is bullish confirmation; ES lagging while NQ rips is the SMT short trigger in Trap 2.</p>
     </div>
 
-    <div class="card alert-r">
-      <h4>CL — WTI Crude (front month) <span class="pill ph-dist">DISTRIBUTION</span></h4>
-      <p class="kv">Fri: WTI opened $92.39 · Brent fell to ~$97.24 (-3.3%/-3.9%)<br>Sunday: Brent Sep <span class="r">$92.02 (-4.9%)</span>; WTI implied high-$80s <span class="flag">unconfirmed</span></p>
-      <p>Textbook distribution of a geopolitical premium. Brent tagged ~$102 last week — roughly $30 above where the month started — and is now unwinding on a pause, not a peace deal. Energy already moderating Friday after a 5-day rally confirms institutions were exiting into strength.</p>
-      <ul>
-        <li><strong>Bias:</strong> Short rallies intraday; do not chase breakdowns into air</li>
-        <li><strong>Support to respect:</strong> impaired Hormuz throughput (~25 ships/day) argues the move overshoots below roughly $85–88 Brent equivalent</li>
-        <li><strong>Catalysts:</strong> EIA Wed 10:30 AM; any strike headline gaps this 5%+ the other way</li>
-      </ul>
+    <div class="card">
+      <div class="ctitle">CL — WTI Crude (front month) <span class="badge b-manip">Manipulation</span></div>
+      <div class="cprice">$90.47 Friday close (−1.87%) · Sunday reopen ≈ <b>$84.84</b> (−5%+) · Friday open $92.39</div>
+      <p>Highest-conviction manipulation read on the board. Price gapped clean through the Friday low into the sell-side pool beneath <b>$85</b> on a headline that changed no physical barrels — Hormuz transits remain near 17% of normal and the Houthis struck Aramco facilities <i>after</i> the pause. Managed money was already net short into it.</p>
+      <p>The Friday close at <b>$90.47</b> is now an unfilled gap edge overhead and the natural draw on any MSS. Long only on a CISD + MSS back above <b>$86.50</b> off the OTE. Invalidation is acceptance beneath <b>$84.00</b>, which opens $82 and would suggest the market genuinely believes the ceasefire framework.</p>
     </div>
 
-    <div class="card alert-y">
-      <h4>GC — Gold (Aug '26) <span class="pill ph-man">MANIPULATION</span></h4>
-      <p class="kv">Spot $4,060.47 (+0.3%) · Aug futures $4,061.70 (+0.3%)<br>Base region cited around $3,950</p>
-      <p>Gold rose Friday even as Brent lost ~4% — that was haven demand and softer yields, not the war trade. It now faces opposing forces: risk-on de-escalation (bearish) and a live ~33% hike probability (bearish) against dormant-not-resolved retaliation risk (bullish). That is a chop setup, not a trend.</p>
-      <ul>
-        <li><strong>Range to trade:</strong> roughly $3,950 base up to $4,060+</li>
-        <li><strong>Bias:</strong> Neutral. Avoid initiating ahead of Wednesday 2 PM</li>
-      </ul>
+    <div class="card">
+      <div class="ctitle">GC — Gold (COMEX) <span class="badge b-manip">Manipulation</span></div>
+      <div class="cprice">≈ $4,028 Friday · weekend prints ranged ≈ $4,025 – $4,096 <span class="muted">(sources conflict — unconfirmed)</span></div>
+      <p>Gold barely held the $4,000 psychological floor Friday and the weekend narrative is openly contradictory: one read has it rallying ~$40 to $4,096 on softer real-rate expectations, another has it losing safe-haven bid on the same de-escalation. Contradictory framing plus 124,831 contracts of spec net length equals a visible stop pool.</p>
+      <p><b>$4,000 is the equal-lows magnet, not support.</b> The A-setup is a sweep beneath it with a same-session reclaim above <b>$4,012</b>. Working range $3,960–$4,170 until PCE Thursday. A held break below $4,000 targets the SSL at <b>$3,960</b>.</p>
     </div>
 
-    <div class="card alert-y">
-      <h4>SI — Silver <span class="pill ph-acc">ACCUMULATION</span></h4>
-      <p class="kv">Basing around $55 <span class="flag">approx</span></p>
-      <p>Carving a base near $55 alongside gold's $3,950 base — accumulation-consistent behavior, but no confirmed intraday levels came out of tonight's research. Trade it only off your own chart's Friday range. Do not trade a level sourced from a headline.</p>
+    <div class="card">
+      <div class="ctitle">SI — Silver (COMEX) <span class="badge b-dist">Distribution</span></div>
+      <div class="cprice">Spot sustaining ≈ <b>$57 – $58</b> · roughly −4% Friday</div>
+      <p>Silver fell nearly 4% Friday and has continued to leak despite ceasefire headlines that theoretically relieve industrial supply-chain risk. Weakness that will not respond to good news is distribution, not accumulation.</p>
+      <p>The $57 shelf is the live SSL — losing it on a retest opens a fast air pocket. Watch <b>GC/SI SMT</b>: if gold reclaims $4,000 and silver cannot reclaim $58, the precious complex is not confirming. Take gold longs at reduced size and skip silver longs entirely.</p>
     </div>
 
-    <div class="card alert-r">
-      <h4>BTC — Bitcoin <span class="pill ph-dist">DISTRIBUTION</span></h4>
-      <p class="kv">~$64,300–64,800 · Fri open $65,047.87 (-1.6% vs Thu)<br>ETF flows -$225M Thu · ~$40.1M liquidations · Crypto F&amp;G 37</p>
-      <p>Lost the $65,000 psychological handle with institutional outflows breaking a ~$999M inflow streak. The driver was rising Treasury yields from oil-and-tariff inflation expectations — and that driver just partially reversed with crude. Watch for the risk-on gap to lift BTC; if it does <em>not</em> follow equities higher Monday, that non-confirmation is a serious bearish tell.</p>
-      <ul>
-        <li><strong>Key level:</strong> $65,000 reclaim = manipulation low confirmed; continued failure = lower</li>
-      </ul>
+    <div class="card">
+      <div class="ctitle">BTC — Bitcoin <span class="badge b-reaccum">Re-Accumulation</span></div>
+      <div class="cprice">≈ <b>$64,318</b> (Jul 26) · $65,047 Friday open (−1.6% from Thursday)</div>
+      <p>BTC spent the month failing at <b>$63,800</b> and is now sitting just above it — the first thing that has to hold. The bear case is macro: June ETF outflows were a record ~$4.5B, the 10-year is near 4.70%, and Warsh took 2026's cut off the table in June.</p>
+      <p>Holding <b>$63,800</b> on a retest with a 5m MSS keeps re-accumulation alive toward <b>$67K</b>. Losing <b>$58,000</b> and then <b>$56,200</b> opens the $50–53K zone. BTC will not resolve on the Iran headline — it resolves Wednesday at 2:00 PM. Trade it small until then.</p>
     </div>
+
   </div>
 </section>
 
-<!-- 6 -->
+<!-- SECTION 6 -->
 <section>
   <h2>🏦 Sector Assessment</h2>
-  <div class="tw"><table>
-    <tr><th>Sector</th><th>Friday Action</th><th>Move Likelihood (Mon Jul 27)</th><th>Directional Bias</th></tr>
-    <tr><td><strong>Energy</strong> (XLE)</td><td>Moderated after a 5-day rally as Brent eased below $98</td><td class="r">Very High</td><td class="r">Bearish — the war premium is the entire recent gain and it's unwinding. Fade strength.</td></tr>
-    <tr><td><strong>Technology / Semis</strong> (XLK, SOX)</td><td>SOX <span class="r">-4.25%</span>; late-day selloff in semi and memory names</td><td class="r">Very High</td><td class="y">Two-sided. Bullish reflex bounce off the flush into Monday, then de-risk before Wed/Thu earnings.</td></tr>
-    <tr><td><strong>Defense</strong> (ITA / XLI names)</td><td>Defense majors rebounded on solid Q2 execution and capital discipline; XLI led gainers</td><td class="y">High</td><td class="y">Bearish on de-escalation headlines, but earnings quality is a real floor. Choppy — avoid.</td></tr>
-    <tr><td><strong>Precious Metals</strong> (GLD/SLV)</td><td>Gold +0.3% on haven demand and softer yields</td><td class="y">Medium</td><td class="m">Neutral. Cross-currents into FOMC. No edge.</td></tr>
-    <tr><td><strong>Healthcare</strong> (XLV)</td><td>Firm — medical-equipment and pharma majors beat</td><td class="g">Medium</td><td class="g">Constructive. Real earnings support, low headline beta. Low-drama long bias.</td></tr>
-    <tr><td><strong>Financials</strong> (XLF)</td><td>Mixed; yields elevated on inflation expectations</td><td class="y">Medium</td><td class="m">Neutral until Wednesday 2 PM. The rate path is the whole trade.</td></tr>
-    <tr><td><strong>Industrials</strong> (XLI)</td><td><span class="g">Led market gainers</span> — defense plus transport on Q2 beats</td><td class="g">Medium-High</td><td class="g">Bullish. Leadership plus falling fuel costs is a genuine tailwind for transports.</td></tr>
-    <tr><td><strong>Real Estate / Utilities</strong> (XLRE, XLU)</td><td>REITs <span class="g">+2.3%</span> led; Utilities outperformed on haven demand</td><td class="y">Medium</td><td class="y">Bearish rotation risk — these led <em>because</em> of fear. Risk-on Monday unwinds the bid.</td></tr>
-    <tr><td><strong>Crypto</strong> (BTC/ETH)</td><td>BTC lost $65K; ETF outflows; yield pressure</td><td class="r">High</td><td class="y">Bullish reflex if yields fall with oil; bearish if BTC fails to confirm the equity gap.</td></tr>
-  </table></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Sector</th><th>Move Likelihood</th><th>Bias</th><th>Reasoning</th></tr></thead>
+      <tbody>
+        <tr><td><b>Energy</b></td><td><span class="badge b-high">High</span></td><td class="down">↓ then ↑</td>
+          <td>Gapping down with crude on the strike pause. But Hormuz is still shut, Houthis hit Aramco Saturday, and EIA lands Wednesday. Expect a violent open, then a fade of the fade. Highest intraday range on the board today.</td></tr>
+        <tr><td><b>Defense</b></td><td><span class="badge b-medhigh">Med-High</span></td><td class="down">↓</td>
+          <td>De-escalation headlines hit war-premium names first and hardest. But the pause is days old and the last ceasefire lasted under three weeks — treat gap-down weakness as noisy, not structural.</td></tr>
+        <tr><td><b>Precious Metals</b></td><td><span class="badge b-high">High</span></td><td class="flat">→</td>
+          <td>Gold and silver are disagreeing. Crowded spec length in gold, distribution in silver, and $4,000 sitting there as a magnet. High two-way range, low directional conviction until PCE Thursday.</td></tr>
+        <tr><td><b>Healthcare</b></td><td><span class="badge b-low">Low</span></td><td class="up">↑</td>
+          <td>Led last week's defensive bid alongside REITs, Materials and Staples. Steady accumulation, low range — not a day trader's instrument today.</td></tr>
+        <tr><td><b>Technology</b></td><td><span class="badge b-high">High</span></td><td class="flat">→ volatile</td>
+          <td>Gapping up on rates relief while the actual problem — AI capex and free cash flow — is untouched. Alphabet fell 7% on a $205B capex guide; MSFT/META report Wednesday, AAPL/AMZN Thursday. Two-way risk is extreme.</td></tr>
+        <tr><td><b>Financials</b></td><td><span class="badge b-med">Moderate</span></td><td class="flat">→</td>
+          <td>Caught between a hawkish Fed (good for NIM) and a 4.70% 10-year pressuring everything long-duration. Waits for Wednesday.</td></tr>
+        <tr><td><b>Industrials / Materials</b></td><td><span class="badge b-med">Moderate</span></td><td class="up">↑</td>
+          <td>Materials led last week's rotation. Lower energy input costs are a direct positive if crude actually stays down — a real "if" given the Hormuz picture.</td></tr>
+        <tr><td><b>Crypto</b></td><td><span class="badge b-medhigh">Med-High</span></td><td class="flat">→</td>
+          <td>Beta to the equity gap, but record June ETF outflows (~$4.5B) and 4.70% yields cap it. Sitting exactly on $63,800. Resolves Wednesday, not today.</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-<!-- 7 -->
+<!-- SECTION 7 -->
 <section>
-  <h2>✅ Actionable Steps — Day-Trading Plan</h2>
-  <p class="m" style="font-size:13px">Every setup below is a same-session intraday round trip for <strong>Monday, July 27, 2026</strong>. Enter and exit within that single day. Every setup has an entry trigger, stop, target and time-stop. No exceptions on the time-stop.</p>
+  <h2>✅ ICT Actionable Steps — Day-Trading Focus</h2>
 
-  <div class="blk">
-    <div class="time">Overnight Watch — Tonight, Sunday, July 26, 2026</div>
-    <p><strong>No positions.</strong> Observation only. The US–Iran pause is unscheduled news risk that can gap any instrument multiple percent in either direction while you sleep.</p>
+  <div class="tblock">
+    <h4>1. Pre-Market Prep — Monday, July 27, 2026</h4>
+    <div class="when">6:00 – 7:00 AM ET</div>
+    <p class="small" style="color:var(--yellow)"><b>Standing rule for today:</b> every setup below is structured as a same-session round trip — entered and closed inside Monday, July 27, 2026, flat by the 4:00 PM close. FOMC is Wednesday; there is no reward for carrying risk into it.</p>
     <ul>
-      <li>Mark Friday's NQ levels on your chart now: high <span class="kv">28,736.00</span>, low <span class="kv">28,212.50</span>, close <span class="kv">28,282.25</span>.</li>
-      <li>Mark where Sunday's globex open actually printed and note the gap boundaries — that FVG is Monday's primary reference.</li>
-      <li>Note Brent Sep at <span class="kv">$92.02</span> as the de-escalation benchmark. If Asia trades it back above ~$95, the pause is being doubted and the equity gap is at risk.</li>
-      <li>Set a headline alert on "Iran," "strike," "talks." Nothing else needs your attention before 2 AM ET.</li>
+      <li>Mark the Friday, July 24, 2026 ranges on every instrument: NQ PDH <b>28,736.00</b> / PDL <b>28,212.50</b>; ES cash close <b>7,408.30</b>; CL PDC <b>$90.47</b> and Friday open <b>$92.39</b>; GC <b>$4,028</b> and the <b>$4,000</b> line; BTC <b>$63,800</b>.</li>
+      <li>Mark the Sunday reopen gap on every chart. The gap edge is your primary draw on liquidity — CL's gap toward $90.47 is the largest and cleanest.</li>
+      <li>Check overnight for new Houthi/Aramco damage confirmation or any statement breaking the strike pause. Either one invalidates the crude short side entirely and turns the CL long into an immediate momentum trade.</li>
+      <li>No Fed speakers today (blackout). The Iran headline moves price unopposed — good for clean structure, dangerous for size.</li>
+      <li>Pre-define maximum daily loss before the open. Gap Mondays into an FOMC week are where day traders give back a month.</li>
     </ul>
   </div>
 
-  <div class="blk">
-    <div class="time">Pre-Market Prep — Monday, July 27, 2026 (6–7 AM ET)</div>
-    <p><strong>Reminder: every setup today is structured for intraday, flat-by-close execution.</strong> Monday has no scheduled high-impact data — the entire tape is the Iran pause and Friday's semi flush resolving. That makes it a clean pure-ICT session, and also a session where nothing forces a move. Patience beats participation.</p>
+  <div class="tblock">
+    <h4>2. London Kill Zone — Monday, July 27, 2026</h4>
+    <div class="when">2:00 – 5:00 AM ET</div>
     <ul>
-      <li>Confirm overnight: did the pause hold a third night? Where is Brent versus $92.02? Did NQ hold its gap?</li>
-      <li>Draw PDH <span class="kv">28,736.00</span> and PDL <span class="kv">28,212.50</span> on NQ, and the equivalents on ES from your own platform data.</li>
-      <li>Identify the Sunday gap FVG on both ES and NQ. Mark the 62–79% OTE band inside it.</li>
-      <li>Check ES/NQ SMT: NQ broke Friday's structure, ES did not. If that divergence persists at the open, favor ES for longs — it is the stronger instrument.</li>
-      <li>Reduce your normal size. Two-sided unscheduled headline risk plus a gap open is the worst environment for full size.</li>
-      <li>BTC is your risk-appetite canary. Rising with equities = the gap is real. Flat or falling = the gap is a trap.</li>
+      <li>London sets the tone on crude — this is a European energy story and London is where the Brent gap gets tested first. Watch whether the Sunday low near <b>$84.84</b> gets swept in this window.</li>
+      <li><b>Preferred London behavior:</b> a sweep beneath the Sunday low with rejection. That hands the NY session a clean, defined low to build against.</li>
+      <li>If London instead grinds crude lower and <i>accepts</i> beneath <b>$84.00</b>, the ceasefire is being priced as real — stand down on crude longs for the day and do not force the Trap-1 setup.</li>
+      <li>Gold: watch whether London probes <b>$4,000</b>. A London sweep and reclaim is the ideal handoff into the NY setup.</li>
+      <li><b>Do not initiate index trades in this window.</b> The equity gap needs cash-session participation to be tradable. London index moves this morning are headline noise.</li>
     </ul>
   </div>
 
-  <div class="blk">
-    <div class="time">London Kill Zone — Monday, July 27, 2026 (2–5 AM ET)</div>
-    <p>Expect London to price the de-escalation properly — the Sunday reaction was thin. Most likely behavior: London extends the gap, then partially retraces it, setting the day's judas swing.</p>
-    <ul>
-      <li><strong>Observe, don't force.</strong> If you trade London at all, crude is where the real liquidity is tonight, not indices.</li>
-      <li><strong>CL fade setup:</strong> If WTI rallies into the London session and stalls at a prior H1 order block with a CISD on the 15-minute, short with a stop above the OB high, target the Sunday globex low. <strong>Time-stop 5:00 AM ET</strong> — close it, do not carry into NY.</li>
-      <li>A London sweep of Friday's NQ low (28,212.50) that reclaims the level by 5 AM is the single best precursor to a strong NY Open long. Note it and wait.</li>
-    </ul>
-  </div>
+  <div class="tblock">
+    <h4>3. NY Open Kill Zone — Monday, July 27, 2026</h4>
+    <div class="when">7:00 – 10:00 AM ET · Silver Bullet 9:50 – 10:10 AM</div>
 
-  <div class="blk">
-    <div class="time">NY Open Kill Zone — Monday, July 27, 2026 (7–10 AM ET)</div>
-    <p>Primary window. Do not take a position in the first 5 minutes after 9:30 — let the open's liquidity grab complete first.</p>
-
-    <div class="setup">
-      <span class="lbl">Setup A — NQ SSL sweep reversal (primary long)</span>
-      <ul>
-        <li><strong>Thesis:</strong> Friday's -4.25% SOX flush was manipulation ahead of Mag-7 earnings. Price raids Friday's low, then reclaims it.</li>
-        <li><strong>Entry trigger:</strong> Price sweeps below <span class="kv">28,212.50</span> (Friday SSL), then prints a 5-minute MSS back above that level. Enter on the retracement into the 62–79% OTE of the reversal leg, ideally overlapping the Sunday gap FVG.</li>
-        <li><strong>Stop:</strong> Below the sweep low with a wick buffer. If the sweep low is violated on a 5-minute close, the thesis is wrong — out.</li>
-        <li><strong>Target 1:</strong> Friday's close <span class="kv">28,282.25</span>. <strong>Target 2:</strong> the Sunday globex open. <strong>Target 3 (runner):</strong> <span class="kv">28,736.00</span> BSL.</li>
-        <li><strong>Time-stop:</strong> Flat by 11:30 AM ET regardless of P&amp;L. If T1 is not reached within 45 minutes of entry, close it — the setup has failed even if the stop is untouched.</li>
-      </ul>
+    <div class="setupbox">
+      <div class="sname">SETUP A — CL long: fade the ceasefire gap (primary)</div>
+      <div class="line"><b>Thesis:</b> The gap priced a supply resolution that has not occurred. Hormuz transits remain near 17% of normal and managed money was already net short into the move.</div>
+      <div class="line"><b>Entry trigger:</b> Wait for the sweep of the Sunday low near <b>$84.84</b>. Enter long only on a 5m <b>CISD</b> followed by an <b>MSS</b> above <b>$86.50</b>, taking the <b>OTE</b> (62–79%) retrace of that first impulse leg.</div>
+      <div class="line"><b>Stop:</b> <b>$0.70</b> beneath the swept session low.</div>
+      <div class="line"><b>Targets:</b> T1 <b>$88.50</b> (take 60%) · T2 <b>$90.47</b>, the Friday close gap edge.</div>
+      <div class="line"><span class="tstop">Time-stop: flat by 11:30 AM ET if T1 has not printed. No carry into Tuesday — EIA is Wednesday 10:30 AM.</span></div>
+      <div class="line"><b>Invalidation:</b> Acceptance beneath $84.00. Skip the trade.</div>
     </div>
 
-    <div class="setup">
-      <span class="lbl">Setup B — NQ gap-failure short (Trap #1 exploitation)</span>
-      <ul>
-        <li><strong>Thesis:</strong> The de-escalation gap is priced on a two-night pause with no agreement and Hormuz still at half throughput. If buyers can't accept above Friday's high, the gap fills.</li>
-        <li><strong>Entry trigger:</strong> NQ trades up to or marginally through <span class="kv">28,736.00</span> (BSL raid) between 9:30 and 10:30 AM, fails to hold above it, and delivers a CISD on the 5-minute. Enter on the retest of the failed level from below.</li>
-        <li><strong>Stop:</strong> Above the raid high. A 5-minute close back above 28,736 invalidates.</li>
-        <li><strong>Target 1:</strong> Sunday gap midpoint. <strong>Target 2:</strong> Friday close <span class="kv">28,282.25</span> (full gap fill). Take partials at T1 — gap fills stall often.</li>
-        <li><strong>Time-stop:</strong> Flat by 12:00 PM ET. This is a mean-reversion trade; it works quickly or not at all.</li>
-      </ul>
+    <div class="setupbox">
+      <div class="sname">SETUP B — NQ short: fade the buy-side sweep on SMT (secondary)</div>
+      <div class="line"><b>Thesis:</b> The gap up delivers into the BSL at the Friday high so distribution can occur ahead of FOMC and four megacap prints. Oil relief does not fix the AI capex problem.</div>
+      <div class="line"><b>Entry trigger:</b> NQ runs <b>28,736.00</b> (Friday high). Require <b>NQ/ES SMT divergence</b> — NQ makes the higher high, ES fails to confirm at its correlated level. Then a 5m <b>CISD</b> back beneath 28,736. Short the <b>OTE</b> retrace into <b>28,700 – 28,740</b>.</div>
+      <div class="line"><b>Stop:</b> <b>28,810</b>.</div>
+      <div class="line"><b>Targets:</b> T1 <b>28,480</b> (take 60%) · T2 <b>28,290</b>, Sunday gap fill.</div>
+      <div class="line"><span class="tstop">Time-stop: flat by 11:00 AM ET regardless of P&amp;L.</span></div>
+      <div class="line"><b>Invalidation:</b> No SMT divergence, or ES confirms the high alongside NQ. Do not short a confirmed dual breakout — stand aside.</div>
     </div>
 
-    <div class="setup">
-      <span class="lbl">Setup C — CL short on rally exhaustion (secondary; highest-conviction direction)</span>
-      <ul>
-        <li><strong>Thesis:</strong> Distribution of the geopolitical premium. Every bounce is an exit for trapped longs who bought above $95.</li>
-        <li><strong>Entry trigger:</strong> WTI rallies into an H1 order block or the Friday session VWAP area during 8:00–10:30 AM ET, then prints a 5-minute CISD. Short the retest.</li>
-        <li><strong>Stop:</strong> Above the OB high. Keep it tight — crude gaps on headlines and a wide stop here is uncapped risk.</li>
-        <li><strong>Target:</strong> Sunday globex low first; extend only if the tape is one-directional. Do NOT target "$85" or any round number pulled from a headline.</li>
-        <li><strong>Time-stop:</strong> Flat by 1:00 PM ET. Reduced size — this is the instrument most exposed to a strike headline reversing 5% instantly.</li>
-      </ul>
+    <div class="setupbox">
+      <div class="sname">SETUP C — GC long the $4,000 reclaim (conditional)</div>
+      <div class="line"><b>Entry trigger:</b> Only after a sweep beneath <b>$4,000</b>. Long on 5m <b>CISD</b> + <b>MSS</b> back above <b>$4,012</b>, entering the OTE of the reclaim leg.</div>
+      <div class="line"><b>Stop:</b> <b>$3,992</b>, beneath the sweep low.</div>
+      <div class="line"><b>Targets:</b> T1 <b>$4,060</b> · T2 <b>$4,096</b>.</div>
+      <div class="line"><span class="tstop">Time-stop: flat by 12:00 PM ET.</span></div>
+      <div class="line"><b>Invalidation:</b> Gold opens above $4,060 and grinds without a sweep — no chase, no trade. Also check SI: if silver cannot hold $57, halve the gold size.</div>
     </div>
 
-    <p style="margin-top:12px"><strong>Silver Bullet window 9:50–10:10 AM ET:</strong> If neither A nor B has triggered by 9:50, take the first clean FVG that forms in the direction of the 9:30–9:50 displacement. One attempt only. Stop beyond the FVG origin, target the nearest liquidity pool, time-stop 10:40 AM ET.</p>
-  </div>
-
-  <div class="blk">
-    <div class="time">NY Lunch / Afternoon — Monday, July 27, 2026 (12–4 PM ET)</div>
-    <p><strong>12:00–1:30 PM ET — stand down.</strong> Lunch liquidity on a no-data Monday after a gap open is the lowest-quality tape of the week. No new positions.</p>
     <ul>
-      <li>1:30–3:00 PM: trade an afternoon continuation only if the morning produced a clear directional day and price is holding above/below the AM range with trend intact. New counter-trend ideas here are hindsight, not setups.</li>
-      <li>3:00–3:45 PM: manage and reduce. Watch for the afternoon BSL/SSL raid into the close — take profit into it, don't chase it.</li>
-      <li><strong>FLATTEN BY 4:00 PM ET.</strong> Non-negotiable tonight. You hold nothing into an unscheduled-headline environment with FOMC 48 hours away and four Mag-7 prints behind it.</li>
-      <li>After the close: journal whether the gap held or filled, and whether BTC confirmed. Those two answers set Tuesday's bias.</li>
+      <li><b>Silver Bullet (9:50 – 10:10 AM ET):</b> Take the highest-quality FVG that formed between 9:30 and 9:50 on whichever instrument gave the cleanest morning structure — CL if Setup A triggered, NQ if Setup B did. Single entry, standard size, target the nearest opposing liquidity pool only. <span class="tstop">Hard exit 10:40 AM ET, win or lose.</span> One Silver Bullet trade. Not two.</li>
+      <li><b>Do not take a trade in the first 15 minutes.</b> A Sunday gap this size produces false structure at the open. Let 9:30–9:45 build the reference range.</li>
     </ul>
   </div>
 
-  <div class="card alert-p">
-    <h4 class="p">Swing Watch — none this session</h4>
-    <p>No clean multi-day structural setup qualifies. Crude is the only instrument with a real directional thesis, and it is the single most headline-exposed contract on the board with active diplomacy running — that disqualifies it for carry. FOMC Wednesday plus MSFT/META Wednesday and AAPL/AMZN Thursday means any multi-day hold is a bet on four unrelated binary events. Day trades only.</p>
+  <div class="tblock">
+    <h4>4. NY Lunch — Monday, July 27, 2026</h4>
+    <div class="when">12:00 – 1:30 PM ET</div>
+    <ul>
+      <li><b>Flatten all scalps by 12:00 PM.</b> Lunch liquidity is thin and gap-Monday lunch tape is the worst-quality structure of the week.</li>
+      <li><b>Move stops to breakeven on any remaining runner</b> from Setup A or B. A runner that has not reached T2 by 12:00 is a runner that is going to give it back.</li>
+      <li>No new entries in this window. Lunch-hour MSS signals on a headline-gap day are noise, not structure.</li>
+      <li>Use the window to reassess: did the gap fill or hold? That answer sets the afternoon bias and is the single most useful piece of information you will get today.</li>
+    </ul>
+  </div>
+
+  <div class="tblock">
+    <h4>5. NY Afternoon — Monday, July 27, 2026</h4>
+    <div class="when">1:30 – 4:00 PM ET</div>
+    <ul>
+      <li>Afternoon continuation only in the direction the lunch reassessment confirmed. If CL reclaimed $88.50 and held through lunch, the $90.47 gap edge is a legitimate afternoon draw. If it failed, no re-entry.</li>
+      <li>New afternoon positions must be initiated by <b>3:00 PM ET</b> at the latest, with a minimum 2:1 R:R to a defined liquidity pool. Nothing after 3:00.</li>
+      <li>Watch the 3:00–3:30 window for pre-FOMC-week positioning flows. These distort structure — do not read them as directional signal.</li>
+      <li class="tstop"><b>FLATTEN EVERYTHING BY 4:00 PM ET.</b> Every day-trade position, no exceptions. Hormuz is still closed, the Houthis struck Aramco facilities on Saturday, and any weekend-style headline can gap crude and equities against you overnight. FOMC is Wednesday. There is no edge in carrying Monday risk into this week.</li>
+    </ul>
+  </div>
+
+  <div class="warnbox">
+    <b>No Swing Watch today.</b> There is no clean multi-day structural setup worth flagging. Crude's daily structure is entirely headline-dependent, gold is unresolved at $4,000 with contradictory reporting, and both index products face an FOMC on Wednesday plus four megacap prints inside 24 hours. Multi-day carry into that calendar is not a setup — it is an opinion with leverage. Stay intraday this week.
   </div>
 </section>
 
-<!-- 8 -->
+<!-- SECTION 8 -->
 <section>
   <h2>⚠️ Risk &amp; Mindset</h2>
-  <div class="card alert-r">
-    <h4>Default stance: day trades flat by the close</h4>
-    <p>Positions are closed by 4:00 PM ET. Overnight or swing carry this week is a deliberate, explicitly-flagged exception — and tonight there is no such exception. The reason is specific, not generic: the largest driver on the board (US–Iran talks) has no calendar slot and can move crude 5% and indices 1%+ at 3 AM.</p>
-  </div>
-
-  <div class="card">
-    <h4>Position sizing</h4>
-    <ul>
-      <li><strong>Cut normal size.</strong> Gap open, no scheduled data, live unscheduled geopolitical risk — that combination means reduced size, wider-than-usual noise, and tighter time-stops.</li>
-      <li>One instrument at a time. Do not run an NQ long and a CL short simultaneously — on a de-escalation headline those correlate against you in the same direction of pain.</li>
-      <li>Two losing trades, then stop for the day. A no-catalyst Monday does not owe you a paycheck.</li>
-      <li>Crude gets half your normal index size at most.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h4>Narrative discipline</h4>
-    <ul>
-      <li>A pause is not a peace deal. Hormuz is still running roughly half its July 7 ship count. Anyone telling you the crisis is over is reading the headline, not the throughput.</li>
-      <li>Fear &amp; Greed at 39 going into a de-escalation gap means the crowd is positioned for the opposite of what just happened. That's fuel — and fuel cuts both ways.</li>
-      <li>The semi flush happened three sessions before four Mag-7 earnings prints. Ask who benefits from that timing before accepting the "capex is broken" story.</li>
-      <li>You do not need an opinion on the Fed. You need to be flat at 2:00 PM Wednesday.</li>
-    </ul>
-  </div>
-
-  <div class="card alert-y">
-    <h4>Upcoming catalysts — the week is front-loaded with risk</h4>
-    <p>Monday is the only quiet session. From Wednesday 10:30 AM (EIA) through Friday 8:30 AM (Core PCE) there is a high-impact release or a mega-cap print in essentially every session. Trade Monday's clean tape, then respect the calendar. Reduce ambition as the week progresses — not after you've already been hurt.</p>
-  </div>
-
-  <div class="card alert-p">
-    <h4 class="p">ICT mindset reminder</h4>
-    <p>Price moved to Friday's lows because that is where the orders were, not because the AI trade ended. The weekend headline gave those lows a reason to be raided and then a reason to be reclaimed — the reasons are narrative, the sweep is mechanical. Monday's job is to identify which pool of liquidity has been taken and trade the reaction to it. Not to be right about Iran, semiconductors, or the Fed.</p>
-    <p>Missing a setup costs nothing. Forcing one on a no-catalyst Monday with a gap open costs the week.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Category</th><th>Guidance for Monday, July 27, 2026</th></tr></thead>
+      <tbody>
+        <tr><td><b>Position Sizing</b></td>
+          <td><b>Half normal size on everything today.</b> A weekend gap on an unresolved geopolitical headline, two days ahead of an FOMC, is a wide-stop environment. Wider stops mean fewer contracts, not the same contracts with a wider stop. Maximum two concurrent positions. Hard daily loss limit set before the open — Monday gap days are where a good month gets erased.</td></tr>
+        <tr><td><b>Narrative Discipline</b></td>
+          <td>The question all day: <i>who benefits if I believe the Middle East is fixed?</i> Managed money was net short WTI while the media printed "$100 oil" — they got paid on this gap and now need liquidity to cover into. Meanwhile Hormuz transits sit near 17% of normal and the Houthis struck Aramco facilities on Saturday, <i>after</i> the pause. The headline moved price. It did not move a single barrel.</td></tr>
+        <tr><td><b>Upcoming Catalysts</b></td>
+          <td>Wed 7/29 10:30 AM EIA · Wed 7/29 2:00 PM FOMC and 2:30 PM Warsh presser · Wed after close MSFT &amp; META · Thu 7/30 8:30 AM GDP / Claims / ECI and June PCE · Thu after close AAPL &amp; AMZN · Fri 7/31 BoJ overnight, Chicago PMI 9:45 AM, rig count 1:00 PM. Roughly 17% of S&amp;P 500 market cap reports inside 24 hours Wednesday–Thursday.</td></tr>
+        <tr><td><b>ICT Mindset</b></td>
+          <td>A gap is a delivery mechanism, not a message. Price gapped down in crude to reach sell-side liquidity and gapped up in indices to reach buy-side liquidity — both toward pools, both away from the prior session's fair value. Your job is to wait for the sweep, wait for the CISD, wait for the MSS, take the OTE. Not to have an opinion on the ceasefire. If those three conditions never arrive, the correct number of trades today is zero.</td></tr>
+        <tr><td><b>Overnight Hold Warning</b></td>
+          <td><b class="tstop">Default stance: flat by 4:00 PM ET, every position, every instrument.</b> The Houthi campaign against Saudi infrastructure is active and escalated <i>after</i> the strike pause, with ~2.5 mbd exposed. The prior U.S.–Iran ceasefire in this conflict held under three weeks. Any overnight carry this week is a deliberate, explicitly-flagged exception requiring strong conviction and reduced size — and there is no such setup on the board tonight.</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<!-- 9 -->
+<!-- SECTION 9 -->
 <section>
   <h2>📊 Market Snapshot</h2>
-  <div class="tw"><table>
-    <tr><th>Instrument</th><th>Last (Fri Jul 24 close)</th><th>Move</th><th>Bias — Mon Jul 27</th><th>Key Levels</th></tr>
-    <tr>
-      <td><strong>NQ</strong> <span class="m">E-mini Nasdaq-100 Sep '26</span></td>
-      <td class="kv">28,282.25</td>
-      <td class="r">Closed near session low; Nasdaq Comp -0.64%. Sunday reopen <span class="g">+1%+</span></td>
-      <td class="g">Bullish above 28,736 · Bearish on gap failure</td>
-      <td class="kv">BSL 28,736.00 · SSL 28,212.50 · gap FVG ~28,282–28,400</td>
-    </tr>
-    <tr>
-      <td><strong>ES</strong> <span class="m">E-mini S&amp;P 500 Sep '26</span></td>
-      <td class="kv">≈7,447.50 <span class="flag">approx</span></td>
-      <td class="g">Cash S&amp;P +0.05% to 7,411.98</td>
-      <td class="g">Constructive — preferred long vs. NQ (SMT)</td>
-      <td class="kv">Use your platform's exact Fri session H/L</td>
-    </tr>
-    <tr>
-      <td><span class="m">Reference —</span> <strong>Nasdaq Composite (index)</strong></td>
-      <td class="kv">24,975.82</td>
-      <td class="r">-0.64% · -2% on the week</td>
-      <td class="m">Context only — not a tradeable futures level</td>
-      <td class="m">—</td>
-    </tr>
-    <tr>
-      <td><span class="m">Reference —</span> <strong>Dow Jones</strong></td>
-      <td class="kv">51,947.25</td>
-      <td class="g">+235.60 (+0.46%)</td>
-      <td class="m">Context — confirms rotation, not liquidation</td>
-      <td class="m">—</td>
-    </tr>
-    <tr>
-      <td><strong>WTI Crude</strong></td>
-      <td class="kv">~$92.39 (Fri open) <span class="flag">close unconfirmed</span></td>
-      <td class="r">Lower; Sunday implied high-$80s <span class="flag">unconfirmed</span></td>
-      <td class="r">Bearish — fade rallies, reduced size</td>
-      <td class="kv">Sunday globex low = first target reference</td>
-    </tr>
-    <tr>
-      <td><strong>Brent Crude</strong> <span class="m">Sep</span></td>
-      <td class="kv">~$97.24 Fri → <strong>$92.02 Sunday</strong></td>
-      <td class="r">-3.9% Fri, then <span class="r">-4.9%</span> Sunday. Peaked ~$102 last week</td>
-      <td class="r">Bearish — premium unwinding</td>
-      <td class="kv">$92.02 benchmark · overshoot risk ~$85–88 · $95 = pause doubted</td>
-    </tr>
-    <tr>
-      <td><strong>Gold</strong> <span class="m">spot / Aug futures</span></td>
-      <td class="kv">$4,060.47 / $4,061.70</td>
-      <td class="g">+0.3%</td>
-      <td class="y">Neutral — cross-currents into FOMC</td>
-      <td class="kv">Base ~$3,950 · resistance ~$4,060+</td>
-    </tr>
-    <tr>
-      <td><strong>Silver</strong></td>
-      <td class="kv">~$55 <span class="flag">approx</span></td>
-      <td class="m">Basing</td>
-      <td class="m">Neutral — accumulation, no confirmed intraday levels</td>
-      <td class="kv">Base ~$55 · trade off your own chart</td>
-    </tr>
-    <tr>
-      <td><strong>BTC</strong></td>
-      <td class="kv">~$64,300–64,800</td>
-      <td class="r">Fri open $65,047.87 (-1.6%); lost $65K</td>
-      <td class="y">Risk-appetite canary — watch the $65,000 reclaim</td>
-      <td class="kv">$65,000 pivot · F&amp;G 37 · ETF -$225M Thu</td>
-    </tr>
-  </table></div>
-  <p class="m" style="font-size:12px;margin-top:10px">Figures flagged <span class="flag">approx</span> or <span class="flag">unconfirmed</span> were not corroborated to the required standard in tonight's research and must be verified on your own platform before being traded. Nothing on this page substitutes for your own chart.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Asset</th><th>Last Reference</th><th>Move</th><th>Today's Bias</th><th>Key Levels</th></tr></thead>
+      <tbody>
+        <tr><td><b>NQ</b> <span class="muted small">E-mini Nasdaq-100 futures, Sep '26</span></td>
+          <td class="num">≈ 28,282</td><td class="num up">Sunday reopen ≈ +1.2%</td><td class="up">↑ into resistance</td>
+          <td class="num">PDH <b>28,736.00</b> · PDL <b>28,212.50</b> · gap fill <b>28,290</b> · fade zone <b>28,700–28,740</b></td></tr>
+        <tr><td><b>ES</b> <span class="muted small">E-mini S&amp;P 500 futures, Sep '26</span></td>
+          <td class="num">≈ 7,447.50 <span class="muted">(cash 7,408.30)</span></td><td class="num up">Sunday reopen ≈ +0.6%</td><td class="up">↑</td>
+          <td class="num">Acceptance <b>7,500</b> · cash close <b>7,408.30</b> · gap shelf below</td></tr>
+        <tr><td><b>WTI Crude</b> <span class="muted small">CL front month</span></td>
+          <td class="num">≈ $84.84</td><td class="num down">−5%+ from $90.47</td><td class="down">↓ then ↑ reversal watch</td>
+          <td class="num">Sweep low <b>$84.84</b> · trigger <b>$86.50</b> · T1 <b>$88.50</b> · gap edge <b>$90.47</b> · invalidation <b>$84.00</b></td></tr>
+        <tr><td><b>Brent</b></td>
+          <td class="num">≈ $90.95 – $92</td><td class="num down">−4.9% to −7.6%</td><td class="down">↓ then ↑ reversal watch</td>
+          <td class="num">Psych floor <b>$90</b> · Friday <b>$97.24</b> · BSL <b>$100</b></td></tr>
+        <tr><td><b>Gold</b> <span class="muted small">GC</span></td>
+          <td class="num">≈ $4,028 – $4,096 <span class="muted">(disputed)</span></td><td class="num flat">Mixed / unconfirmed</td><td class="flat">→</td>
+          <td class="num">Magnet <b>$4,000</b> · reclaim <b>$4,012</b> · T1 <b>$4,060</b> · T2 <b>$4,096</b> · SSL <b>$3,960</b> · range cap <b>$4,170</b></td></tr>
+        <tr><td><b>Silver</b> <span class="muted small">SI</span></td>
+          <td class="num">≈ $57 – $58</td><td class="num down">≈ −4% Friday</td><td class="down">↓</td>
+          <td class="num">SSL shelf <b>$57</b> · reclaim needed <b>$58</b></td></tr>
+        <tr><td><b>BTC</b></td>
+          <td class="num">≈ $64,318</td><td class="num down">−1.6% Friday open-to-open</td><td class="flat">→</td>
+          <td class="num">Pivot <b>$63,800</b> · support <b>$58,000</b> · breakdown <b>$56,200</b> · upside <b>$67,000</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin-top:10px">Prices are the most recent corroborated references available at 12:11 AM ET on Monday, July 27, 2026, drawn from Friday July 24 settlements and Sunday July 26 reopen reporting. Gold's weekend print is disputed across sources and is flagged as unconfirmed rather than published as a single figure. Verify all levels against your own live feed before execution.</p>
 </section>
 
 <footer>
-  <p><strong>ICT terms used:</strong> <span class="gloss">OB (order block) · FVG (fair value gap) · BSL/SSL (buy-/sell-side liquidity) · MSS (market structure shift) · CISD (change in state of delivery) · OTE (optimal trade entry, 62–79% retracement) · PDH/PDL (prior day high/low) · SMT (smart money technique divergence) · AMD (accumulation, manipulation, distribution)</span></p>
-  <p style="margin-top:10px">Generated Sunday, July 26, 2026 at 8:01 PM ET · Weekend EOD edition covering the Friday, July 24 close and the Sunday globex reopen · Plan applies to Monday, July 27, 2026.</p>
-  <p style="margin-top:8px">Educational and informational only. Not investment advice. Futures trading involves substantial risk of loss.</p>
+  <p><b>Disclaimer:</b> This report is generated for educational and informational purposes only. It is not financial advice, investment advice, or a recommendation to buy or sell any security, futures contract, or other instrument. Futures trading involves substantial risk of loss and is not suitable for every investor. All price levels are approximate and derived from publicly available reporting that may be delayed, incomplete, or inaccurate — always verify against your own live data feed before taking any position. Past performance does not indicate future results. You alone are responsible for your trading decisions.</p>
+  <p style="margin-top:10px">Generated Monday, July 27, 2026 at 12:11 AM ET · Overnight Edition</p>
 </footer>
 
 </div>
