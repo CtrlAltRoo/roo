@@ -397,3 +397,8 @@ fatal: unable to access 'https://github.com/CtrlAltRoo/roo.git/': Could not reso
 To https://github.com/CtrlAltRoo/roo.git
    5c03f8e..862571b  main -> main
 [2026-08-24 00:21:23] Push succeeded.
+[main 422f3c4] report: daily futures update 2026-08-25
+ 1 file changed, 5 insertions(+)
+To https://github.com/CtrlAltRoo/roo.git
+   862571b..422f3c4  main -> main
+[2026-08-25 00:15:00] Push succeeded.
