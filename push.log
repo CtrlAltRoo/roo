@@ -497,3 +497,7 @@ To https://github.com/CtrlAltRoo/roo.git
 To https://github.com/CtrlAltRoo/roo.git
    19c7e94..89815b5  main -> main
 [2026-09-18 00:19:53] Push succeeded.
+[main 61749d9] report: daily futures update 2026-09-21
+ 2 files changed, 368 insertions(+), 416 deletions(-)
+fatal: unable to access 'https://github.com/CtrlAltRoo/roo.git/': Could not resolve host: github.com
+[2026-09-21 09:27:47] Push FAILED — check token or network.
