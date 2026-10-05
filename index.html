@@ -1,122 +1,142 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ICT EOD Report — Sept 30, 2026</title>
+<title>Daily Futures Trading Report</title>
 <style>
-:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--green:#3fb950;--red:#f85149;--yellow:#d29922;--purple:#bc8cff;--blue:#388bfd;--muted:#8b949e}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;padding:16px;max-width:1100px;margin:auto}
-header{border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:16px}
-h1{font-size:22px;margin:0 0 6px}.badge{display:inline-block;background:#1a2a4a;color:var(--blue);padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;margin-left:8px;vertical-align:middle}
-.ts{color:var(--muted);font-size:13px}
-section{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:16px}
-h2{font-size:17px;margin:0 0 10px}h3{font-size:14px;margin:12px 0 6px;color:var(--blue)}
-.alert{border-left:4px solid var(--yellow)}.tag{font-weight:700;padding:2px 8px;border-radius:4px;font-size:12px;display:inline-block;margin-bottom:6px}
-.amber{background:#3a2d0a;color:var(--yellow)}.g{color:var(--green)}.r{color:var(--red)}.y{color:var(--yellow)}.p{color:var(--purple)}.m{color:var(--muted)}
-table{width:100%;border-collapse:collapse;font-size:13px;display:block;overflow-x:auto}th,td{border:1px solid var(--border);padding:6px 8px;text-align:left;vertical-align:top}th{background:#1c222b}
-.hi{background:#3d1416;color:var(--red)}.md{background:#3a2d0a;color:var(--yellow)}.mh{background:#3d2310;color:#f0883e}
-.pill{padding:1px 7px;border-radius:4px;font-size:11px;font-weight:700;white-space:nowrap}
-.card{border:1px solid var(--border);border-radius:6px;padding:10px;margin:8px 0;background:#0d1117}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}.grid .card{margin:0}.big{font-size:18px;font-weight:700}
-ul{margin:6px 0;padding-left:20px}
-@media(max-width:600px){body{padding:10px;font-size:14px}}
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--blue:#388bfd;--green:#3fb950;--red:#f85149;--yellow:#d29922;--purple:#bc8cff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,Segoe UI,Roboto,sans-serif}
+header{position:sticky;top:0;z-index:9;background:var(--surface);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline}
+header h1{margin:0;font-size:18px}header span{color:var(--text-muted);font-size:13px}
+main{max-width:1100px;margin:0 auto;padding:16px}
+section{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px}
+h2{margin:0 0 12px;font-size:17px}h3{margin:14px 0 8px;font-size:14px;color:var(--blue)}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{border-bottom:1px solid var(--border);padding:7px 8px;text-align:left;vertical-align:top}th{color:var(--text-muted);font-weight:600;background:var(--surface2)}
+.tw{overflow-x:auto}
+.banner{border:1px solid var(--yellow);background:#2d1e00;border-radius:8px;padding:14px}
+.banner.ok{border-color:var(--green);background:#0d2018}
+.card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.badge{display:inline-block;padding:1px 8px;border-radius:10px;font-size:12px;font-weight:600}
+.acc{background:#0d2018;color:var(--green);border:1px solid var(--green)}.man{background:#2d1e00;color:var(--yellow);border:1px solid var(--yellow)}.dist{background:#2d0f0f;color:var(--red);border:1px solid var(--red)}.reacc{background:#0c1d33;color:var(--blue);border:1px solid var(--blue)}
+.hi{color:var(--red)}.med{color:var(--yellow)}.up{color:var(--green)}.dn{color:var(--red)}.mut{color:var(--text-muted)}
+ul{margin:6px 0;padding-left:20px}li{margin:3px 0}
+.warn{border-left:3px solid var(--yellow);padding-left:10px;color:var(--text-muted);font-size:13px;margin:8px 0}
+footer{color:var(--text-muted);font-size:12px;text-align:center;padding:16px}
 </style></head><body>
-<header><h1>ICT Futures Report <span class="badge">EOD EDITION</span></h1>
-<div class="ts">Last updated: Wednesday, September 30, 2026 at 6:02 PM ET · Next session: Thursday, October 1, 2026 · Day-trade framing: flat by close</div></header>
+<header><h1>📈 Daily Futures Trading Report</h1><span>Trading day: Monday, October 5, 2026</span><span>Last updated: Sunday, October 4, 2026 at 7:58 PM ET</span></header>
+<main>
 
-<section class="alert"><h2>🚨 1. EOD Alert</h2>
-<span class="tag amber">EOD ALERT — OVERNIGHT RISK</span>
-<p><b>Split tape into the close:</b> Nasdaq-led strength (NDX +0.23%) masked broad weakness — Dow -0.86% to its lowest close since early June, only 8 of 30 components up; Russell 2000 -0.39%. September: Dow -4.29%, Russell -5.39%, S&amp;P -0.45%, Nasdaq Comp +1.86%, NDX +3.23%.</p>
-<ul>
-<li><b>Rates are the pressure point:</b> 10-yr yield ~5.29% (multi-decade highs). August core PCE was soft (+0.2% m/m vs 0.3% exp; 3.0% y/y vs 3.3%), yet yields failed to hold lower — a bearish tell for duration-heavy Nasdaq if it persists.</li>
-<li><b>Overnight catalysts:</b> Micron reported after the close (results not confirmed at time of writing — check chips/NQ reaction at the Globex open); Iran/Hormuz headlines (Trump claims near-total control and reportedly rejected Iran's proposal; Iran says it sent/expects a response); new-quarter/month-start flows Oct 1.</li>
-<li><b>Hold warning:</b> No overnight carry. Headline risk (Hormuz) can gap oil/indices in either direction. Thursday brings ISM Manufacturing; Friday brings the Employment Report.</li></ul></section>
+<section><h2>🚨 After-Hours / Overnight Alert</h2>
+<div class="banner"><b style="color:var(--yellow)">NARRATIVE FLIP — "Cooling labor = relief rally" now collides with a 5%+ 10-yr yield, ~$90 oil, and an Iran/Middle East troop build-up.</b>
+<p><b>At Friday's close:</b> Sept NFP printed just +29K (est. ~84–90K), unemployment 4.2%. Equities ripped (S&P 500 ~7,722, +0.7–0.9%; Nasdaq Composite ~27,190, +1.2–1.35%; Nvidia ATH). Market priced October hike odds down to ~18%. G7 agreed a 100M-bbl emergency reserve release over four months; WTI sold off hard.</p>
+<p><b>Weekend/overnight:</b> OPEC+ ministerial (Nov quotas) was scheduled Sunday — outcome not confirmed at time of writing; check before the open. Trump deployed ~9,000 troops to the Middle East and warned Iran will "be hit very hard" if tied to a plane-hijack attempt. Hormuz risk remains the oil overlay.</p>
+<p><b>Bias change:</b> Crude is the swing asset — Friday's G7-release drop can be faded by any weekend escalation (gap-up risk in CL/GC). Equities: Friday's gap-and-go into a record-type close with a 5.28% 10-yr is a classic "good news = bad news" setup; do not chase longs at the open. Watch for a Judas swing at 8:30–9:30 ET.</p>
+<p class="mut">Data caveat: Friday's oil/gold closes differ between sources (WTI $89.39 vs $91.11; gold $4,162 vs $4,214). Treat as approximate.</p></div></section>
 
-<section><h2>🎭 2. Manipulation Detection</h2>
-<h3>Narrative pushed into the close</h3>
-<p>"Soft PCE + Williams 'no urgency' = hike risk fading" (Goldman moved its hike call to December; market odds of an Oct 28 hike ~40–50%). Yet the 10-yr kept grinding higher and the Dow/small caps sold off. <span class="y">Read: dovish headlines, hawkish price action — the headline may be the trap.</span></p>
-<h3>Sentiment readings</h3>
-<p class="m">COT / AAII / Fear &amp; Greed: not retrieved in today's search — unconfirmed, not published. Check CFTC Friday release and AAII Thursday before leaning on positioning.</p>
-<h3>What institutions appeared to do</h3>
-<p>Rotation into mega-cap tech (6 of Mag 7 up; Apple +1.1%) while cyclicals, industrials and small caps were sold — a quality/duration-light bid inside a weakening breadth tape. Month-end/quarter-end rebalancing likely distorted the last hour; expect that flow to disappear Oct 1.</p>
-<h3>Narrative traps for Thursday's open</h3>
-<div class="card"><b class="p">Trap 1 — "Tech leadership = market is fine."</b> Breadth says otherwise. <b>Exploit:</b> if NQ/ES run above the Sept 30 PDH early in the NY open then fail (SMT divergence vs YM/RTY weak, MSS on 1–5m back under PDH), fade the BSL sweep toward the PDL. Entry on CISD/OTE of the displacement leg; stop above the sweep high; target PDL / SSL; time-stop 10:45 AM ET.</div>
-<div class="card"><b class="p">Trap 2 — "Soft PCE kills the hike."</b> Yields haven't agreed. <b>Exploit:</b> an opening pop on rate-relief that sweeps BSL then produces MSS down is a classic Judas swing — short from the FVG/OB retest; stop above the swing high; first target the open, then PDL; time-stop 11:00 AM ET.</div></section>
+<section><h2>🎭 Manipulation Detection</h2>
+<h3>A. Sentiment Readings</h3><div class="tw"><table>
+<tr><th>Indicator</th><th>Reading</th><th>Plain-English Read</th></tr>
+<tr><td>AAII Bull/Bear</td><td class="mut">Unconfirmed (not retrievable)</td><td>Not published here — check aaii.com Thursday print. No fabricated number.</td></tr>
+<tr><td>CNN Fear &amp; Greed</td><td class="mut">Unconfirmed</td><td>Price action (record Nvidia, +1.2% Nasdaq on a weak jobs print) implies greed-leaning; verify live.</td></tr>
+<tr><td>COT (crude/gold)</td><td class="mut">Unconfirmed</td><td>Release due Friday; no verified positioning figure this run.</td></tr>
+<tr><td>Put/Call</td><td class="mut">Unconfirmed</td><td>Verify CBOE equity P/C before the open; a sub-0.6 reading would support fading open strength.</td></tr>
+<tr><td>Fed odds (verified)</td><td>Oct hike ~18% (was ~64% earlier in week per one source); hold 81% at 3.75–4.00%</td><td>Market has swung hard toward "no more hikes." Over-reaction risk if inflation data re-accelerates.</td></tr>
+</table></div>
+<h3>B. Narrative Trap Cards</h3>
+<div class="card"><b>Trap 1 — "Weak jobs = Fed is done = buy everything"</b>
+<p><b>Narrative:</b> 29K NFP kills the hike; risk-on into new highs.</p>
+<p><b>Reality Check:</b> 10-yr at ~5.28% (+10bps on the week), oil ~$90, and a Fed still 18–36% priced for a hike in late October. Weak jobs + high oil = stagflation tape, not Goldilocks. Retail buys the breakout; smart money sells into it.</p>
+<p><b>ICT Read:</b> Friday's thrust likely took buy-side liquidity above prior highs. Monday's open often runs it once more (BSL sweep) then reverses if no displacement continuation.</p>
+<p><b>Exploitation Setup:</b> Wait for sweep of Friday's high (ES ref ~7,722 close; use the actual PDH from your chart), then MSS + CISD on 1–5m back below, short toward Friday's FVG/midpoint. Skip if price accepts above PDH with displacement.</p></div>
+<div class="card"><b>Trap 2 — "G7 reserve release = oil collapses"</b>
+<p><b>Narrative:</b> 100M bbl over four months caps crude.</p>
+<p><b>Reality Check:</b> That is ~0.8M bbl/day — small vs. a Hormuz disruption. WTI's -2% to -3.75% drop landed into Friday's close, while 9,000 troops head to the region.</p>
+<p><b>ICT Read:</b> Friday low in CL = likely SSL run before reversal if geopolitics flare. Retail shorts the "supply relief."</p>
+<p><b>Exploitation Setup:</b> If CL sweeps Friday's low (~$89–91 zone) overnight/London and prints MSS + CISD up, long back to the 50% of Friday's range. Stop under the sweep low.</p></div>
+<h3>C. What Smart Money Appears To Be Doing</h3>
+<ul><li><b>Equities:</b> Likely distributing into strength — record-type closes on bad macro data with yields at 5%+ is classic distribution behavior.</li>
+<li><b>Crude:</b> Accumulating on dips while headlines say "supply glut" — geopolitics skews risk to the upside.</li>
+<li><b>Gold/Silver:</b> Choppy under a strong-yield headwind; gold fell on stronger rate pressure, so watch for a manipulation leg lower before upside.</li>
+<li><b>BTC:</b> Rejected near ~$87K (Sept 21 high $87,397); stop-run risk both sides in $80.9K–$87.4K range.</li></ul></section>
 
-<section><h2>🌍 3. Geopolitical Watchlist</h2>
-<table><tr><th>Theme</th><th>Status</th><th>Market link</th><th>Risk</th></tr>
-<tr><td>US–Iran / Strait of Hormuz</td><td>Trump says US has "almost total control" and signalled developments "very soon"; reports say he rejected Iran's Hormuz proposal; Iran says it responded and pushes back on takeover talk.</td><td>WTI ~$90.3, Brent ~$97.9 (late-day quotes). Headline gap risk to CL, then to rates/indices.</td><td><span class="pill hi">HIGH</span></td></tr>
-<tr><td>Fed leadership</td><td>Watchdog cleared Powell in the renovation-cost probe; Trump demanded resignation.</td><td>Headline noise; rates/dollar.</td><td><span class="pill md">MEDIUM</span></td></tr>
-<tr><td>Bond market / yields</td><td>10-yr ~5.29%, multi-decade highs.</td><td>Key equity valuation headwind.</td><td><span class="pill hi">HIGH</span></td></tr></table></section>
+<section><h2>🌍 Geopolitical Watchlist</h2><div class="tw"><table>
+<tr><th>Event</th><th>Status</th><th>Affected Assets</th><th>Bias Shift</th></tr>
+<tr><td>US troop deployment (~9,000) to Middle East; Trump warning to Iran</td><td>🔴</td><td>CL, Brent, GC, ES/NQ</td><td>Oil ↑ / gold ↑ / equities gap risk ↓</td></tr>
+<tr><td>Strait of Hormuz disruption (ongoing "oil overlay")</td><td>🔴</td><td>CL, Brent, Energy</td><td>Oil ↑</td></tr>
+<tr><td>OPEC+ ministerial (Nov quotas, Sun Oct 4)</td><td>🟡</td><td>CL, Brent</td><td>Outcome unconfirmed — hike = ↓, hold = →/↑</td></tr>
+<tr><td>G7 100M-bbl emergency release</td><td>🟢</td><td>CL, Brent</td><td>Mild ↓, already priced Friday</td></tr>
+<tr><td>Russia/Ukraine, China/Taiwan</td><td>🟡</td><td>Broad risk, Defense</td><td>No verified new overnight development</td></tr>
+</table></div></section>
 
-<section><h2>📅 4. Upcoming News Events — High &amp; Medium Impact</h2>
-<table><tr><th>Date / Time (ET)</th><th>Event</th><th>Impact</th><th>Assets in Play</th><th>Why It Matters</th></tr>
-<tr><td>Thu Oct 1, 8:30 AM</td><td>Initial Jobless Claims</td><td><span class="pill md">Medium</span></td><td>ES, NQ, ZN, DXY</td><td>Labor read ahead of Friday payrolls.</td></tr>
-<tr><td>Thu Oct 1, 10:00 AM</td><td>ISM Manufacturing PMI</td><td><span class="pill mh">Medium-High</span></td><td>ES, NQ, YM, RTY, CL</td><td>Growth/prices-paid read while yields sit at highs; Dow/small-cap weakness makes cyclicals sensitive.</td></tr>
-<tr><td>Thu Oct 1 (intraday)</td><td>Micron post-earnings reaction &amp; Hormuz headlines</td><td><span class="pill mh">Medium-High</span></td><td>NQ, SOX names, CL</td><td>Semis carry Nasdaq leadership; oil headlines can gap anything.</td></tr>
-<tr><td>Fri Oct 2, 8:30 AM</td><td>Employment Report (Sept)</td><td><span class="pill hi">High</span></td><td>All index futures, ZN, DXY, GC</td><td>Decisive for Oct 28 hike odds (~40–50%). A strong print on Sept 3 already sank the Dow ~260 pts on hike fears.</td></tr>
-<tr><td>Mon Oct 5 (time unverified)</td><td>ISM Services PMI (expected)</td><td><span class="pill md">Medium</span></td><td>ES, NQ, ZN</td><td>Services inflation read; verify date/time.</td></tr>
-<tr><td>Wed Oct 7, 10:30 AM (expected)</td><td>EIA Crude Inventories</td><td><span class="pill md">Medium</span></td><td>CL, energy sector</td><td>Oil sensitive to Hormuz headlines; verify.</td></tr>
-<tr><td>Wed Oct 7, 2:00 PM (expected)</td><td>FOMC Minutes (Sept meeting)</td><td><span class="pill mh">Medium-High</span></td><td>ES, NQ, ZN, DXY</td><td>Detail on hike debate; verify date.</td></tr>
-<tr><td>Thu Oct 8, 8:30 AM</td><td>Initial Jobless Claims</td><td><span class="pill md">Medium</span></td><td>ES, NQ</td><td>Weekly labor check. Fed speakers also possible all week — check calendar.</td></tr></table>
-<p class="m">Times marked "expected/unverified" were not confirmed by a source in today's search (only ISM Oct 1 and Employment Report Oct 2 were confirmed by the calendar).</p></section>
+<section><h2>📅 Upcoming News Events — High &amp; Medium Impact</h2><div class="tw"><table>
+<tr><th>Date/Time (ET)</th><th>Event</th><th>Impact</th><th>Assets</th><th>Why It Matters</th></tr>
+<tr><td>Sun Oct 4</td><td>OPEC+ ministerial (Nov output)</td><td class="hi">High</td><td>CL, Brent</td><td>Sets Monday's gap direction in crude; check outcome first.</td></tr>
+<tr><td>Mon Oct 5, 10:00 AM</td><td>ISM Services PMI (Sept) — cons ~55.0</td><td class="hi">High</td><td>ES, NQ, ZN</td><td>Hot print + 5.28% 10-yr = pressure on the Friday rally; soft print confirms slowdown.</td></tr>
+<tr><td>Tue Oct 6, 10:30 AM (typical)</td><td>EIA Crude Inventories (wk ending Oct 2)</td><td class="med">Medium-High</td><td>CL, Brent</td><td>Tests whether Friday's selloff holds.</td></tr>
+<tr><td>Tue Oct 6</td><td>Paramount–WBD merger close</td><td class="med">Medium</td><td>Media stocks</td><td>Single-name, minor index impact.</td></tr>
+<tr><td>Wed Oct 7, 2:00 PM</td><td>FOMC Minutes</td><td class="hi">High</td><td>ES, NQ, GC, ZN</td><td>Hike-bias language vs. 18% market odds — key for late-October meeting (Oct 27–28).</td></tr>
+<tr><td>Thu Oct 8, 8:30 AM</td><td>Jobless Claims (typical Thursday release; time not verified)</td><td class="med">Medium</td><td>ES, NQ</td><td>Confirms/denies the 29K NFP weakness.</td></tr>
+<tr><td>Thu Oct 8</td><td>PepsiCo Q3 earnings</td><td class="med">Medium</td><td>Staples</td><td>Consumer health read.</td></tr>
+<tr><td>Fri Oct 9</td><td>Delta Q3; UMich sentiment (~48 lows); Baker Hughes rigs (1:00 PM typical); COT</td><td class="med">Medium</td><td>ES, CL</td><td>Weekly close; consumer/oil supply color.</td></tr>
+<tr><td>TBD</td><td>Fed speakers; CPI/PPI dates not verified this run</td><td class="hi">High</td><td>All</td><td>Check calendar; CPI normally lands mid-month.</td></tr>
+</table></div></section>
 
-<section><h2>🧭 5. ICT Market Phase Assessment</h2>
-<div class="card"><b>Phase:</b> <span class="y">Distribution / divergence</span> in the broad market; NDX holding relative strength. S&amp;P 500 sits ~2.1% below its 52-week high (7,816.70).</div>
-<ul>
-<li><b>SMT divergence:</b> NDX/COMP up while Dow and Russell made new lows — bearish divergence on the index complex; confirmation needed from ES/NQ failing at PDH.</li>
-<li><b>Liquidity:</b> BSL sits above the Sept 30 PDH and recent NDX highs; SSL below the Sept 30 PDL and the multi-week lows in YM/RTY. Mark PDH/PDL and the last 4H FVG/OB on your own chart before the open (intraday highs/lows not verified from search).</li>
-<li><b>Bias for Oct 1:</b> Neutral-to-bearish-on-failure. Favor shorts only after a BSL sweep + MSS + CISD; favor longs only after an SSL sweep into a 1H bullish OB/FVG with MSS up.</li></ul></section>
-
-<section><h2>📊 6. Sector Assessment</h2>
-<table><tr><th>Sector</th><th>Read</th><th>Bias</th></tr>
-<tr><td>Mega-cap tech / semis</td><td>Led the close; 6 of Mag 7 up (Apple +1.1%, Nvidia strong on month); Meta -1.8% on day. Micron after-hours is the swing factor.</td><td class="g">Relative strength, extended</td></tr>
-<tr><td>Industrials / Dow components</td><td>22 of 30 down; Dow at lowest close since early June.</td><td class="r">Weak</td></tr>
-<tr><td>Small caps</td><td>Russell -0.39%; -5.39% in September.</td><td class="r">Weak</td></tr>
-<tr><td>Energy</td><td>Crude up on Hormuz developments (WTI ~$90.3).</td><td class="y">Headline-driven</td></tr>
-<tr><td>Gold / metals</td><td>Gold ~$4,158 (-0.56%) on stronger yields/dollar (another quote showed ~$4,189; sources conflict — treat as approximate).</td><td class="y">Pressured</td></tr></table></section>
-
-<section><h2>🎯 7. Actionable Steps (Day-Trading Focus)</h2>
-<p class="m">All setups are same-session round-trips. Levels are referenced to PDH/PDL/FVG/OB you mark on chart — exact intraday levels were not verified from search. Size small around ISM and payrolls.</p>
-
-<h3>Overnight Watch — Tonight, Wednesday, September 30, 2026</h3>
-<div class="card">Watch only; no carry. Monitor Micron reaction in NQ, Hormuz/Iran headlines in CL, and Asia/Europe handling of yields. Note the Globex high/low and any overnight FVG — these become London and NY reference levels.</div>
-
-<h3>Pre-Market Prep — Thursday, October 1, 2026 (6–7 AM ET)</h3>
-<div class="card">Reminder: all setups below are structured for intraday, flat-by-close execution. Mark Sept 30 PDH/PDL, overnight high/low, London high/low, and 8:30 jobless claims reaction. ISM hits at 10:00 AM — no fresh entries 9:55–10:05 unless already managed.</div>
-
-<h3>London Kill Zone — Thursday, October 1, 2026 (2–5 AM ET)</h3>
-<div class="card"><b>Setup L1 (either direction, reactive):</b> Wait for a sweep of the Asian high or low, then MSS + CISD on 1–5m. <b>Entry:</b> OTE (62–79%) of the displacement leg / FVG retest. <b>Stop:</b> beyond the sweep extreme. <b>Target:</b> opposite Asian extreme, then Sept 30 PDH/PDL. <b>Time-stop:</b> 5:00 AM ET; exit if no follow-through within 60 min.</div>
-
-<h3>NY Open Kill Zone — Thursday, October 1, 2026 (7–10 AM ET)</h3>
-<div class="card"><b>Setup A — Fade failed BSL (primary):</b><ul>
-<li><b>Trigger:</b> NQ/ES sweep the Sept 30 PDH or London high between 8:30–9:45, SMT divergence vs YM/RTY, then MSS down + CISD on 1–5m.</li>
-<li><b>Entry:</b> OTE/FVG retest of the displacement leg.</li><li><b>Stop:</b> above the sweep high (+ a few ticks).</li><li><b>Target:</b> T1 = London/overnight low; T2 = Sept 30 PDL / SSL.</li><li><b>Time-stop:</b> 10:45 AM ET (before the ISM-driven reversal window closes); flat if not at T1.</li></ul></div>
-<div class="card"><b>Setup B — Buy the SSL sweep into bullish OB:</b><ul>
-<li><b>Trigger:</b> Sweep of the overnight/PDL liquidity after 8:30 data, rejection into a 1H bullish OB/FVG, MSS up + CISD.</li>
-<li><b>Entry:</b> OTE of the reversal leg.</li><li><b>Stop:</b> below the sweep low.</li><li><b>Target:</b> T1 = 50% of the prior range / session open; T2 = PDH.</li><li><b>Time-stop:</b> 10:30 AM ET; cut if price loses the OB.</li></ul></div>
-<div class="card"><b>Setup C — ISM volatility (optional):</b> Trade only the post-10:00 retrace into the FVG left by the initial spike, after MSS confirms direction. Stop beyond the spike extreme; target the next liquidity pool; time-stop 11:15 AM ET.</div>
-
-<h3>NY Lunch / Afternoon — Thursday, October 1, 2026 (12–4 PM ET)</h3>
-<div class="card">Lunch is chop — stand aside 12–1:30 PM. PM reversal setups only with clean MSS + CISD into a 1H FVG/OB; target the nearest internal liquidity; stop beyond the structure swing; time-stop 3:30 PM. <b class="r">Flatten everything by 4:00 PM ET.</b> Friday payrolls make overnight carry especially unattractive.</div>
-<p class="m">Swing Watch: none — no clean multi-day structure.</p></section>
-
-<section><h2>🧠 8. Risk &amp; Mindset</h2>
-<ul>
-<li><b>Default stance:</b> day trades flat by the close; overnight/swing carry is a deliberate, explicitly flagged exception — not today.</li>
-<li>Split tape + rates at highs = elevated whipsaw risk. Cut size ~50% around 8:30 and 10:00 releases; max 2 losing trades, then stop.</li>
-<li>Don't chase the tech-led headline strength; wait for liquidity to be taken and structure to shift (MSS/CISD).</li>
-<li>Friday payrolls: expect Thursday afternoon positioning to get thin and erratic.</li></ul></section>
-
-<section><h2>📈 9. Market Snapshot (Close, Sept 30, 2026)</h2>
+<section><h2>🧠 ICT Market Phase Assessment</h2>
+<div class="warn">NQ and ES futures settlement levels were not confirmable from search. Cash references shown and labeled; use your platform for exact PDH/PDL.</div>
 <div class="grid">
-<div class="card"><div class="m">Dow</div><div class="big">50,914.09</div><div class="r">-441.03 (-0.86%)</div></div>
-<div class="card"><div class="m">S&amp;P 500</div><div class="big">7,652.03</div><div class="r">-18.82 (-0.25%)</div></div>
-<div class="card"><div class="m">Nasdaq Composite (index)</div><div class="big">26,861.06</div><div class="g">+63.52 (+0.24%)</div></div>
-<div class="card"><div class="m">Nasdaq 100 (index)</div><div class="big">30,408.50</div><div class="g">+69.17 (+0.23%)</div></div>
-<div class="card"><div class="m">Russell 2000</div><div class="big">2,796.88</div><div class="r">-11.04 (-0.39%)</div></div>
-<div class="card"><div class="m">10-yr yield</div><div class="big">~5.29%</div><div class="y">multi-decade high</div></div>
-<div class="card"><div class="m">WTI crude</div><div class="big">~$90.3</div><div class="g">up on Hormuz</div></div>
-<div class="card"><div class="m">Brent</div><div class="big">~$97.9</div><div class="g">+1.8% (late quote)</div></div>
-<div class="card"><div class="m">Gold</div><div class="big">~$4,158</div><div class="r">-0.56% (sources vary)</div></div>
-</div>
-<p class="m"><b>NQ futures:</b> the exact NQ settlement was not confirmed from a reliable source, so no NQ futures price is published. The Nasdaq 100 cash index (30,408.50) above is an index, not the futures contract; NQ trades near it with a small basis. The Nasdaq Composite (26,861.06) is a different, lower index. Core PCE (Aug): +0.2% m/m, 3.0% y/y. COT/AAII/Fear &amp; Greed not retrieved. Sources: investingLive, Yahoo Finance, Investing.com, Guggenheim calendar. Educational analysis only — not financial advice.</p></section>
+<div class="card"><b>NQ</b> — last: unconfirmed <span class="mut">(Nasdaq Composite index ~27,190 — NOT NQ)</span> <span class="badge man">Manipulation</span><p>Friday's +1.2% thrust on a weak NFP likely swept BSL above prior highs. Look for a Monday Judas swing then MSS + CISD back inside Friday's range; Friday's displacement FVG is the downside magnet. SMT vs ES is key.</p></div>
+<div class="card"><b>ES</b> — S&amp;P 500 index ~7,722 (ES futures unconfirmed) <span class="badge dist">Distribution</span><p>Record-area close with 10-yr at 5.28% = fragile. Sell-side only on PDH sweep + MSS; first target Friday's opening-range FVG, then PDL. Above PDH with displacement invalidates.</p></div>
+<div class="card"><b>CL</b> — ~$89.4–91.1 (sources differ) <span class="badge acc">Accumulation</span><p>Friday's drop into G7 headline looks like SSL-run candidates. Long only after SSL sweep + MSS up; target 50% of Friday range then PDH. OPEC+ outcome drives the gap.</p></div>
+<div class="card"><b>GC</b> — ~$4,162–4,214 (sources differ) <span class="badge man">Manipulation</span><p>Trading against yield pressure. Watch for a sweep of the Friday low then reversal OTE long; if yields spike, expect SSL run first. Define levels on your chart.</p></div>
+<div class="card"><b>SI</b> — ~$60.4–61.4 <span class="badge reacc">Re-Accumulation</span><p>Round $60 is clear SSL magnet. A sweep below $60 with CISD up is the long trigger; BSL at Friday high ~$61.4.</p></div>
+<div class="card"><b>BTC</b> — ~$83–87K (topped ~$87K Friday, faded) <span class="badge man">Manipulation</span><p>Rejected at the $87,397 Sept 21 high. SSL at $80,875 then $75,585. Look for a run of $80.9K with MSS back up, or a short from a fresh $87K sweep.</p></div>
+</div></section>
+
+<section><h2>🏦 Sector Assessment</h2><div class="tw"><table>
+<tr><th>Sector</th><th>Move Likelihood</th><th>Bias</th><th>Reasoning</th></tr>
+<tr><td>Energy</td><td>High</td><td>↑</td><td>Hormuz risk + troop deployment vs. G7 release; OPEC+ gap.</td></tr>
+<tr><td>Defense</td><td>Moderate</td><td>↑</td><td>9,000-troop deployment headline.</td></tr>
+<tr><td>Precious Metals</td><td>Moderate</td><td>→</td><td>Geopolitical bid vs. 5.28% yield.</td></tr>
+<tr><td>Healthcare</td><td>Low</td><td>→</td><td>Only sector down Friday; defensive rotation possible.</td></tr>
+<tr><td>Technology</td><td>High</td><td>↓ (intraday fade)</td><td>Nvidia ATH, Nasdaq +1.2%: stretched; reversal risk on ISM/yields.</td></tr>
+<tr><td>Financials</td><td>Moderate</td><td>→</td><td>High yields help NIM, weak jobs hurt credit outlook.</td></tr>
+<tr><td>Industrials/Materials</td><td>Moderate</td><td>→</td><td>Russell +0.9% Friday; oil input costs a headwind.</td></tr>
+<tr><td>Crypto</td><td>Moderate</td><td>→</td><td>Range $75.6K–$87.4K; Fed risk Oct 27–28.</td></tr>
+</table></div></section>
+
+<section><h2>✅ ICT Actionable Steps (Day-Trading Focus)</h2>
+<div class="card"><b>Pre-Market Prep — Monday, October 5, 2026 (6–7 AM ET)</b>
+<ul><li>All setups are intraday, flat-by-close.</li><li>Check OPEC+ outcome, CL/GC overnight gap, ES/NQ vs Friday's PDH/PDL; mark Friday's FVGs and sessions highs/lows.</li><li>Bias: fade strength after BSL sweep in indices; look for SSL sweep long in CL.</li></ul></div>
+<div class="card"><b>London Kill Zone — Monday, October 5, 2026 (2–5 AM ET)</b>
+<ul><li><b>CL long (only if OPEC+ hold/bullish):</b> entry on SSL sweep of Friday low + MSS/CISD (5m); stop 0.50 below sweep; target 50% of Friday range; time-stop 5:00 AM.</li><li>Otherwise observe — mark Asian/London high-low for NY.</li></ul></div>
+<div class="card"><b>NY Open Kill Zone — Monday, October 5, 2026 (7–10 AM ET)</b>
+<ul><li><b>Setup 1 — ES/NQ short:</b> Entry after sweep of Friday high/London high + MSS and CISD on 5m, enter at OTE (62–79%) of the displacement leg. Stop above the sweep high. Target 1: Friday's FVG midpoint; Target 2: PDL. Time-stop: exit by 11:30 AM if target not hit.</li>
+<li><b>Setup 2 — CL long (after 8:30–9:00 flush):</b> Entry on SSL sweep + MSS/CISD, stop below sweep low, target London high / 50% range, time-stop 11:00 AM.</li>
+<li><b>Silver Bullet (9:50–10:10 AM):</b> Trade the FVG formed after a 9:50+ displacement toward the nearest opposing liquidity (ES/NQ). Stop beyond FVG; target opposing draw; time-stop 10:40 AM. ISM Services at 10:00 can invalidate — skip if the first move is a news spike without a clean FVG.</li></ul></div>
+<div class="card"><b>NY Lunch — Monday, October 5, 2026 (12–1:30 PM ET)</b>
+<ul><li>Flatten scalps; move remaining day-trade stops to breakeven. No new entries into chop.</li></ul></div>
+<div class="card"><b>NY Afternoon — Monday, October 5, 2026 (1:30–4 PM ET)</b>
+<ul><li>Look for continuation toward the day's opposing liquidity after the lunch range breaks (MSS + CISD, OTE entry, stop beyond swing, 1:2 minimum target).</li><li><b>Flatten ALL day-trade positions by 4:00 PM ET.</b></li></ul></div>
+<p class="mut">No Swing Watch today — FOMC minutes (Wed) and an unresolved oil/geopolitics backdrop argue against carry.</p></section>
+
+<section><h2>⚠️ Risk &amp; Mindset</h2><div class="tw"><table>
+<tr><th>Position Sizing</th><td>Reduce size 25–50% around ISM (10:00 AM) and any geopolitical headline; oil gaps can run past stops.</td></tr>
+<tr><th>Narrative Discipline</th><td>Don't buy "weak jobs = rally" or sell "G7 release = oil dump" on headlines alone; wait for liquidity sweep + MSS.</td></tr>
+<tr><th>Upcoming Catalysts</th><td>ISM Services Mon; EIA Tue; FOMC minutes Wed 2 PM; claims Thu; Fed meeting Oct 27–28.</td></tr>
+<tr><th>ICT Mindset</th><td>Ask who benefits: late retail longs after a record close provide exit liquidity.</td></tr>
+<tr><th>Overnight Hold Warning</th><td>Default: flat by close. Weekend/geopolitical gap risk in CL/GC makes carry a deliberate exception only.</td></tr>
+</table></div></section>
+
+<section><h2>📊 Market Snapshot</h2><div class="tw"><table>
+<tr><th>Asset</th><th>Last Close</th><th>Move</th><th>Bias</th><th>Key Levels</th></tr>
+<tr><td>NQ</td><td class="mut">Unconfirmed (Nasdaq Comp. ~27,190)</td><td class="up">Comp +1.2% to +1.35%</td><td>↓ intraday fade</td><td>Friday high/low, Friday FVG — use chart</td></tr>
+<tr><td>ES</td><td class="mut">S&amp;P 500 ~7,722 (futures unconfirmed)</td><td class="up">+0.7% to +0.9%</td><td>↓ intraday fade</td><td>7,722 close ref; PDH/PDL on chart</td></tr>
+<tr><td>WTI</td><td>~$89.39–91.11</td><td class="dn">-1.9% to -3.75%</td><td>↑</td><td>Round $90 magnet; Friday low = SSL</td></tr>
+<tr><td>Brent</td><td>~$99.92–102.25</td><td class="dn">-0.1% to -2.3%</td><td>↑</td><td>$100 pivot</td></tr>
+<tr><td>Gold</td><td>~$4,162–4,214</td><td>-0.95% to +0.29% (sources conflict)</td><td>→</td><td>$4,200 / $4,150</td></tr>
+<tr><td>Silver</td><td>~$60.42–61.42</td><td>-1.2% to +0.4% (sources conflict)</td><td>→</td><td>$60 SSL; $61.4</td></tr>
+<tr><td>BTC</td><td>~$83–87K</td><td class="mut">Faded from ~$87K</td><td>→</td><td>$87,397 / $80,875 / $75,585</td></tr>
+</table></div></section>
+</main>
+<footer>Educational purposes only. Not financial advice. Futures trading carries substantial risk of loss.</footer>
 </body></html>
