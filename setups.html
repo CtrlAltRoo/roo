@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Setups — Monday, November 16, 2026</title>
 <style>
-:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;--red:#f85149;--yellow:#d29922;--blue:#388bfd}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:13px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:10px}
-h1{font-size:1rem;margin:0 0 8px}h1 span{color:var(--muted);font-weight:400;font-size:.8rem}
-.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px}
-.s{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 10px}
-.s h2{font-size:.92rem;margin:0 0 4px}.L{color:var(--green)}.S{color:var(--red)}
-.s ul{margin:0;padding-left:16px}.c{color:var(--yellow);font-size:.8rem;margin:2px 0 4px}
-footer{margin-top:8px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border);padding-top:6px}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;--red:#f85149;--yellow:#d29922}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,Segoe UI,Roboto,sans-serif;font-size:13px;line-height:1.4;padding:10px}
+h1{font-size:15px;margin-bottom:8px}h1 span{color:var(--muted);font-weight:400;font-size:12px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px}
+.c{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 10px}
+.c h2{font-size:14px;margin-bottom:4px}.L{color:var(--green)}.S{color:var(--red)}
+ul{list-style:none}li{padding:1px 0}li b{color:var(--muted);font-weight:600}
+.cond{color:var(--yellow);font-size:12px;margin-bottom:3px}
+footer{margin-top:8px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);padding-top:6px}
 </style></head><body>
-<h1>Setups — Monday, November 16, 2026 <span>· Micro contracts · Last updated: Sunday, November 15, 2026 at 7:38 PM ET</span></h1>
+<h1>Setups — Monday, November 16, 2026 <span>· updated 12:04 AM ET · micros only</span></h1>
 <div class="g">
-<div class="s"><h2>MGC <span class="L">Long</span></h2><ul>
-<li>Window: 2:00–5:00 AM ET</li><li>Trigger: SSL sweep below 3,858, then 5m MSS up</li><li>Entry: FVG CE / OTE of displacement leg</li><li>Stop: 3,840</li><li>Target 1: 3,890</li><li>Target 2: 3,905</li><li>Invalid if: no sweep by 5:00 AM or 15m close below 3,840</li></ul></div>
-<div class="s"><h2>MNQ <span class="L">Long</span></h2><ul>
-<li>Window: 9:30–11:00 AM ET</li><li>Trigger: sweep of overnight low / 28,035, then 5m MSS up (CISD)</li><li>Entry: OTE 62–79% or FVG CE</li><li>Stop: 27,960</li><li>Target 1: 28,200</li><li>Target 2: 28,385</li><li>Invalid if: 11:00 AM with T1 not hit</li></ul></div>
-<div class="s"><h2>MNQ <span class="S">Short</span></h2><ul>
-<li>Window: 9:30–11:30 AM ET</li><li>Trigger: run above 28,385–28,420, then CISD/MSS down (ES SMT bonus)</li><li>Entry: bearish FVG / OTE</li><li>Stop: 28,470</li><li>Target 1: 28,200</li><li>Target 2: 28,035</li><li>Invalid if: 11:30 AM or 5m close above 28,470</li></ul></div>
-<div class="s"><h2>MES <span class="S">Short</span></h2><ul>
-<li>Window: 9:30–11:30 AM ET</li><li>Trigger: run above 7,615–7,630, then MSS down</li><li>Entry: bearish FVG CE</li><li>Stop: 7,642</li><li>Target 1: 7,600</li><li>Target 2: 7,583</li><li>Invalid if: 11:30 AM or 5m close above 7,642</li></ul></div>
-<div class="s"><h2>MCL <span class="S">Short</span></h2><p class="c">Conditional: cancel if Hormuz tanker sinking is independently confirmed.</p><ul>
-<li>Window: 9:00–11:30 AM ET</li><li>Trigger: spike into 89.50–91.00, then 5m MSS down</li><li>Entry: FVG CE</li><li>Stop: 91.60</li><li>Target 1: 88.56</li><li>Target 2: 87.00</li><li>Invalid if: 11:30 AM or 5m close above 91.60</li></ul></div>
-<div class="s"><h2>MNQ Silver Bullet <span class="L">Long</span>/<span class="S">Short</span></h2><ul>
-<li>Window: 9:50–10:10 AM ET</li><li>Trigger: first FVG in direction of 9:30–9:50 displacement</li><li>Entry: FVG CE</li><li>Stop: beyond FVG origin candle</li><li>Target 1: nearest opposing liquidity (~30–50 pts)</li><li>Invalid if: not filled by 10:10; flat by 10:30</li></ul></div>
+<div class="c"><h2>MGC <span class="L">Long</span></h2>
+<div class="cond">Only if $3,857 is swept and reclaimed within 15 min.</div>
+<ul><li><b>Window:</b> 3:00–11:30 AM ET</li><li><b>Trigger:</b> SSL sweep below 3,857, then M5 MSS up</li><li><b>Entry:</b> Bullish FVG CE ~3,862–3,866</li><li><b>Stop:</b> 3,839</li><li><b>Target 1:</b> 3,889</li><li><b>Target 2:</b> 3,899</li><li><b>Invalid if:</b> 15-min close below 3,850, or 11:30 AM</li></ul></div>
+<div class="c"><h2>MNQ <span class="S">Short</span></h2>
+<ul><li><b>Window:</b> 9:30–11:30 AM ET</li><li><b>Trigger:</b> Rally into 28,150–28,260, then M5 CISD/MSS down</li><li><b>Entry:</b> OTE / bearish FVG CE ~28,180</li><li><b>Stop:</b> 28,320</li><li><b>Target 1:</b> 27,950</li><li><b>Target 2:</b> 27,800</li><li><b>Invalid if:</b> 15-min close above 28,320, or 11:30 AM</li></ul></div>
+<div class="c"><h2>MES <span class="L">Long</span></h2>
+<div class="cond">Skip if MNQ is making new lows while MES holds (bearish SMT).</div>
+<ul><li><b>Window:</b> 9:30–11:00 AM ET</li><li><b>Trigger:</b> SSL sweep below 7,550–7,555, then M5 MSS up through 7,565</li><li><b>Entry:</b> FVG CE / OTE 7,558–7,562</li><li><b>Stop:</b> 7,541</li><li><b>Target 1:</b> 7,583</li><li><b>Target 2:</b> 7,600</li><li><b>Invalid if:</b> 15-min close below 7,541, or 11:00 AM</li></ul></div>
+<div class="c"><h2>MCL <span class="S">Short</span></h2>
+<div class="cond">Only on an Iran-headline spike into the zone.</div>
+<ul><li><b>Window:</b> 9:00–11:30 AM ET</li><li><b>Trigger:</b> BSL sweep into 88.60–89.00, then M5 MSS down</li><li><b>Entry:</b> Bearish FVG / OTE ~88.70</li><li><b>Stop:</b> 89.45</li><li><b>Target 1:</b> 87.20</li><li><b>Target 2:</b> 86.30</li><li><b>Invalid if:</b> 15-min close above 89.45, or 11:30 AM</li></ul></div>
 </div>
-<footer>High-impact today: 8:30 AM Empire State · 9:05 AM Williams · 12:00 PM Warsh (no new entries 12:00–12:15).<br><b>Flat by 4 PM ET, no overnight holds.</b></footer>
+<footer>High-impact today: 8:30 AM Empire State · 9:05 AM Williams · <b>12:00 PM Fed Chair Warsh</b> (flat before noon).<br>Flat by 4 PM ET, no overnight holds.</footer>
 </body></html>
