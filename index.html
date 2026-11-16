@@ -1,301 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Futures Trading Report — Monday, November 16, 2026</title>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily Futures Trading Report — Nov 16, 2026</title>
 <style>
 :root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--blue:#388bfd;--green:#3fb950;--red:#f85149;--yellow:#d29922;--purple:#bc8cff}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55}
-header{position:sticky;top:0;z-index:10;background:rgba(13,17,23,.96);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px}
-header h1{font-size:18px}
-header .meta{font-size:13px;color:var(--text-muted);text-align:right}
-header .meta b{color:var(--text)}
-main{max-width:1150px;margin:0 auto;padding:20px 16px 40px}
-section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:20px}
-h2{font-size:18px;margin-bottom:12px}
-h3{font-size:15px;margin:14px 0 8px;color:var(--blue)}
+body{background:var(--bg);color:var(--text);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px}
+header h1{font-size:18px}header .meta{color:var(--text-muted);font-size:12.5px;text-align:right}
+main{max-width:1200px;margin:0 auto;padding:16px}
+section{margin-bottom:26px}
+h2{font-size:17px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+h3{font-size:14.5px;margin:12px 0 6px;color:var(--blue)}
 p{margin-bottom:8px}
-.muted{color:var(--text-muted)}
-.small{font-size:13px}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{border-bottom:1px solid var(--border);padding:8px 8px;text-align:left;vertical-align:top}
-th{background:var(--surface2);color:var(--text-muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.muted{color:var(--text-muted)}.g{color:var(--green)}.r{color:var(--red)}.y{color:var(--yellow)}.b{color:var(--blue)}.p{color:var(--purple)}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);font-size:13px;margin-bottom:8px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+th{background:var(--surface2);color:var(--text-muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.3px}
 .tw{overflow-x:auto}
-.alert{background:#2d1e00;border:2px solid var(--yellow);border-radius:10px;padding:18px;margin-bottom:20px}
-.alert h2{color:var(--yellow)}
-.tag{display:inline-block;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:700;white-space:nowrap}
-.g{background:rgba(63,185,80,.15);color:var(--green);border:1px solid var(--green)}
-.r{background:rgba(248,81,73,.15);color:var(--red);border:1px solid var(--red)}
-.y{background:rgba(210,153,34,.15);color:var(--yellow);border:1px solid var(--yellow)}
-.b{background:rgba(56,139,253,.15);color:var(--blue);border:1px solid var(--blue)}
-.p{background:rgba(188,140,255,.15);color:var(--purple);border:1px solid var(--purple)}
-.up{color:var(--green);font-weight:700}.dn{color:var(--red);font-weight:700}.fl{color:var(--yellow);font-weight:700}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px}
-.card h4{font-size:15px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap}
-.price{font-size:20px;font-weight:700;margin:2px 0 6px}
-.trap{background:var(--surface2);border-left:4px solid var(--purple);border-radius:6px;padding:14px;margin-bottom:12px}
-.trap h4{color:var(--purple);margin-bottom:8px}
+.alert{border:2px solid var(--yellow);background:#2d1e00;border-radius:8px;padding:14px}
+.alert .tag{display:inline-block;background:var(--yellow);color:#000;font-weight:800;padding:2px 10px;border-radius:4px;margin-bottom:8px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:800px){.grid2,.grid3{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}header .meta{text-align:left}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px}
+.card h4{font-size:14.5px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap}
+.card .px{font-size:13px;color:var(--text-muted);margin-bottom:6px}
+.badge{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11.5px;font-weight:700}
+.acc{background:#0d2018;color:var(--green);border:1px solid var(--green)}
+.man{background:#2d1e00;color:var(--yellow);border:1px solid var(--yellow)}
+.dis{background:#2d0f0f;color:var(--red);border:1px solid var(--red)}
+.rea{background:#0c1d33;color:var(--blue);border:1px solid var(--blue)}
+.hi{background:#2d0f0f;color:var(--red);border:1px solid var(--red)}
+.mh{background:#2d1e00;color:var(--yellow);border:1px solid var(--yellow)}
+.md{background:#0c1d33;color:var(--blue);border:1px solid var(--blue)}
+.trap{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--purple);border-radius:8px;padding:12px;margin-bottom:10px}
+.trap h4{color:var(--purple);margin-bottom:6px}
 .trap dt{font-weight:700;color:var(--text-muted);font-size:12px;text-transform:uppercase;margin-top:6px}
 .trap dd{margin-left:0}
-ul{padding-left:20px}li{margin-bottom:5px}
-.tb{background:var(--surface2);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:8px;padding:14px;margin-bottom:14px}
+ul.bl{padding-left:18px}ul.bl li{margin-bottom:5px}
+.tb{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px}
 .tb h3{margin-top:0}
-.setup{border:1px dashed var(--border);border-radius:6px;padding:10px;margin:8px 0;background:var(--surface)}
-.setup b.l{color:var(--green)}.setup b.s{color:var(--red)}
-.swing{border:1px solid var(--purple);border-radius:8px;padding:14px;background:rgba(188,140,255,.06)}
-footer{max-width:1150px;margin:0 auto;padding:10px 16px 40px;color:var(--text-muted);font-size:12px;text-align:center}
-@media(max-width:760px){.grid2{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}header .meta{text-align:left}th,td{padding:6px}}
-</style>
-</head>
-<body>
-<header>
-  <h1>📈 Daily Futures Trading Report</h1>
-  <div class="meta"><b>Monday, November 16, 2026</b><br>Last updated: Monday, November 16, 2026 at 12:04 AM ET</div>
-</header>
+.setup{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:9px;margin:8px 0;font-size:13px}
+.setup b{color:var(--text-muted)}
+.note{font-size:12.5px;color:var(--text-muted);background:var(--surface2);border:1px dashed var(--border);border-radius:6px;padding:8px;margin-bottom:10px}
+.qs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px}
+.qs .setup{margin:0}
+footer{border-top:1px solid var(--border);padding:16px;color:var(--text-muted);font-size:12px;text-align:center}
+</style></head><body>
+<header><h1>📈 Daily Futures Trading Report</h1>
+<div class="meta">Monday, November 16, 2026<br><strong>Last updated: Monday, November 16, 2026 at 12:58 PM ET</strong></div></header>
 <main>
 
-<!-- SECTION 1 -->
-<div class="alert">
-  <h2>🚨 After-Hours / Weekend Alert — NARRATIVE FLIP</h2>
-  <p><b>What the market believed at Friday's close:</b> "Look for the bounce." Indexes posted their first weekly gain in five weeks (S&amp;P 500 +2.5% to 7,561.67; Nasdaq Comp +2.3%), breadth was positive on Friday (314 up / 185 down), and the weekend media framing was a relief-rally setup into Nvidia earnings (Tue AMC) and the Anthropic IPO (prices Wed, trades Thu as ANT).</p>
-  <p><b>What actually happened over the weekend / Sunday open:</b></p>
-  <ul>
-    <li><b>Iran hit Bahrain again Sunday</b> — six IRGC drones at al-Riffa air base (second attack in three days, first on Gulf states since September). Bahrain says all intercepted. IRGC declares Hormuz "closed"; Trump told Vance the US is no longer interested in a deal. Two tankers reportedly hit mines in Hormuz on Friday.</li>
-    <li><b>Oil did NOT bid on it.</b> CLZ slipped to ~$87.82 (−0.8%) by 10 PM ET Sunday; IEA sees a ~2 mb/d Q4 surplus. Glut narrative is beating the war-premium narrative — that's information.</li>
-    <li><b>Bitcoin crashed to $62,086 over the weekend</b> (Fri close ~$68.2K, ~$65.2K Sunday), with ~$1.9B spot-ETF outflows. Risk appetite cracked where it trades 24/7.</li>
-    <li><b>Sunday-night Judas swing in index futures:</b> NQZ ran from ~28,035 settle to ~28,262 (+0.8%) and ESZ to ~7,612 at the 6 PM ET open, then gave it all back — NQZ ~27,966 and ESZ ~7,577 by 10:09 PM ET, both <i>below</i> Friday's settle.</li>
-  </ul>
-  <p><b>Bias change:</b> Friday's "bounce" thesis is now on probation. Sunday's buy-side run into the open looks like engineered BSL above Friday's settle that was sold. Day bias for NQ/ES flips from neutral-bullish to <span class="dn">neutral-bearish below 28,262 / 7,612</span>. Gold and silver remain heavy under a 5%+ 10-year yield and a 19-month-high dollar. Crude bias stays <span class="dn">↓</span> in range despite the headlines. BTC is the canary — it broke first.</p>
+<div class="note">⚠️ This edition ran at 12:58 PM ET (not midnight), so Monday's London and NY AM windows have already printed. Setups below cover Monday's remaining afternoon plus the full Tuesday, November 17, 2026 session. Futures levels for NQ/ES are derived from reported Friday-settle point/percent changes and FXEmpire's Dec-contract levels; verify against your live feed before entry.</div>
+
+<section id="setups-top">
+<h2>⚡ Today's Setups (Micros) — Quick View</h2>
+<div class="qs">
+<div class="setup"><strong>Mon 11/16 · MNQ <span class="r">Short</span></strong><br><b>Window:</b> 1:30–3:30 PM · <b>Trigger:</b> retrace 27,880–28,000 → 5m MSS down<br><b>Entry:</b> ~27,900 FVG CE · <b>Stop:</b> 28,060 · <b>T1/T2:</b> 27,585 / 27,400<br><b>Invalid:</b> 15m close &gt; 28,130 or 3:30 PM</div>
+<div class="setup"><strong>Mon 11/16 · MNQ <span class="g">Long</span></strong><br><b>Window:</b> 1:30–3:30 PM · <b>Trigger:</b> SSL sweep &lt; 27,531.75 → MSS up + CISD<br><b>Entry:</b> ~27,380 OTE · <b>Stop:</b> 27,240 · <b>T1/T2:</b> 27,585 / 27,800<br><b>Invalid:</b> acceptance &lt; 27,256.75 or 3:30 PM</div>
+<div class="setup"><strong>Tue 11/17 · MCL <span class="r">Short</span></strong><br><b>Window:</b> 2–5 AM · <b>Trigger:</b> BSL raid &gt; 88.60 → MSS down<br><b>Entry:</b> ~88.40 · <b>Stop:</b> 89.10 · <b>T1/T2:</b> 87.50 / 86.85<br><b>Invalid:</b> Hormuz strike headline; flat by 7 AM</div>
+<div class="setup"><strong>Tue 11/17 · MNQ <span class="g">Long</span></strong> <span class="y">(if Retail Sales ≤ +0.2%)</span><br><b>Window:</b> 9:30–11:00 AM · <b>Trigger:</b> sweep Mon low / 27,531.75 → 5m MSS up<br><b>Entry:</b> 1m FVG CE in OTE · <b>Stop:</b> 25 pts below sweep low · <b>T1/T2:</b> 27,800 / 28,000<br><b>Invalid:</b> no MSS by 10:30; time-stop 11:30</div>
+<div class="setup"><strong>Tue 11/17 · MES <span class="r">Short</span></strong> <span class="y">(if Retail Sales &gt; +0.4% &amp; 10Y &gt; 5.15%)</span><br><b>Window:</b> 9:30–11:00 AM · <b>Trigger:</b> BSL run &gt; 7,560 → MSS down<br><b>Entry:</b> ~7,550 · <b>Stop:</b> 7,582 · <b>T1/T2:</b> 7,500 / 7,465<br><b>Invalid:</b> 15m close &gt; 7,600; time-stop 11:30</div>
+<div class="setup"><strong>Tue 11/17 · MGC <span class="g">Long</span></strong> <span class="muted">(spot-ref)</span><br><b>Window:</b> 9:50–10:10 AM SB · <b>Trigger:</b> SSL sweep &lt; 3,832 → 1m MSS up<br><b>Entry:</b> ~3,840 · <b>Stop:</b> 3,822 · <b>T1/T2:</b> 3,865 / 3,900<br><b>Invalid:</b> close &lt; 3,822; time-stop 11:30</div>
 </div>
-
-<!-- SECTION 2 -->
-<section>
-  <h2>🎭 Manipulation Detection</h2>
-  <h3>A. Sentiment Readings</h3>
-  <div class="tw"><table>
-    <tr><th>Gauge</th><th>Reading</th><th>Plain-English Read</th></tr>
-    <tr><td>AAII Survey (Nov 5, latest confirmed)</td><td>Bull 34.1% / Neutral 17.5% / <b>Bear 48.4%</b></td><td>Bears ~17 pts above the 31.5% historical average. Retail is scared — a contrarian-bullish backdrop, but only once price confirms with an MSS. Newer weekly prints weren't confirmed in search.</td></tr>
-    <tr><td>CNN Fear &amp; Greed</td><td><span class="y tag">Unconfirmed</span></td><td>No current reading could be verified. With VIX 19.30 (up two days in a row), the S&amp;P 3.3% off its Oct 6 record and semis −23% from peak, it's most likely sitting in Fear. Treat that as an estimate.</td></tr>
-    <tr><td>COT — Managed Money (week to Nov 3)</td><td>Crude net long −81.3k to 268.4k (3-mo low). Gold 104k (5-mo low). Silver 2.7k (near flat).</td><td>Specs dumped energy and metals before the midterms. The post-election bounce was short covering, not new longs. Light positioning means sharper moves either way, and there's no crowded long left to squeeze in metals.</td></tr>
-    <tr><td>Equity Put/Call (Fri Nov 13)</td><td>0.85</td><td>Elevated hedging (EquityClock reads it as bullish). Puts are getting bought into a bounce, so dealers are short downside and can amplify a flush on a break.</td></tr>
-    <tr><td>VIX / Rates / USD</td><td>VIX 19.30 · 10Y 5.15% · DXY 103.43</td><td>Tight financial conditions. A Dec Fed hike is priced at >80–100%. Hot real yields are the gravity under GC, SI and long-duration tech.</td></tr>
-  </table></div>
-
-  <h3>B. Narrative Traps</h3>
-  <div class="trap">
-    <h4>Trap 1 — "Iran is attacking, buy crude"</h4>
-    <dl>
-      <dt>The Narrative</dt><dd>Drone strikes on Bahrain, IRGC says Hormuz is closed, mines are hitting tankers, so oil must spike.</dd>
-      <dt>Reality Check</dt><dd>CL fell 1.6% last week and slipped again Sunday night (~$87.82). The IEA projects a ~2 mb/d surplus, US escorts keep Gulf barrels moving, and the spec net long is at a 3-month low. The market has had nine months to price Hormuz.</dd>
-      <dt>ICT Read</dt><dd>Headline spikes in CL are being used to sell into BSL. Expect a Monday-morning headline pop toward the $88.18–$89.00 Friday range/pivot resistance that gets faded.</dd>
-      <dt>Exploitation Setup</dt><dd>MCL short only after a sweep of $88.60–$89.00 followed by an M5 MSS down. Stop $89.45. Targets $87.20, then $86.30 (S1). Flat by 11:30 AM ET, before EIA week chatter and the Warsh noon speech.</dd>
-    </dl>
-  </div>
-  <div class="trap">
-    <h4>Trap 2 — "Look for the bounce: AI trade rebounds into Nvidia"</h4>
-    <dl>
-      <dt>The Narrative</dt><dd>First weekly gain in five weeks, analysts call NVDA "extremely cheap," Santa rally stats, Anthropic IPO is 6× oversubscribed.</dd>
-      <dt>Reality Check</dt><dd>Nvidia's CEO resigned under an espionage-linked investigation, NVDA is down six straight weeks, price targets got cut in half (Baird $500→$200), the SOX fell 3.4% Friday, and NDX closed below its daily 200-MA (~28,065 cash). The Sunday-night NQ rally was fully retraced inside four hours.</dd>
-      <dt>ICT Read</dt><dd>The rally into Sunday's open was a Judas swing that ran BSL above Friday's settle. Smart money needs liquidity to <i>distribute</i> into before Tuesday's binary event, and a retail-bullish "bounce" narrative supplies it. A $1.4T IPO is also a giant supply event that pulls money out of existing AI names.</dd>
-      <dt>Exploitation Setup</dt><dd>MNQ short on a retrace into the 28,150–28,260 premium zone (NQ ≈ the NDX 200-MA plus the Sunday-night high). Wait for an M5 CISD down. Stop 28,320. Targets 27,900, then 27,750. Flat by 11:30 AM ET.</dd>
-    </dl>
-  </div>
-  <div class="trap">
-    <h4>Trap 3 — "Gold is the war hedge"</h4>
-    <dl>
-      <dt>The Narrative</dt><dd>Middle East escalation means safe-haven demand.</dd>
-      <dt>Reality Check</dt><dd>Gold had its worst week since June (−4.7%), printed a 13-month low at $3,857 and sits 27% below its record. With the 10Y over 5% and DXY at a 19-month high, the opportunity cost is crushing it. The COT net long is at a 5-month low.</dd>
-      <dt>ICT Read</dt><dd>$3,857 is obvious SSL with stops piled beneath it. A sweep and reclaim is the higher-probability long. A clean acceptance below opens $3,800.</dd>
-      <dt>Exploitation Setup</dt><dd>MGC long only on a sweep of $3,857 that reclaims within 15 min, plus an M5 MSS up. Stop $3,839. Targets $3,889, then $3,899 (Oct close). Flat by 11:30 AM ET.</dd>
-    </dl>
-  </div>
-
-  <h3>C. What Smart Money Appears to Be Doing</h3>
-  <ul>
-    <li><b>NQ/ES:</b> Distributing rallies ahead of NVDA (Tue AMC) and the FOMC minutes (Wed 2 PM). They used Sunday-open buy stops as exit liquidity. Rotating into staples, communication services, energy and financials (Friday leaders), out of semis.</li>
-    <li><b>CL:</b> Not chasing war headlines. The spec book was cut to a 3-month low, so the path of least resistance is range-to-lower until a real supply loss shows up in the data.</li>
-    <li><b>GC/SI:</b> Liquidated, not accumulating yet. Watching for a capitulation sweep under $3,857 / $48.48 before any fresh long.</li>
-    <li><b>BTC:</b> Forced long liquidations and ETF outflows. Glassnode flags $59.5K–$62.6K as the remaining liquidation pocket, so smart money likely bids only after that pocket is cleared.</li>
-  </ul>
+<p class="muted" style="margin-top:6px">Flat by 4 PM ET. Tuesday: flat by 3:45 PM — NVDA reports after the bell. Full detail in Section 7 and setups.html.</p>
 </section>
 
-<!-- SECTION 3 -->
-<section>
-  <h2>🌍 Geopolitical Watchlist</h2>
-  <div class="tw"><table>
-    <tr><th>Event</th><th>Status</th><th>Affected Assets</th><th>Bias Shift</th></tr>
-    <tr><td>Iran drone strikes on US base in Bahrain (Fri + Sun), IRGC declares Hormuz closed, US strikes on Qeshm Island earlier in the week</td><td>🔴</td><td>CL, Brent, GC, defense, airlines</td><td>Escalatory headline risk, but oil is fading it. Spikes are sell candidates unless physical flows actually break.</td></tr>
-    <tr><td>Hormuz mine strikes: two tankers hit (Fri). Traffic ~70% below pre-war.</td><td>🔴</td><td>CL, Brent, shipping, LNG</td><td>Supports the Brent–WTI spread (~$7). Watch for confirmed volume loss rather than claims.</td></tr>
-    <tr><td>US–Iran deal track: Trump says "no longer interested"; Iran floats a 7-condition reopening plan via mediators</td><td>🟡</td><td>CL, GC, ES</td><td>A surprise talks headline would hit CL fast (−$3 to −$5 gaps are possible). Asymmetric downside for crude.</td></tr>
-    <tr><td>Nvidia leadership crisis: Huang out, Kress acting CEO, board reportedly approached Arm's Rene Haas</td><td>🔴</td><td>NQ, SOX, ARM, AI complex</td><td>Governance overhang into Tuesday's print. Bearish skew for NQ versus ES (SMT watch).</td></tr>
-    <tr><td>Fed hike path: Warsh speaks Mon 12 PM ET; Waller floated 50 bp; Logan wants two more hikes</td><td>🔴</td><td>All: GC, SI, NQ, USD, BTC</td><td>Hawkish lean. Any 50 bp talk means a USD spike and pressure on metals and tech.</td></tr>
-    <tr><td>Russia–Ukraine: Russia claims four more settlements captured</td><td>🟡</td><td>Wheat, natgas, EU indices</td><td>Incremental, no market-moving change.</td></tr>
-    <tr><td>China–Taiwan / chip export controls: possible tighter US curbs flagged</td><td>🟡</td><td>NQ, SOX</td><td>An added tail risk for semis. China Oct data released Sun 9 PM ET.</td></tr>
-    <tr><td>OPEC+ / IEA: IEA sees ~2 mb/d Q4 surplus</td><td>🟢</td><td>CL</td><td>Structural bearish cap on crude.</td></tr>
-  </table></div>
+<section id="s1">
+<h2>🚨 1. After-Hours / Overnight Alert</h2>
+<div class="alert"><span class="tag">NARRATIVE FLIP — TECH</span>
+<p><strong>What the market believed at Friday's close:</strong> "Rotation, not breakdown." Dow, S&amp;P and Nasdaq all posted 2%+ weekly gains (best since August); money was rotating out of chips into staples, financials, energy and health care; oil had dropped 16% (Brent) on the week as Hormuz flows were reported "nearly back to pre-war levels."</p>
+<p><strong>What actually happened over the weekend / overnight:</strong> Asian chips were crushed (Taiex ~−6%, Kospi ~−3.6%, Nikkei −2.4%); reports of a Commerce rule restricting remote access to advanced AI chips; FT reports Jensen Huang's camp is pushing for his return after last week's resignation (interim CEO Colette Kress leads Tuesday's call). Japan Q3 GDP unexpectedly contracted; China's October data missed. In the Gulf, a third U.S. carrier (USS Theodore Roosevelt) arrived, Iran says two tankers hit mines and a Panama-flagged tanker (ON PHOENIX) was hit by a projectile off Oman, and Tehran warned it may strike pre-emptively. Despite that, crude <em>fell</em> on IEA surplus math.</p>
+<p><strong>Effect:</strong> NQ gapped and extended lower (Nasdaq-100 E-minis −267 pts by 6:56 AM, ~−1.5% by 8 AM, QQQ ~−1.95% at 10 AM). QQQ closed Friday 0.34% under its 200-day; Dec NQ is trading through the 27,585 / 27,531.75 50% cluster. 10Y pushed to ~5.15%, BTC hit its lowest since July (~$64K), gold printed fresh yearly lows (~$3,832–3,852). <strong>Bias change:</strong> NQ/ES from "rotation-bullish" to <span class="r">bearish-into-NVDA</span>; CL from "surplus-bearish" to <span class="y">bearish with headline-squeeze risk</span>; GC/SI remain <span class="r">bearish</span> but stretched into SSL.</p>
+</div>
 </section>
 
-<!-- SECTION 4 -->
-<section>
-  <h2>📅 Upcoming News Events — High &amp; Medium Impact</h2>
-  <div class="tw"><table>
-    <tr><th>Date/Time (ET)</th><th>Event</th><th>Impact</th><th>Assets in Play</th><th>Why It Matters</th></tr>
-    <tr><td>Mon Nov 16, 8:30 AM</td><td>Empire State Mfg (Nov) · Canada CPI (Oct)</td><td><span class="tag y">Medium</span></td><td>ES, NQ, CAD, CL</td><td>Sets the pre-open volatility spike. A likely stop-run catalyst before the 9:30 open.</td></tr>
-    <tr><td>Mon Nov 16, 9:05 AM</td><td>Fed's Williams speaks</td><td><span class="tag y">Medium</span></td><td>ES, NQ, GC, USD</td><td>Lands right as the NY open kill zone builds. A hawkish tone feeds the NQ short thesis.</td></tr>
-    <tr><td>Mon Nov 16, 12:00 PM</td><td><b>Fed Chair Warsh speaks</b></td><td><span class="tag r">High</span></td><td>All</td><td>Falls inside NY Lunch. Flatten scalps before noon. Can reprice the 50 bp December odds.</td></tr>
-    <tr><td>Tue Nov 17, 8:30 AM</td><td><b>October Retail Sales</b> · Import/Export Prices</td><td><span class="tag r">High</span></td><td>ES, NQ, GC, USD</td><td>A strong print means yields and the dollar go higher and GC/SI get hit. The pre-NVDA tone-setter.</td></tr>
-    <tr><td>Tue Nov 17, 9:15 AM</td><td>Industrial Production / Cap Util (Oct)</td><td><span class="tag y">Medium</span></td><td>ES, CL</td><td>Secondary.</td></tr>
-    <tr><td>Tue Nov 17, Pre-mkt</td><td>Home Depot, Disney earnings</td><td><span class="tag y">Medium</span></td><td>ES</td><td>Consumer read.</td></tr>
-    <tr><td>Tue Nov 17, 4:30 PM</td><td>API crude inventories</td><td><span class="tag y">Medium</span></td><td>CL</td><td>Early read before EIA.</td></tr>
-    <tr><td>Tue Nov 17, After close (~4:20 PM, call 5 PM)</td><td><b>NVIDIA Q3 earnings</b></td><td><span class="tag r">High</span></td><td>NQ, ES, SOX, BTC</td><td>Options imply ~8–9%. The binary event of the week. <b>No day trades held into it.</b></td></tr>
-    <tr><td>Wed Nov 18, 8:30 AM</td><td>Housing Starts / Permits (Oct)</td><td><span class="tag y">Medium</span></td><td>ES, rates</td><td>Rate-sensitive read.</td></tr>
-    <tr><td>Wed Nov 18, 10:30 AM</td><td>EIA Crude Inventories</td><td><span class="tag p">Medium-High</span></td><td>CL</td><td>Tests the glut narrative. A build confirms the fade-the-war-spike thesis.</td></tr>
-    <tr><td>Wed Nov 18, 2:00 PM</td><td><b>FOMC Minutes (Oct 27–28)</b></td><td><span class="tag r">High</span></td><td>All</td><td>How many members wanted a hike or 50 bp. Afternoon volatility; flatten before 2 PM.</td></tr>
-    <tr><td>Wed Nov 18, After close</td><td>Anthropic IPO pricing · Palo Alto earnings · Target/Lowe's/TJX pre-mkt</td><td><span class="tag p">Medium-High</span></td><td>NQ</td><td>A $61–64B supply event that can drain bids from existing AI names.</td></tr>
-    <tr><td>Thu Nov 19, 7:00 AM / 8:30 AM</td><td>Walmart earnings · Weekly Jobless Claims · Philly Fed</td><td><span class="tag p">Medium-High</span></td><td>ES, NQ</td><td>ANT (Anthropic) debuts on Nasdaq. Expect a volatile NQ open.</td></tr>
-    <tr><td>Fri Nov 20, 10:00 AM</td><td>UMich Final Sentiment (prelim 51.0) · State employment</td><td><span class="tag y">Medium</span></td><td>ES, GC</td><td>Inflation-expectations component.</td></tr>
-    <tr><td>Fri Nov 20, 1:00 PM</td><td>Baker Hughes Rig Count</td><td><span class="tag y">Medium</span></td><td>CL</td><td>Weekly supply read.</td></tr>
-  </table></div>
-  <p class="small muted">Wed/Thu/Fri times for jobless claims, Philly Fed, EIA and Baker Hughes follow their standard schedules. Confirm on your platform's calendar.</p>
+<section id="s2">
+<h2>🎭 2. Manipulation Detection</h2>
+<h3>A. Sentiment Readings</h3>
+<div class="tw"><table><tr><th>Indicator</th><th>Reading</th><th>Plain-English Read</th></tr>
+<tr><td>AAII (wk ending 11/11)</td><td>Bulls 30.8% · Bears 51.4% · Neutral 17.8% (spread −20.6)</td><td>Retail is heavily bearish — below-average bull/bear spread 25 of the last 27 weeks. Contrarian fuel for squeezes, but not a timing signal on its own.</td></tr>
+<tr><td>CNN Fear &amp; Greed</td><td>39 (Fear), up from 24 — last weekly print; likely lower after today's tech flush</td><td>Fear but not extreme. Earlier in November it hit Extreme Fear on a 5.5% Nasdaq drop — the market is cycling fear, not capitulating.</td></tr>
+<tr><td>COT (wk to 11/3)</td><td>Crude combined net long −81.3K to 268.4K (3-mo low) · Gold net long 104K (5-mo low) · Silver net long just 2.7K</td><td>Specs already liquidated longs in all three. Less forced selling left = sell-side is getting thin. Watch for SSL sweeps + MSS up rather than chasing shorts at lows.</td></tr>
+<tr><td>Put/Call</td><td>CBOE equity 0.63 · total 0.85</td><td>Equity P/C is complacent relative to the AAII bear reading — retail says bearish but isn't hedged. Room for a hedging rush if NVDA disappoints.</td></tr>
+<tr><td>VIX / NAAIM</td><td>VIX ~19.97 premarket (from 19.30) · NAAIM 72.90 (from 78.62)</td><td>Managers de-risking but not flat. VIX still sub-20 into NVDA = event vol under-priced.</td></tr>
+</table></div>
+
+<h3>B. Narrative Traps</h3>
+<div class="trap"><h4>Trap 1: "Hormuz is back to normal — oil surplus, sell every rip"</h4><dl>
+<dt>The Narrative</dt><dd>IEA flipped to a Q4 surplus (~1.7 mb/d), inventories +52M bbl in October, Hormuz flows near pre-war levels. Brent −16% on the week.</dd>
+<dt>Reality Check</dt><dd>Three U.S. carriers in theater, tankers hitting mines and projectiles today, Iran threatening pre-emptive action, Houthis claiming Bab al-Mandeb. Specs have already dumped longs to a 3-month low.</dd>
+<dt>ICT Read</dt><dd>Sell-side liquidity under ~86.80 (WTI) is the obvious magnet; late shorts are the liquidity. A headline-driven raid of shorts' buy stops above 88.60–89.50 is equally likely.</dd>
+<dt>Exploitation Setup</dt><dd>Day-trade both sides only after the sweep: short MCL on BSL raid &gt; 88.60 + MSS down (stop 89.10, T 87.50); long only after SSL sweep &lt; 86.80 + MSS up (stop 86.30, T 87.80). No overnight crude risk.</dd></dl></div>
+<div class="trap"><h4>Trap 2: "AI is broken — Nvidia is leaderless, sell everything before earnings"</h4><dl>
+<dt>The Narrative</dt><dd>NVDA down 6 straight weeks, ~32% off October high; CEO gone; chip-access rule; Asian semis crushed.</dd>
+<dt>Reality Check</dt><dd>Consensus still expects ~91% revenue growth ($108.9B) on Tuesday. Anthropic prices Wednesday and lists Thursday (~20% retail allocation) — the street needs a stable Nasdaq tape to place ~$64B of paper. AAII bears at 51%.</dd>
+<dt>ICT Read</dt><dd>Monday's flush into the 27,585/27,531.75 discount cluster looks like a Judas leg ahead of the event — sell-side under Friday's lows is being harvested. Who benefits if retail dumps tech before NVDA and the IPO? The desks that need inventory to sell into Thursday.</dd>
+<dt>Exploitation Setup</dt><dd>MNQ long only after SSL sweep &lt; 27,531.75 and MSS up (entry OTE ~27,380, stop 27,240, T1 27,585, T2 27,800). Never hold through NVDA's after-close print.</dd></dl></div>
+<div class="trap"><h4>Trap 3: "Gold is dead — real yields at 5%+, Fed hiking"</h4><dl>
+<dt>The Narrative</dt><dd>10Y ~5.15%, December hike ~fully priced (~8–13% odds of 50 bp), October PPI +6.5% y/y. Gold broke $3,970 and printed yearly lows.</dd>
+<dt>Reality Check</dt><dd>A 25 bp hike is already in the price. Gold COT longs at a 5-month low, silver net long almost gone. Geopolitical bid (Iran) hasn't gone anywhere.</dd>
+<dt>ICT Read</dt><dd>Classic SSL run under yearly lows (~$3,832–3,852) with positioning washed out. Any dovish nuance in Wednesday's FOMC minutes is asymmetric upside.</dd>
+<dt>Exploitation Setup</dt><dd>MGC long in Tuesday's Silver Bullet only after sweep &lt; 3,832 + 1m MSS up (stop 3,822, T1 3,865, T2 3,900). Intraday only.</dd></dl></div>
+
+<h3>C. What Smart Money Appears to Be Doing</h3>
+<ul class="bl">
+<li><strong>NQ:</strong> Distributing semis/AI infrastructure into the rotation narrative while letting price draw into the 27,500s discount; likely to accumulate there ahead of NVDA/Anthropic supply rather than chase lower.</li>
+<li><strong>ES:</strong> Rotating rather than exiting — staples, health care, financials bid Friday and premarket; SPX 7,425 AVWAP and 7,350 200-day are the institutional lines.</li>
+<li><strong>CL:</strong> Specs already flushed; commercials likely leaning on surplus headlines to cover. Headline risk is two-sided and violent.</li>
+<li><strong>GC/SI:</strong> Long liquidation largely done; silver positioning near flat. Smart money waits for a stop run below yearly lows.</li>
+<li><strong>BTC:</strong> Leveraged longs in MSTR/COIN/IBIT complex being cleared (−6–8% premarket); BTC at lowest since July — risk-off proxy, not a hedge.</li>
+</ul>
 </section>
 
-<!-- SECTION 5 -->
-<section>
-  <h2>🧠 ICT Market Phase Assessment</h2>
-  <div class="grid2">
-    <div class="card"><h4>NQ (Dec E-mini Nasdaq-100) <span class="tag r">Distribution</span></h4>
-      <div class="price">27,966 <span class="small dn">(ON, −0.24%) · Fri settle ≈ 28,035</span></div>
-      <p>Cash NDX closed below its daily 200-MA (28,065 cash ≈ 28,150 NQ). Sunday's open ran BSL to ~28,262 and failed back under the settle, a bearish CISD on the H1. The premium array is 28,150–28,262; 28,612–28,700 (Nov 11 high 28,697) is the HTF supply. Draw on liquidity is SSL below Friday's NY low and then the 27,750 / 27,600 projections. Watch SMT: NQ weaker than ES.</p></div>
-    <div class="card"><h4>ES (Dec E-mini S&amp;P) <span class="tag y">Manipulation</span></h4>
-      <div class="price">7,577 <span class="small dn">(ON, −0.08%) · Fri settle ≈ 7,583</span></div>
-      <p>Holding up better than NQ thanks to rotation into staples and financials. Sunday's high ~7,612 lines up with the cash 7,610 rejection, so that's the BSL to watch. The cash 7,550 floor (≈7,571 ES) is the line in the sand; below it, the 200-MA / Sept-low SSL at cash 7,500–7,530 (≈7,520–7,550 ES) is the magnet. Bullish only on acceptance above 7,612 with an MSS; cash 7,700 (≈7,720) is the bigger ceiling.</p></div>
-    <div class="card"><h4>CL (Dec WTI) <span class="tag r">Distribution</span></h4>
-      <div class="price">$87.82 <span class="small dn">(ON, −0.8%) · Fri settle $88.56</span></div>
-      <p>Range $85–$89 with lower highs. Headline spikes into $88.18–$89.00 (pivot R / Friday settle area) are premium sells. $86.26 (S1) then $85.00 (held last week, at the rising 200-MA) is SSL. A daily FVG fill toward $85 is the likely draw unless EIA surprises.</p></div>
-    <div class="card"><h4>GC (Dec Gold) <span class="tag r">Distribution</span></h4>
-      <div class="price">$3,872 <span class="small dn">(ON, −0.4%) · Fri settle $3,886.30</span></div>
-      <p>13-month low at $3,857 is resting SSL; below it, $3,800 is the next pool. The ON range was $3,872–$3,903. $3,898.90 (Oct close) and $3,967 are premium supply, and the 50-DMA sits far overhead at $4,195. Only a sweep-and-reclaim of $3,857 with an MSS justifies a long scalp.</p></div>
-    <div class="card"><h4>SI (Dec Silver) <span class="tag r">Distribution</span></h4>
-      <div class="price">$49.12 <span class="small dn">(Fri, −1.9%)</span></div>
-      <p>Weaker than gold (ratio ~80, up from 74), which is bearish SMT for metals. $48.48 (Friday's spot low) is the SSL, then $46.03. $50.00 round and $52.29 are BSL and premium. COT net long is only 2.7k, so there's no squeeze fuel. Sell rallies into $50 until an MSS up.</p></div>
-    <div class="card"><h4>BTC <span class="tag y">Manipulation</span></h4>
-      <div class="price">~$65,190 <span class="small dn">(Sun) · wknd low $62,086</span></div>
-      <p>Swept $62K SSL in a liquidation cascade with ~$1.9B ETF outflows. The $59.5K–$62.6K liquidation pocket is still partly unfilled. $68,250 (Friday close) and $70K are BSL above. A reclaim of $68.25K with an MSS would mark a Judas low; until then it's a range with downside magnetism.</p></div>
-  </div>
-  <p class="small muted" style="margin-top:10px">NQ/ES prices are Dec futures snapshots (~10:09 PM ET Sun). Cash-to-futures basis is roughly +90 (NQ) and +21 (ES); "≈" levels are cash levels converted at that basis. Mark exact Friday PDH/PDL and overnight high/low on your own chart. Those weren't available from verified sources.</p>
+<section id="s3">
+<h2>🌍 3. Geopolitical Watchlist</h2>
+<div class="tw"><table><tr><th>Event</th><th>Status</th><th>Affected Assets</th><th>Bias Shift</th></tr>
+<tr><td>U.S./Israel–Iran: third carrier arrives; tankers hit by mines/projectile in Hormuz; Iran threatens pre-emptive strike</td><td>🔴</td><td>CL, Brent, GC, Defense, ES</td><td>Upside tail-risk for crude; overrides surplus narrative on any strike headline</td></tr>
+<tr><td>Houthis claim Bab al-Mandeb control; Saudi-attributed strikes in Yemen</td><td>🔴</td><td>Brent, shipping, CL</td><td>Supports crude floor near $86–87 WTI</td></tr>
+<tr><td>Commerce rule on remote access to advanced AI chips (unverified details)</td><td>🟡</td><td>NQ, SMH, NVDA, AMD, MU</td><td>Bearish semis; adds to NQ downside pressure</td></tr>
+<tr><td>Nvidia leadership vacuum (Huang resignation; reinstatement push)</td><td>🟡</td><td>NQ, ES</td><td>Binary into Tue after-close earnings</td></tr>
+<tr><td>Russia–Ukraine: largest aerial attack; Russia claims four settlements; talks stalled</td><td>🟡</td><td>Brent, GC, EU</td><td>Mild bid to energy/defense</td></tr>
+<tr><td>China–Taiwan: Xi pressing Trump on Taiwan stance; Taiex −6%</td><td>🟡</td><td>NQ, semis</td><td>Bearish semis/supply chain</td></tr>
+<tr><td>Japan Q3 GDP contraction; China Oct data misses</td><td>🟡</td><td>NQ, CL, global risk</td><td>Demand-side bearish for crude</td></tr>
+<tr><td>OPEC+ held December quotas steady</td><td>🟢</td><td>CL</td><td>Neutral; no new supply catalyst</td></tr>
+</table></div>
 </section>
 
-<!-- SECTION 6 -->
-<section>
-  <h2>🏦 Sector Assessment</h2>
-  <div class="tw"><table>
-    <tr><th>Sector</th><th>Move Likelihood</th><th>Bias</th><th>Reasoning</th></tr>
-    <tr><td>Energy</td><td><span class="tag y">Moderate</span></td><td class="fl">→</td><td>Iran headlines versus the supply glut. Energy stocks led Friday (+0.98%) but crude is fading. Range-bound.</td></tr>
-    <tr><td>Defense</td><td><span class="tag g">High</span></td><td class="up">↑</td><td>Two Bahrain attacks, US–Qeshm strikes and a collapsed deal track give a persistent bid on escalation.</td></tr>
-    <tr><td>Precious Metals</td><td><span class="tag g">High</span></td><td class="dn">↓</td><td>10Y over 5%, DXY at a 19-month high, December hike priced in. Retail Sales and the minutes are both downside catalysts.</td></tr>
-    <tr><td>Healthcare</td><td><span class="tag y">Moderate</span></td><td class="up">↑</td><td>Defensive rotation destination (+0.54% Fri). Benefits if tech distributes.</td></tr>
-    <tr><td>Technology</td><td><span class="tag g">High</span></td><td class="dn">↓</td><td>NVDA governance crisis, SOX −23% from peak, Anthropic IPO supply. Event-driven two-way risk Tue/Wed, bearish skew into it.</td></tr>
-    <tr><td>Financials</td><td><span class="tag y">Moderate</span></td><td class="up">↑</td><td>Higher rates help NIMs. Friday leader (+0.81%).</td></tr>
-    <tr><td>Industrials/Materials</td><td><span class="tag r">Low</span></td><td class="fl">→</td><td>Strong USD and rate pressure versus defense-capex support. Mixed.</td></tr>
-    <tr><td>Crypto</td><td><span class="tag g">High</span></td><td class="dn">↓</td><td>BTC −47% from its record, liquidation cascade, ETF outflows. A capitulation wick is possible but unconfirmed.</td></tr>
-  </table></div>
+<section id="s4">
+<h2>📅 4. Upcoming News Events — High &amp; Medium Impact</h2>
+<div class="tw"><table><tr><th>Date/Time (ET)</th><th>Event</th><th>Impact</th><th>Assets in Play</th><th>Why It Matters</th></tr>
+<tr><td>Mon 11/16 — done</td><td>Empire State Mfg: 7.8 (exp. 16.7, prior 25.5); Warsh 12:00 PM (AI/productivity)</td><td><span class="badge md">Medium</span></td><td>ES, NQ</td><td>Soft print didn't help tech — growth scare plus hike pricing is a stagflation tape.</td></tr>
+<tr><td>Tue 11/17 7:30 AM</td><td>Fed's Musalem speaks</td><td><span class="badge md">Medium</span></td><td>ES, NQ, GC</td><td>Hawkish tone could set the London/early-NY high.</td></tr>
+<tr><td>Tue 11/17 8:30 AM</td><td>Retail Sales (Oct, est. +0.2%, prior +0.8%) · Import Prices</td><td><span class="badge hi">High</span></td><td>ES, NQ, GC, DXY</td><td>Conditional trigger for Tuesday's MNQ/MES setups. Hot = more hike pricing; soft = relief bid into NVDA.</td></tr>
+<tr><td>Tue 11/17 9:15 / 10:00 AM</td><td>Industrial Production · NAHB Housing Index; Hammack 9:30</td><td><span class="badge md">Medium</span></td><td>ES</td><td>NAHB at 10:00 lands inside the Silver Bullet window.</td></tr>
+<tr><td>Tue 11/17 After close</td><td><strong>NVIDIA Q3 FY27 earnings</strong> (EPS est. $2.47, rev. $108.9B)</td><td><span class="badge hi">High</span></td><td>NQ, ES, semis</td><td>The week's main liquidity event. Flat by 3:45 PM — no day trade carries through this.</td></tr>
+<tr><td>Tue 11/17 ~4:30 PM</td><td>API crude inventories (typical schedule)</td><td><span class="badge md">Medium</span></td><td>CL</td><td>Sets Wednesday's London tone for crude.</td></tr>
+<tr><td>Wed 11/18 8:30 AM</td><td>Housing Starts / Permits</td><td><span class="badge md">Medium</span></td><td>ES</td><td>Rate-sensitivity check with 10Y above 5%.</td></tr>
+<tr><td>Wed 11/18 10:30 AM</td><td>EIA weekly crude inventories (typical schedule — confirm)</td><td><span class="badge mh">Medium-High</span></td><td>CL</td><td>Tests the IEA surplus story; a build validates trap #1's sell-side draw.</td></tr>
+<tr><td>Wed 11/18 2:00 PM</td><td><strong>FOMC Minutes (October meeting)</strong></td><td><span class="badge hi">High</span></td><td>ES, NQ, GC, SI</td><td>December hike is priced; the 50 bp tail and the 2027 path are what move gold.</td></tr>
+<tr><td>Wed 11/18</td><td>Anthropic IPO pricing ($70–78) · 20-yr auction · PANW after close · Barr 1:35, Williams 2:30, Kashkari 4:15</td><td><span class="badge mh">Medium-High</span></td><td>NQ, TLT</td><td>A weak 20-yr auction tail plus IPO supply could weigh on NQ.</td></tr>
+<tr><td>Thu 11/19 8:30 AM</td><td>Jobless Claims · Philly Fed; WMT before open</td><td><span class="badge mh">Medium-High</span></td><td>ES, NQ</td><td>Labor read before Anthropic's first trade.</td></tr>
+<tr><td>Thu 11/19</td><td>Anthropic (ANT) begins trading · GTA VI launch · Goolsbee 12:30, Barkin 2:00</td><td><span class="badge mh">Medium-High</span></td><td>NQ</td><td>Liquidity drain and sentiment test for AI.</td></tr>
+<tr><td>Fri 11/20 10:00 AM</td><td>UMich Sentiment (final, est. ~52) · Baker Hughes rig count 1:00 PM</td><td><span class="badge md">Medium</span></td><td>ES, CL</td><td>Inflation expectations component matters for hike pricing.</td></tr>
+<tr><td>Week of 11/23</td><td>Thanksgiving week (Thu 11/26 closed; Fri 11/27 early close — typical)</td><td><span class="badge md">Medium</span></td><td>All</td><td>Thin liquidity = more stop runs. Reduce size.</td></tr>
+<tr><td>Wed 12/9</td><td>FOMC decision</td><td><span class="badge hi">High</span></td><td>All</td><td>25 bp hike ~fully priced; 50 bp odds ~8–13%.</td></tr>
+</table></div>
 </section>
 
-<!-- SECTION 7 -->
-<section>
-  <h2>✅ ICT Actionable Steps — Day-Trading Focus</h2>
-
-  <div class="tb"><h3>London Kill Zone — Monday, November 16, 2026 (2–5 AM ET)</h3>
-    <ul>
-      <li>Watch whether London takes out Sunday's Asia high (NQ ~28,262 / ES ~7,612) or the Asia low. A London high-sweep followed by an M15 MSS down confirms the Judas-swing read and sets up the NY short.</li>
-      <li>GC: watch for a London raid on $3,857 SSL. A wick-and-reclaim is the long tell for NY. Acceptance below means stand aside on longs.</li>
-      <li>Most traders don't need to execute here. Mark the London high/low; they become the NY liquidity targets.</li>
-    </ul></div>
-
-  <div class="tb"><h3>Pre-Market Prep — Monday, November 16, 2026 (6–7 AM ET)</h3>
-    <p class="small"><b>Reminder:</b> every setup below is structured for intraday, flat-by-close execution. No overnight holds, especially with NVDA on Tuesday after the close.</p>
-    <ul>
-      <li>Mark: Friday PDH/PDL, Sunday/Asia high-low, London high-low, NDX 200-MA (≈28,150 NQ), ES ≈7,571 (cash 7,550).</li>
-      <li>News landmines: 8:30 Empire State, 9:05 Williams, <b>12:00 PM Warsh</b>. No new entries 8:25–8:35.</li>
-      <li>SMT check at the open: if NQ makes a lower low while ES holds, favor NQ shorts and avoid ES longs.</li>
-    </ul></div>
-
-  <div class="tb"><h3>NY Open Kill Zone — Monday, November 16, 2026 (7–10 AM ET)</h3>
-    <div class="setup"><b class="s">Setup 1 — NQ Short (premium fade)</b><br>
-      <b>Trigger:</b> Price trades into 28,150–28,260 (NDX 200-MA plus the Sunday high), then M5 CISD down / MSS below the last up-close candle low.<br>
-      <b>Entry:</b> OTE 62–79% of the displacement leg, or the M5 bearish FVG CE (~28,180 area).<br>
-      <b>Stop:</b> 28,320 (above the Sunday BSL).<br>
-      <b>Targets:</b> T1 27,950 · T2 27,800.<br>
-      <b>Time-stop:</b> Exit by 11:30 AM ET if neither target is hit. Hard flat before Warsh at 12:00.</div>
-    <div class="setup"><b class="l">Setup 2 — ES Long (SSL sweep reversal)</b><br>
-      <b>Trigger:</b> Sweep below ≈7,550–7,555 (cash-7,530 / 200-MA SSL), then an M5 MSS up with displacement back above 7,565.<br>
-      <b>Entry:</b> Bullish FVG CE / OTE of the reversal leg (~7,558–7,562).<br>
-      <b>Stop:</b> 7,541.<br>
-      <b>Targets:</b> T1 7,583 (Friday settle) · T2 7,600.<br>
-      <b>Time-stop:</b> Exit by 11:00 AM ET. Skip this if NQ is breaking down hard (bearish SMT).</div>
-    <div class="setup"><b class="s">Setup 3 — CL Short (headline fade)</b><br>
-      <b>Trigger:</b> Iran-headline spike into $88.60–$89.00, then an M5 MSS down.<br>
-      <b>Entry:</b> Bearish FVG / OTE (~$88.70).<br>
-      <b>Stop:</b> $89.45. <b>Targets:</b> T1 $87.20 · T2 $86.30.<br>
-      <b>Time-stop:</b> Out by 11:30 AM ET.</div>
-    <div class="setup"><b class="p">⚡ Silver Bullet (9:50–10:10 AM ET)</b><br>
-      Use the 10:00–11:00 Silver Bullet logic on the first FVG that forms in the direction of the 9:30–9:50 liquidity raid. If the open ran buy stops (above the London/premarket high), short the first bearish FVG toward the nearest SSL. If it ran sell stops, take the first bullish FVG long toward the nearest BSL. Stop goes beyond the raid extreme; minimum 2R; exit by 10:45 AM if it stalls.</div>
-  </div>
-
-  <div class="tb"><h3>NY Lunch — Monday, November 16, 2026 (12–1:30 PM ET)</h3>
-    <ul>
-      <li><b>Flatten all scalps before 12:00 PM.</b> Fed Chair Warsh speaks at noon. Move any remaining day-trade stops to breakeven <i>before</i> 11:55.</li>
-      <li>No new entries 11:55–12:30. Let the Warsh spike run stops in both directions first.</li>
-      <li>If Warsh is hawkish (50 bp language), note the resulting MSS for the afternoon: GC/SI and NQ down, DXY up.</li>
-    </ul></div>
-
-  <div class="tb"><h3>NY Afternoon — Monday, November 16, 2026 (1:30–4 PM ET)</h3>
-    <ul>
-      <li>Trade the post-Warsh structure only: wait for the 1:30–2:00 PM displacement, then a FVG/OTE entry in that direction toward the session high or low (afternoon reversal 2:00–3:00 PM).</li>
-      <li>Example: if NQ is below 27,950 after lunch, short retraces into the H1 FVG toward 27,800 / 27,750. Stop above the lunch high. Out by 3:30 PM.</li>
-      <li><b>FLATTEN EVERY day-trade position by 4:00 PM ET.</b> Nothing goes into Tuesday's 8:30 Retail Sales or Tuesday evening's NVDA print.</li>
-    </ul></div>
-
-  <p class="small muted">Swing Watch: none today. No clean daily-timeframe setup with enough confluence ahead of NVDA, the FOMC minutes and the Anthropic IPO.</p>
+<section id="s5">
+<h2>🧠 5. ICT Market Phase Assessment</h2>
+<div class="grid2">
+<div class="card"><h4>NQ (Dec) <span class="badge man">Manipulation</span></h4><div class="px">~27,550–27,600 (derived intraday; Fri settle ~28,130 derived)</div>
+<p>Price has taken Friday's sell-side and is probing the 27,585 / 27,531.75 50% discount cluster. The 200-day sits overhead at 28,534.83 and the swing high at 28,697 is BSL. An MSS up from below 27,531.75 with CISD would mark today as the Judas leg into NVDA. Acceptance below 27,256.75 (61.8%) opens 26,633.50. SMT check: if ES holds above its Friday low while NQ breaks lower, that's bullish divergence.</p></div>
+<div class="card"><h4>ES (Dec) <span class="badge dis">Distribution</span></h4><div class="px">~7,520–7,530 (derived; SPX 7,487 at 11:31 AM, −0.99%)</div>
+<p>SPX lost PDL (Fri close 7,561.67) and sits between the 7,425 AVWAP (ES ≈ 7,465) and the 50-day (SPY $764 ≈ SPX ~7,640) overhead. The falling 21-day caps rallies. A bearish FVG from the open drive near ES 7,550–7,560 is the premium array to short. Reclaiming 7,600 (Fri settle) is needed to negate.</p></div>
+<div class="card"><h4>CL (WTI) <span class="badge dis">Distribution</span></h4><div class="px">~$87.90–88.40 (Brent ~$94.86–95.46)</div>
+<p>Weekly −13% leg is still printing lower highs. The session low near $86.80 is the SSL magnet; BSL rests above 88.60 (Asia high). Expect a raid on either side on Hormuz headlines, then a return to the range. No MSS up on the 1H yet — fade premium until one appears.</p></div>
+<div class="card"><h4>GC (Gold) <span class="badge rea">Re-Accumulation</span></h4><div class="px">Spot ~$3,862 (range 3,832.20–3,902.30); GC Dec trades a small premium</div>
+<p>Yearly lows printed with spec longs at a 5-month low. That's a liquidity pool under 3,832 that may get one more sweep. An MSS up on 15m above 3,880 with a CISD candle would confirm. OTE retrace targets 3,900–3,920 (prior breakdown area toward 3,970).</p></div>
+<div class="card"><h4>SI (Silver) <span class="badge dis">Distribution</span></h4><div class="px">Spot ~$47.10 (−3.2%; range 47.03–49.18)</div>
+<p>Weaker than gold — SMT confirms metals bearish today. Price is sitting on the day's low with SSL below $47.00. The daily bearish FVG 48.50–49.18 is the premium short zone. Only consider longs after a $47 sweep plus MSS up, scalp only.</p></div>
+<div class="card"><h4>BTC <span class="badge dis">Distribution</span></h4><div class="px">~$63,980–64,300 (lowest since July)</div>
+<p>Broke the summer range low and took multi-month SSL; the crypto equity complex is −6–8%. No MSS up. The $66K area (breakdown point) is now a bearish OB. A relief long needs a reclaim plus CISD — otherwise lower highs persist.</p></div>
+</div>
 </section>
 
-<!-- SECTION 8 -->
-<section>
-  <h2>⚠️ Risk &amp; Mindset</h2>
-  <div class="tw"><table>
-    <tr><th>Position Sizing</th><th>Narrative Discipline</th><th>Upcoming Catalysts</th><th>ICT Mindset</th><th>Overnight Hold Warning</th></tr>
-    <tr>
-      <td>VIX 19.3 and an event-heavy week. Cut size 25–50% versus normal. Use micros (MNQ/MES/MCL/MGC) for headline-driven setups. Max 2 losers, then done for the day.</td>
-      <td>"Iran = oil up" and "look for the bounce" are both being faded. Trade what price confirms (MSS/CISD), not the headline.</td>
-      <td>Warsh (Mon 12 PM), Retail Sales (Tue 8:30), NVDA (Tue AMC), EIA + FOMC Minutes (Wed), ANT debut + Walmart (Thu).</td>
-      <td>Wait for the raid, then the displacement, then the FVG/OTE entry. No raid, no trade. Don't anticipate. Let the Judas swing happen first.</td>
-      <td><b>Default: flat by 4:00 PM ET.</b> Holding through NVDA (±8–9% implied) or the minutes is gambling, not trading. Any carry must be a deliberate, pre-flagged exception with reduced size and a hard stop.</td>
-    </tr>
-  </table></div>
+<section id="s6">
+<h2>🏦 6. Sector Assessment</h2>
+<div class="tw"><table><tr><th>Sector</th><th>Move Likelihood</th><th>Bias</th><th>Reasoning</th></tr>
+<tr><td>Energy</td><td>High</td><td class="y">→</td><td>XLE led Friday but crude is −13–16% on the week; Hormuz headlines vs. IEA surplus = whipsaw.</td></tr>
+<tr><td>Defense</td><td>Moderate</td><td class="g">↑</td><td>Third carrier, Iran escalation risk; L3Harris FAA probe is a single-name drag.</td></tr>
+<tr><td>Precious Metals</td><td>High</td><td class="r">↓</td><td>Yearly lows, 10Y at 5.15%, hike priced; washed-out COT = squeeze risk on FOMC minutes.</td></tr>
+<tr><td>Healthcare</td><td>Moderate</td><td class="g">↑</td><td>Rotation beneficiary (XLV +0.54% Fri, +0.74% premarket); defensive bid.</td></tr>
+<tr><td>Technology</td><td>High</td><td class="r">↓</td><td>Semis flush (MU, INTC −6%, AMD −5%), QQQ below 200-day, NVDA binary Tue AMC.</td></tr>
+<tr><td>Financials</td><td>Moderate</td><td class="g">↑</td><td>Steeper curve, 10Y &gt; 5%; XLF +0.81% Fri, bid premarket.</td></tr>
+<tr><td>Industrials/Materials</td><td>Low</td><td class="r">↓</td><td>Empire miss (7.8 vs 16.7), Japan/China growth softness; XLI/XLB lagged Friday.</td></tr>
+<tr><td>Crypto</td><td>High</td><td class="r">↓</td><td>BTC lowest since July; MSTR −8%, COIN/IBIT −6%+; a risk-off proxy.</td></tr>
+</table></div>
 </section>
 
-<!-- SECTION 9 -->
-<section>
-  <h2>📊 Market Snapshot</h2>
-  <div class="tw"><table>
-    <tr><th>Asset</th><th>Last Close</th><th>Move</th><th>Today's Bias</th><th>Key Levels</th></tr>
-    <tr><td>NQ (Dec fut)</td><td>≈28,035 settle · 27,966 ON</td><td class="dn">Fri NDX −1.22% · ON −0.24%</td><td class="dn">↓</td><td>R 28,150 / 28,262 / 28,700 · S 27,950 / 27,800 / 27,600</td></tr>
-    <tr><td>ES (Dec fut)</td><td>≈7,583 settle · 7,577 ON</td><td class="dn">Fri SPX −0.40% · ON −0.08%</td><td class="fl">→ / ↓</td><td>R 7,612 / 7,631 / 7,720 · S 7,571 / 7,550 / 7,522</td></tr>
-    <tr><td>WTI Crude</td><td>$88.56 · $87.82 ON</td><td class="dn">−0.20% · ON −0.8%</td><td class="dn">↓</td><td>R 88.18 / 89.00 · S 86.26 / 85.00</td></tr>
-    <tr><td>Brent</td><td>$95.84</td><td class="fl">+0.02%</td><td class="dn">↓</td><td>R ~97 · S ~93.7 (unconfirmed)</td></tr>
-    <tr><td>Gold</td><td>$3,886.30 · $3,872 ON</td><td class="fl">+0.03% (wk −4.7%)</td><td class="dn">↓</td><td>R 3,899 / 3,967 / 4,000 · S 3,857 / 3,800</td></tr>
-    <tr><td>Silver</td><td>$49.12</td><td class="dn">−1.89%</td><td class="dn">↓</td><td>R 50.00 / 52.29 · S 48.48 / 46.03</td></tr>
-    <tr><td>BTC</td><td>~$68,240 Fri · ~$65,190 Sun</td><td class="dn">−4.35% Fri · wknd low 62,086</td><td class="dn">↓</td><td>R 68,250 / 70,000 · S 62,086 / 59,500</td></tr>
-  </table></div>
-  <p class="small muted" style="margin-top:8px">Context: S&amp;P 500 7,561.67 · Nasdaq Composite (index, not NQ) 25,136.27 · NDX cash 27,943.74 · Dow 52,347.55 · VIX 19.30 · 10Y 5.15% · DXY 103.43.</p>
+<section id="s7">
+<h2>✅ 7. ICT Actionable Steps (Day-Trading Focus)</h2>
+<div class="note">Monday, November 16, 2026's London (2–5 AM), NY Open (7–10 AM) and Lunch windows had already printed when this report ran at 12:58 PM ET. Live block: Monday afternoon. The five standard blocks below are for the next full session, Tuesday, November 17, 2026.</div>
+
+<div class="tb"><h3>NY Afternoon — Monday, November 16, 2026 (1:30–4 PM ET) — LIVE</h3>
+<div class="setup"><strong>MNQ Short:</strong> <b>Trigger:</b> retrace into 27,880–28,000 (premium of the AM leg, below Fri settle ~28,130), then 5m MSS down. <b>Entry:</b> bearish FVG CE ~27,900. <b>Stop:</b> 28,060. <b>Targets:</b> 27,585 / 27,400. <b>Time-stop:</b> no fill by 3:30 PM = no trade; exit by 3:55 PM.</div>
+<div class="setup"><strong>MNQ Long:</strong> <b>Trigger:</b> SSL sweep below 27,531.75, then 5m MSS up plus CISD. <b>Entry:</b> OTE ~27,380. <b>Stop:</b> 27,240. <b>Targets:</b> 27,585 / 27,800. <b>Time-stop:</b> exit by 3:55 PM.</div>
+<p class="r"><strong>Flatten all day-trade positions by 4:00 PM.</strong> No NQ carry into Tuesday — NVDA, retail sales, and chip-rule headlines overnight.</p></div>
+
+<div class="tb"><h3>Pre-Market Prep — Tuesday, November 17, 2026 (6–7 AM ET)</h3>
+<p class="y">Reminder: all setups are structured for intraday, flat-by-close execution. Tuesday = flat by 3:45 PM (NVDA after close).</p>
+<ul class="bl"><li>Mark Monday's high/low (PDH/PDL) on NQ, ES, CL, GC; mark the overnight Asia range and London high/low.</li>
+<li>Check overnight Hormuz/Iran headlines and NVDA leadership news (board decision on Huang?).</li>
+<li>Note the 7:30 Musalem and 8:30 Retail Sales consensus (+0.2%) — this decides which conditional setup is live.</li>
+<li>Key levels — NQ: 27,256.75 / 27,531.75 / 27,585 / 28,130 / 28,534.83. ES: 7,465 / 7,500 / 7,560 / 7,600. CL: 86.80 / 88.60. GC (spot): 3,832 / 3,865 / 3,902.</li></ul></div>
+
+<div class="tb"><h3>London Kill Zone — Tuesday, November 17, 2026 (2–5 AM ET)</h3>
+<div class="setup"><strong>MCL Short:</strong> <b>Trigger:</b> London raids BSL above 88.60, then 5m MSS down. <b>Entry:</b> bearish FVG ~88.40. <b>Stop:</b> 89.10. <b>Targets:</b> 87.50 / 86.85. <b>Time-stop:</b> flat by 7:00 AM; abort on any Hormuz strike headline.</div>
+<p>NQ/ES: London likely sets the Judas swing for the day. If London runs Monday's low and then prints an MSS up, expect NY to trade toward Monday's midpoint pre-data. Observe; don't take NQ here.</p></div>
+
+<div class="tb"><h3>NY Open Kill Zone — Tuesday, November 17, 2026 (7–10 AM ET)</h3>
+<div class="setup"><strong>Setup 1 — MNQ Long</strong> <span class="y">(condition: Retail Sales ≤ +0.2%)</span><br><b>Entry trigger:</b> the open drive (9:30–10:00) sweeps Monday's low / 27,531.75, then 5m MSS up with a CISD candle. <b>Entry:</b> 1m FVG CE inside the 62–79% OTE of the MSS leg. <b>Stop:</b> 25 pts below the sweep low. <b>Targets:</b> 27,800 / 28,000. <b>Time-stop:</b> if no MSS by 10:30 skip; exit by 11:30 AM if T1 isn't hit.</div>
+<div class="setup"><strong>Setup 2 — MES Short</strong> <span class="y">(condition: Retail Sales &gt; +0.4% and 10Y &gt; 5.15%)</span><br><b>Entry trigger:</b> a BSL run above 7,560 (Monday's AM premium), then 5m MSS down. <b>Entry:</b> bearish FVG CE ~7,550. <b>Stop:</b> 7,582. <b>Targets:</b> 7,500 / 7,465 (≈ SPX 7,425 AVWAP). <b>Time-stop:</b> exit by 11:30 AM.</div>
+<div class="setup"><strong>Silver Bullet (9:50–10:10 AM) — MGC Long</strong> (spot-ref; adjust for MGC premium)<br><b>Trigger:</b> SSL sweep below 3,832, then 1m MSS up (NAHB at 10:00 can supply the displacement). <b>Entry:</b> FVG ~3,840. <b>Stop:</b> 3,822. <b>Targets:</b> 3,865 / 3,900. <b>Time-stop:</b> exit by 11:30 AM.</div>
+<p class="muted">If Retail Sales lands in-line (+0.2–0.4%), neither conditional setup is live. Trade only the Silver Bullet with an MSS.</p></div>
+
+<div class="tb"><h3>NY Lunch — Tuesday, November 17, 2026 (12–1:30 PM ET)</h3>
+<p>Flatten scalps and move every remaining day-trade stop to breakeven. No new NQ entries — lunch on NVDA day is a pinned, stop-hunting range. Mark the AM high/low; those are the afternoon's liquidity pools.</p></div>
+
+<div class="tb"><h3>NY Afternoon — Tuesday, November 17, 2026 (1:30–4 PM ET)</h3>
+<p>Only fade a raid of the AM high/low that reverses with an MSS (2:25 PM Williams can trigger it). Size half, targets the opposite side of the lunch range, hard time-stop 3:30 PM.</p>
+<p class="r"><strong>Flat by 3:45 PM — and in any case by 4:00 PM — on all day-trade positions.</strong> NVDA reports after the bell; NQ can gap 2–4%. Do not carry.</p></div>
+<p class="muted">Swing Watch: none — no clean multi-day structure with defined invalidation ahead of NVDA, FOMC minutes and the Anthropic IPO.</p>
 </section>
 
+<section id="s8">
+<h2>⚠️ 8. Risk &amp; Mindset</h2>
+<div class="tw"><table><tr><th>Position Sizing</th><th>Narrative Discipline</th><th>Upcoming Catalysts</th><th>ICT Mindset</th><th>Overnight Hold Warning</th></tr>
+<tr><td>Micros only. Half size on NQ (event week, VIX ~20 is under-pricing NVDA). Max 2 losses/day, then stop.</td><td>Ignore "AI is dead" and "Hormuz is normal" headlines — trade the sweep and the MSS, not the story.</td><td>Retail Sales (Tue 8:30), NVDA (Tue AMC), FOMC Minutes (Wed 2:00), EIA (Wed 10:30), ANT IPO (Thu), Claims (Thu 8:30).</td><td>Wait for liquidity to be taken first. No MSS/CISD = no trade. Time is a stop.</td><td>Default: flat by close. No carry through NVDA or Iran headlines — any overnight hold is a deliberate, flagged exception at reduced size.</td></tr>
+</table></div>
+</section>
+
+<section id="s9">
+<h2>📊 9. Market Snapshot</h2>
+<div class="tw"><table><tr><th>Asset</th><th>Last / Close</th><th>Move</th><th>Today's Bias</th><th>Key Levels</th></tr>
+<tr><td>NQ (Dec futures)</td><td>~27,550–27,600 (derived intraday)</td><td class="r">~−1.5 to −2%</td><td class="r">↓</td><td>S: 27,531.75 / 27,256.75 / 26,633.50 · R: 27,585 / 28,130 / 28,534.83 / 28,697</td></tr>
+<tr><td>ES (Dec futures)</td><td>~7,520–7,530 (derived; SPX 7,487)</td><td class="r">~−1%</td><td class="r">↓</td><td>S: 7,465 / 7,390 · R: 7,560 / 7,600 / 7,660</td></tr>
+<tr><td>WTI Crude</td><td>~$87.90–88.40</td><td class="r">−0.6 to −0.7%</td><td class="y">→</td><td>S: 86.80 · R: 88.60 / 89.50</td></tr>
+<tr><td>Brent</td><td>~$94.86–95.46</td><td class="r">−0.9 to −1%</td><td class="y">→</td><td>S: 93.28 (overnight low) · R: 96.00</td></tr>
+<tr><td>Gold (spot)</td><td>~$3,862</td><td class="r">−0.5 to −0.6%</td><td class="r">↓</td><td>S: 3,832 / 3,852 (yearly low) · R: 3,902 / 3,970</td></tr>
+<tr><td>Silver (spot)</td><td>~$47.10</td><td class="r">−3.2%</td><td class="r">↓</td><td>S: 47.00 · R: 48.50 / 49.18</td></tr>
+<tr><td>BTC</td><td>~$64,000</td><td class="r">~−1.7%</td><td class="r">↓</td><td>S: 63,000 · R: 66,000</td></tr>
+</table></div>
+<p class="muted">Context: Nasdaq Composite (index, not NQ) ~24,799 (−1.34%) at 11:31 AM · Nasdaq-100 cash closed Friday at 27,943.74 · 10Y ~5.13–5.15% · VIX ~20 · DXY ~103.5 · Fed funds 3.75–4.00%.</p>
+</section>
 </main>
-<footer>
-  ⚖️ Disclaimer: This report is for educational purposes only and is not financial advice. Futures trading involves substantial risk of loss. Levels are derived from public sources and may contain errors; verify on your own platform before trading.
-</footer>
-</body>
-</html>
+<footer>For educational purposes only. Not financial advice. Futures trading involves substantial risk of loss. Levels are derived from public reports and may differ from live quotes — verify before trading.</footer>
+</body></html>
