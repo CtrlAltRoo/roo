@@ -762,3 +762,8 @@ To https://github.com/CtrlAltRoo/roo.git
 To https://github.com/CtrlAltRoo/roo.git
    e1e8592..34d9153  main -> main
 [2026-11-16 13:05:07] Push succeeded.
+[main e25a790] report: daily futures update 2026-11-17
+ 3 files changed, 312 insertions(+), 281 deletions(-)
+To https://github.com/CtrlAltRoo/roo.git
+   34d9153..e25a790  main -> main
+[2026-11-17 00:15:00] Push succeeded.
