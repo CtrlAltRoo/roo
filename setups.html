@@ -1,31 +1,50 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Setups — Tue Nov 17, 2026</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Setups Only</title>
 <style>
-:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;--red:#f85149;--yellow:#d29922}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:13px;line-height:1.35;padding:10px 16px}
-h1{font-size:15px;margin-bottom:2px}.m{color:var(--muted);font-size:11px;margin-bottom:8px}
-.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
-.s{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 10px}
-.s b{display:block;margin-bottom:3px}.L{color:var(--green)}.S{color:var(--red)}
-ul{list-style:none}li{margin-bottom:1px}li::before{content:"• ";color:var(--muted)}
-.c{color:var(--yellow);font-size:11px;margin-bottom:3px}
-footer{margin-top:8px;color:var(--muted);font-size:11px;border-top:1px solid var(--border);padding-top:6px}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;--red:#f85149;--yellow:#d29922;--blue:#388bfd}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:13px/1.35 -apple-system,Segoe UI,Roboto,sans-serif;padding:10px 12px}
+h1{font-size:15px;margin:0 0 2px}.top{color:var(--muted);font-size:12px;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px}
+.s{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 9px}
+.s h2{font-size:13px;margin:0 0 3px}.L{color:var(--green)}.S{color:var(--red)}
+ul{margin:0;padding-left:15px}li{margin:1px 0}.c{color:var(--yellow);font-size:12px}
+.f{margin-top:8px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);padding-top:6px}
 </style></head><body>
-<h1>Setups — Tuesday, November 17, 2026</h1>
-<div class="m">Last updated: Tuesday, November 17, 2026 at 12:02 AM ET · Levels approximate, confirm on chart</div>
-<div class="g">
-<div class="s"><b>MGC <span class="L">Long</span></b><div class="c">Conditional: only after the 8:30 Retail Sales sweep</div><ul>
-<li>Window: 8:35–10:30 ET</li><li>Trigger: SSL sweep below ~3,832, then 5m MSS up</li><li>Entry: FVG CE ~3,840</li><li>Stop: 3,815</li><li>Target 1: 3,880</li><li>Target 2: 3,900</li><li>Invalid if: no sweep by 9:30 or close &lt; 3,815</li></ul></div>
-<div class="s"><b>MCL <span class="S">Short</span></b><ul>
-<li>Window: 9:00–11:00 ET</li><li>Trigger: rally into 86.20–86.50, then 5m MSS down</li><li>Entry: OTE ~86.15</li><li>Stop: 86.90</li><li>Target 1: 85.00</li><li>Target 2: 84.50</li><li>Invalid if: no tag of 86.20 by 10:30 or close &gt; 86.90</li></ul></div>
-<div class="s"><b>MES <span class="S">Short</span></b><ul>
-<li>Window: 9:30–11:00 ET</li><li>Trigger: BSL raid into 7,480–7,500, then MSS/CISD down</li><li>Entry: FVG CE ~7,485</li><li>Stop: 7,515</li><li>Target 1: 7,440</li><li>Target 2: 7,410</li><li>Invalid if: 15m close &gt; 7,515 or 11:00</li></ul></div>
-<div class="s"><b>MNQ <span class="L">Long</span> (half size)</b><ul>
-<li>Window: 9:30–11:30 ET</li><li>Trigger: SSL sweep below ~27,200, then 5m MSS up</li><li>Entry: OTE ~27,240</li><li>Stop: 27,120</li><li>Target 1: 27,400</li><li>Target 2: 27,500</li><li>Invalid if: close &lt; 27,120 or 11:30</li></ul></div>
-<div class="s"><b>MNQ Silver Bullet (Long/Short)</b><div class="c">Direction set by which side of 9:30–9:50 gets raided</div><ul>
-<li>Window: 9:50–10:10 ET</li><li>Trigger: raid of the 9:30–9:50 high/low, then opposite displacement FVG</li><li>Entry: FVG CE</li><li>Stop: beyond raid wick (max 60 pts)</li><li>Target 1: opposite side of the 9:30–9:50 range</li><li>Invalid if: no FVG by 10:10</li></ul></div>
+<h1>Setups — Friday, November 20, 2026</h1>
+<div class="top">Levels: MNQ = NQ Dec 26 (NQZ26), last 25,789 · MES = ES Dec 26 (ESZ26), last 7,088 · MGC = GC Dec 26, last 3,539.7 · MCL = CL Jan 27 (CLF27), last 81.85 — as of 11:26 AM ET</div>
+<div class="grid">
+<div class="s"><h2 class="S">MNQ Short</h2><ul>
+<li>Window: 12:00–3:30 PM ET</li>
+<li>Trigger: retrace up into bearish FVG 26,051–26,117, then 5m MSS down</li>
+<li>Entry: 26,084 (FVG CE)</li><li>Stop: 26,210</li>
+<li>Target 1: 25,740 (below today's low 25,748 SSL)</li><li>Target 2: 25,560</li>
+<li>Invalid if: 15m close above 26,117, or not filled by 2:30 PM</li></ul></div>
+<div class="s"><h2 class="L">MNQ Long (counter-trend scalp)</h2><ul>
+<li>Window: 1:30–3:30 PM ET</li>
+<li>Trigger: sweep of 25,748 SSL, then 5m MSS back above 25,910</li>
+<li>Entry: OTE 62–70% of the MSS leg (~25,820–25,850)</li><li>Stop: 25,640</li>
+<li>Target 1: 26,050 (FVG low)</li>
+<li>Invalid if: no MSS within 30 min of the sweep; half size only</li></ul></div>
+<div class="s"><h2 class="S">MES Short</h2><ul>
+<li>Window: 12:00–3:30 PM ET</li>
+<li>Trigger: retrace into bearish FVG 7,138–7,149, then 5m MSS down</li>
+<li>Entry: 7,143 (FVG CE)</li><li>Stop: 7,172</li>
+<li>Target 1: 7,074 (below 7,078 SSL)</li><li>Target 2: 7,050</li>
+<li>Invalid if: 15m close above 7,149</li></ul></div>
+<div class="s"><h2 class="S">MGC Short</h2><ul>
+<li>Window: 12:00–1:30 PM ET (COMEX liquidity fades after)</li>
+<li>Trigger: rally into 3,560–3,565 (10:30 rejection high), then 5m MSS down</li>
+<li>Entry: 3,558</li><li>Stop: 3,576</li>
+<li>Target 1: 3,516 (below 3,515 SSL)</li>
+<li>Invalid if: 15m close above 3,565</li></ul></div>
+<div class="s"><h2 class="S">MCL Short</h2><ul>
+<li>Window: 12:00–2:00 PM ET</li>
+<li>Trigger: retrace into 82.10–82.20, then 5m MSS down</li>
+<li>Entry: 82.10</li><li>Stop: 82.45</li>
+<li>Target 1: 81.30</li><li>Target 2: 80.80 (today's low SSL)</li>
+<li>Invalid if: price holds above 82.20 into 1:00 PM rig count</li>
+<li class="c">Condition: stand aside 12:55–1:05 PM (Baker Hughes)</li></ul></div>
 </div>
-<footer>• High-impact today: 8:30 Retail Sales/Import Prices · 9:15 Industrial Production · ~4:20 PM NVDA earnings · 4:30 PM API<br>• Flat by 4 PM ET, no overnight holds.</footer>
+<div class="f">High-impact today: Cook (Fed) 12:15 PM · Baker Hughes rig count 1:00 PM · monthly opex (pin risk into close). Flat by 4 PM ET, no overnight holds.</div>
 </body></html>
