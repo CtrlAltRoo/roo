@@ -1,50 +1,55 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Setups Only</title>
 <style>
-:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;--red:#f85149;--yellow:#d29922;--blue:#388bfd}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:13px/1.35 -apple-system,Segoe UI,Roboto,sans-serif;padding:10px 12px}
-h1{font-size:15px;margin:0 0 2px}.top{color:var(--muted);font-size:12px;margin-bottom:8px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px}
-.s{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 9px}
-.s h2{font-size:13px;margin:0 0 3px}.L{color:var(--green)}.S{color:var(--red)}
-ul{margin:0;padding-left:15px}li{margin:1px 0}.c{color:var(--yellow);font-size:12px}
-.f{margin-top:8px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);padding-top:6px}
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;--red:#f85149}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:13px/1.4 -apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:12px}
+h1{font-size:15px;margin:0 0 2px}.top{color:var(--muted);font-size:12px;margin-bottom:10px}
+.g{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.s{background:var(--surface);border:1px solid var(--border);border-left:3px solid;border-radius:6px;padding:8px 10px}
+.L{border-left-color:var(--green)}.S{border-left-color:var(--red)}
+.s b{font-size:14px}ul{margin:4px 0 0;padding-left:16px}li{margin:1px 0}
+.c{color:var(--muted);font-style:italic}
+footer{margin-top:10px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);padding-top:6px}
+@media(max-width:640px){.g{grid-template-columns:1fr}}
 </style></head><body>
-<h1>Setups — Friday, November 20, 2026</h1>
-<div class="top">Levels: MNQ = NQ Dec 26 (NQZ26), last 25,789 · MES = ES Dec 26 (ESZ26), last 7,088 · MGC = GC Dec 26, last 3,539.7 · MCL = CL Jan 27 (CLF27), last 81.85 — as of 11:26 AM ET</div>
-<div class="grid">
-<div class="s"><h2 class="S">MNQ Short</h2><ul>
-<li>Window: 12:00–3:30 PM ET</li>
-<li>Trigger: retrace up into bearish FVG 26,051–26,117, then 5m MSS down</li>
-<li>Entry: 26,084 (FVG CE)</li><li>Stop: 26,210</li>
-<li>Target 1: 25,740 (below today's low 25,748 SSL)</li><li>Target 2: 25,560</li>
-<li>Invalid if: 15m close above 26,117, or not filled by 2:30 PM</li></ul></div>
-<div class="s"><h2 class="L">MNQ Long (counter-trend scalp)</h2><ul>
-<li>Window: 1:30–3:30 PM ET</li>
-<li>Trigger: sweep of 25,748 SSL, then 5m MSS back above 25,910</li>
-<li>Entry: OTE 62–70% of the MSS leg (~25,820–25,850)</li><li>Stop: 25,640</li>
-<li>Target 1: 26,050 (FVG low)</li>
-<li>Invalid if: no MSS within 30 min of the sweep; half size only</li></ul></div>
-<div class="s"><h2 class="S">MES Short</h2><ul>
-<li>Window: 12:00–3:30 PM ET</li>
-<li>Trigger: retrace into bearish FVG 7,138–7,149, then 5m MSS down</li>
-<li>Entry: 7,143 (FVG CE)</li><li>Stop: 7,172</li>
-<li>Target 1: 7,074 (below 7,078 SSL)</li><li>Target 2: 7,050</li>
-<li>Invalid if: 15m close above 7,149</li></ul></div>
-<div class="s"><h2 class="S">MGC Short</h2><ul>
-<li>Window: 12:00–1:30 PM ET (COMEX liquidity fades after)</li>
-<li>Trigger: rally into 3,560–3,565 (10:30 rejection high), then 5m MSS down</li>
-<li>Entry: 3,558</li><li>Stop: 3,576</li>
-<li>Target 1: 3,516 (below 3,515 SSL)</li>
-<li>Invalid if: 15m close above 3,565</li></ul></div>
-<div class="s"><h2 class="S">MCL Short</h2><ul>
-<li>Window: 12:00–2:00 PM ET</li>
-<li>Trigger: retrace into 82.10–82.20, then 5m MSS down</li>
-<li>Entry: 82.10</li><li>Stop: 82.45</li>
-<li>Target 1: 81.30</li><li>Target 2: 80.80 (today's low SSL)</li>
-<li>Invalid if: price holds above 82.20 into 1:00 PM rig count</li>
-<li class="c">Condition: stand aside 12:55–1:05 PM (Baker Hughes)</li></ul></div>
+<h1>Setups — Monday, November 23, 2026</h1>
+<div class="top">Levels: NQ Dec 26 (NQZ26) last 25,126.50 · ES Dec 26 (ESZ26) last 6,935.00, as of Fri Nov 20 4:59 PM ET · MNQ = NQ, MES = ES</div>
+<div class="g">
+<div class="s L"><b>MNQ Long</b><ul>
+<li>Window: 8:30–11:00 ET</li>
+<li>Trigger: SSL sweep below 24,976.50 (24,900–24,850), then 5m MSS + CISD above 25,000</li>
+<li>Entry: FVG CE 24,960–25,000</li>
+<li>Stop: 24,780</li>
+<li>Target 1: 25,330</li>
+<li>Target 2: 25,600</li>
+<li>Invalid if: 15m close &lt; 24,780 or no MSS by 10:30</li></ul></div>
+<div class="s L"><b>MES Long</b><ul>
+<li>Window: 9:30–11:00 ET</li>
+<li>Trigger: SSL sweep below 6,898 (6,870–6,880), then MSS above 6,915</li>
+<li>Entry: FVG 6,885–6,895</li>
+<li>Stop: 6,845</li>
+<li>Target 1: 6,960</li>
+<li>Target 2: 7,020</li>
+<li>Invalid if: 15m close &lt; 6,845 or no MSS by 10:30</li></ul></div>
+<div class="s S"><b>MNQ Short</b><ul>
+<li class="c">Condition: only if price rallies into 25,600–25,790 first</li>
+<li>Window: 9:50–11:30 ET</li>
+<li>Trigger: BSL above Globex high swept, then 5m MSS down</li>
+<li>Entry: OTE 25,680–25,720</li>
+<li>Stop: 25,860</li>
+<li>Target 1: 25,350</li>
+<li>Target 2: 25,130</li>
+<li>Invalid if: 15m close &gt; 25,860 or 11:30 ET</li></ul></div>
+<div class="s S"><b>MES Short</b><ul>
+<li class="c">Condition: only if price taps 7,040–7,057 first</li>
+<li>Window: 9:50–11:30 ET</li>
+<li>Trigger: MSS down from 7,040–7,057 (SMT with NQ adds weight)</li>
+<li>Entry: 7,040–7,050</li>
+<li>Stop: 7,085</li>
+<li>Target 1: 6,975</li>
+<li>Target 2: 6,940</li>
+<li>Invalid if: 15m close &gt; 7,085 or 11:30 ET</li></ul></div>
 </div>
-<div class="f">High-impact today: Cook (Fed) 12:15 PM · Baker Hughes rig count 1:00 PM · monthly opex (pin risk into close). Flat by 4 PM ET, no overnight holds.</div>
+<footer>High-impact data today: 9:45 AM Flash PMIs (no entries 9:40–9:50). This week: Wed 8:30 PCE/GDP/Claims · Thu closed · Fri 1 PM close.<br><b>Flat by 4 PM ET, no overnight holds.</b></footer>
 </body></html>
