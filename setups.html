@@ -1,35 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Setups — Tuesday, November 24, 2026</title>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setups Only</title>
 <style>
-:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;--red:#f85149}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:13px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:12px}
-h1{font-size:16px;margin:0 0 2px}
-.top{color:var(--muted);margin-bottom:10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
-.s{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:6px;padding:8px 10px}
-.s.short{border-left-color:var(--red)}
-.s b{font-size:14px}
-ul{margin:4px 0 0;padding-left:16px}
-li{margin:1px 0}
-footer{color:var(--muted);margin-top:10px;font-size:12px}
-</style>
-</head>
-<body>
-<h1>Setups — Tuesday, November 24, 2026</h1>
-<div class="top">Levels: NQ Dec 26 last 26,845.25 · ES Dec 26 last 7,266.50 · CL Jan 27 last 80.22 · GC Dec 26 last 3,623.7 as of 2:44 AM ET</div>
-<div class="grid">
-<div class="s"><b>MGC Long</b><ul><li>Window: 8:20–10:30 ET</li><li>Trigger: SSL sweep below 3,612.7, then MSS</li><li>Entry: FVG CE 3,618–3,622</li><li>Stop: 3,598.0</li><li>Target 1: 3,676.7</li><li>Target 2: 3,691.0</li><li>Invalid if: 15m close &lt; 3,598 or 10:30</li></ul></div>
-<div class="s short"><b>MCL Short</b><ul><li>Window: 9:00–11:00 ET</li><li>Trigger: BSL run above 80.61, then MSS</li><li>Entry: 80.55–80.70</li><li>Stop: 81.20</li><li>Target 1: 79.87</li><li>Target 2: 79.20</li><li>Invalid if: 15m close &gt; 81.20 or 11:00</li></ul></div>
-<div class="s"><b>MNQ Long</b><ul><li>Window: 9:30–11:00 ET</li><li>Trigger: SSL sweep below 26,684, then MSS/CISD</li><li>Entry: OTE/FVG CE 26,710–26,750</li><li>Stop: 26,600</li><li>Target 1: 27,036</li><li>Target 2: 27,137</li><li>Invalid if: 15m close &lt; 26,600 or 11:00</li></ul></div>
-<div class="s short"><b>MNQ Short</b><ul><li>Window: 9:30–11:00 ET</li><li>Trigger: BSL run above 27,137, then MSS</li><li>Entry: FVG 27,100–27,140</li><li>Stop: 27,260</li><li>Target 1: 26,845</li><li>Target 2: 26,684</li><li>Invalid if: acceptance &gt; 27,260 or 11:00</li></ul></div>
-<div class="s"><b>MES Long</b><ul><li>Window: 9:30–11:00 ET</li><li>Trigger: SSL sweep below 7,239.50, then MSS</li><li>Entry: 7,244–7,250</li><li>Stop: 7,215</li><li>Target 1: 7,297.75</li><li>Target 2: 7,313.25</li><li>Invalid if: 15m close &lt; 7,215 or 11:00</li></ul></div>
-<div class="s"><b>MNQ/MES Silver Bullet (either side)</b><ul><li>Window: 9:50–10:10 ET</li><li>Condition: only after 10:00 Consumer Confidence print</li><li>Trigger: post-release displacement FVG</li><li>Entry: FVG retrace</li><li>Stop: beyond displacement candle</li><li>Target 1: NQ 27,036 / 26,684 · ES 7,297.75 / 7,239.50</li><li>Invalid if: no FVG by 10:10; exit by 10:45</li></ul></div>
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;--red:#f85149;--yellow:#d29922}
+body{margin:0;background:var(--bg);color:var(--text);font:13px/1.4 -apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:12px 16px}
+h1{font-size:15px;margin:0 0 2px}.top{color:var(--muted);font-size:12px;margin-bottom:10px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px}
+.s{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:6px;padding:8px 10px}
+.s.l{border-left-color:var(--green)}.s h2{font-size:13.5px;margin:0 0 4px}
+ul{margin:0;padding-left:16px}li{margin:1px 0}
+.f{margin-top:10px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);padding-top:6px}.f b{color:var(--yellow)}
+</style></head><body>
+<h1>Setups — Friday, November 27, 2026 (early close)</h1>
+<div class="top">Levels: NQ Dec 26 (NQZ26), last 26,000.50 · ES Dec 26 (ESZ26), last 7,187.50 · CL Jan 27, last 84.15 as of ~5:00 PM ET Wed Nov 25</div>
+<div class="g">
+<div class="s l"><h2>MNQ Long (conditional)</h2><ul><li>Window: 2:00–9:30 AM ET</li><li>Condition: only if NQ trades ≤ 25,689 pre-market</li><li>Trigger: SSL sweep of the Thursday Globex low, then 5m CISD up</li><li>Entry: FVG CE of the reversal leg</li><li>Stop: 25,600</li><li>Target 1: 26,000</li><li>Invalid if: 15m close &lt; 25,600 or 12:45 PM</li></ul></div>
+<div class="s"><h2>MNQ Short</h2><ul><li>Window: 9:30–11:00 AM ET</li><li>Trigger: BSL sweep above 26,350.75, then 5m MSS below 26,280</li><li>Entry: FVG CE ~26,300–26,330</li><li>Stop: 26,450</li><li>Target 1: 26,000</li><li>Target 2: 25,689</li><li>Invalid if: 15m close &gt; 26,450 or no fill by 11:00</li></ul></div>
+<div class="s l"><h2>MNQ Long</h2><ul><li>Window: 9:30–11:00 AM ET</li><li>Trigger: SSL sweep below 25,998, then 5m CISD/MSS up</li><li>Entry: OTE 62–79% / FVG CE</li><li>Stop: 25,880</li><li>Target 1: 26,279.50</li><li>Target 2: 26,350.75</li><li>Invalid if: 15m close &lt; 25,880 or no fill by 11:00</li></ul></div>
+<div class="s l"><h2>MES Long</h2><ul><li>Window: 9:30–11:30 AM ET</li><li>Trigger: sweep below 7,144.75, then 5m MSS up</li><li>Entry: FVG CE ~7,150</li><li>Stop: 7,120</li><li>Target 1: 7,187.50</li><li>Target 2: 7,224</li><li>Invalid if: 15m close &lt; 7,120 or no fill by 11:30</li></ul></div>
+<div class="s"><h2>MES Short</h2><ul><li>Window: 9:30–11:30 AM ET</li><li>Trigger: sweep above 7,224, then 5m MSS down</li><li>Entry: 7,215–7,224 FVG</li><li>Stop: 7,250</li><li>Target 1: 7,187.50</li><li>Target 2: 7,145</li><li>Invalid if: 15m close &gt; 7,250 or no fill by 11:30</li></ul></div>
+<div class="s"><h2>MCL Short</h2><ul><li>Window: 9:00 AM–12:30 PM ET</li><li>Condition: no new Hormuz/Saudi escalation headline</li><li>Trigger: sweep above 84.26, then 5m MSS down</li><li>Entry: 84.10–84.25</li><li>Stop: 84.75</li><li>Target 1: 83.20</li><li>Target 2: 82.20</li><li>Invalid if: 15m close &gt; 84.75 or 12:30 PM</li></ul></div>
 </div>
-<footer>High-impact today: 10:00 Consumer Confidence · 1:00 5-yr auction · Dell after close (Wed 8:30 PCE/GDP/claims). Flat by 4 PM ET, no overnight holds.</footer>
-</body>
-</html>
+<div class="f">High-impact data today: none scheduled. Cash closes 1:00 PM, CME equity halt ~1:15 PM ET. OPEC+ meets Sun Nov 29.<br><b>Flat by 12:45 PM ET (early close; replaces the 4 PM rule). No overnight holds.</b></div>
+</body></html>
